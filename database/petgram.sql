@@ -10,7 +10,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS Account;
 
 CREATE TABLE Account (
-    id   INT  PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name CHAR
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE Account (
 DROP TABLE IF EXISTS Breed;
 
 CREATE TABLE Breed (
-    id        INT  PRIMARY KEY,
+    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
     speciesID      REFERENCES Species (id),
     name      CHAR
 );
@@ -29,8 +29,8 @@ CREATE TABLE Breed (
 DROP TABLE IF EXISTS Collaborator;
 
 CREATE TABLE Collaborator (
-    userID    INT     REFERENCES User (id),
-    shelterID INT     REFERENCES Shelter (id),
+    userID    INTEGER     REFERENCES User (id),
+    shelterID INTEGER     REFERENCES Shelter (id),
     admin     BOOLEAN,
     PRIMARY KEY (
         userID,
@@ -43,9 +43,9 @@ CREATE TABLE Collaborator (
 DROP TABLE IF EXISTS Comment;
 
 CREATE TABLE Comment (
-    id        INT  PRIMARY KEY,
-    petID     INT  REFERENCES Pet (id),
-    accountID INT  REFERENCES Account (id),
+    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
+    petID     INTEGER  REFERENCES Pet (id),
+    accountID INTEGER  REFERENCES Account (id),
     text      CHAR,
     date      DATE
 );
@@ -55,8 +55,8 @@ CREATE TABLE Comment (
 DROP TABLE IF EXISTS Favourite;
 
 CREATE TABLE Favourite (
-    accountID INT REFERENCES Account (id),
-    petID     INT REFERENCES IndividualPet (petID),
+    accountID INTEGER REFERENCES Account (id),
+    petID     INTEGER REFERENCES IndividualPet (petID),
     PRIMARY KEY (
         accountID,
         petID
@@ -68,9 +68,9 @@ CREATE TABLE Favourite (
 DROP TABLE IF EXISTS GroupPet;
 
 CREATE TABLE GroupPet (
-    petID  INT PRIMARY KEY
+    petID  INTEGER PRIMARY KEY
                REFERENCES Pet (id),
-    number INT
+    number INTEGER
 );
 
 
@@ -78,9 +78,9 @@ CREATE TABLE GroupPet (
 DROP TABLE IF EXISTS IndividualPet;
 
 CREATE TABLE IndividualPet (
-    petID   INT  PRIMARY KEY
+    petID   INTEGER  PRIMARY KEY
                  REFERENCES Pet (id),
-    breedID INT  REFERENCES Breed (id),
+    breedID INTEGER  REFERENCES Breed (id),
     name    CHAR,
     size    CHAR,
     colour  CHAR
@@ -91,9 +91,9 @@ CREATE TABLE IndividualPet (
 DROP TABLE IF EXISTS Inquiry;
 
 CREATE TABLE Inquiry (
-    id     INT PRIMARY KEY,
-    petID  INT REFERENCES Pet (id),
-    userID INT REFERENCES User (id) 
+    id     INTEGER PRIMARY KEY AUTOINCREMENT,
+    petID  INTEGER REFERENCES Pet (id),
+    userID INTEGER REFERENCES User (id)
 );
 
 
@@ -101,8 +101,8 @@ CREATE TABLE Inquiry (
 DROP TABLE IF EXISTS Message;
 
 CREATE TABLE Message (
-    id        INT     PRIMARY KEY,
-    inquiryID INT     REFERENCES Inquiry (id),
+    id        INTEGER     PRIMARY KEY AUTOINCREMENT,
+    inquiryID INTEGER     REFERENCES Inquiry (id),
     petOwner  BOOLEAN,
     text      CHAR,
     date      DATE
@@ -113,8 +113,8 @@ CREATE TABLE Message (
 DROP TABLE IF EXISTS Pet;
 
 CREATE TABLE Pet (
-    id           INT  PRIMARY KEY,
-    ownerID      INT  REFERENCES Account (id),
+    id           INTEGER  PRIMARY KEY AUTOINCREMENT,
+    ownerID      INTEGER  REFERENCES Account (id),
     bio          CHAR,
     description  CHAR,
     requirements CHAR
@@ -126,8 +126,8 @@ DROP TABLE IF EXISTS PetGroupBreed;
 
 CREATE TABLE PetGroupBreed (
     petID        REFERENCES Pet (id),
-    breedID  INT REFERENCES Breed (id),
-    quantity INT,
+    breedID  INTEGER REFERENCES Breed (id),
+    quantity INTEGER,
     PRIMARY KEY (
         petID,
         breedID
@@ -139,12 +139,12 @@ CREATE TABLE PetGroupBreed (
 DROP TABLE IF EXISTS Post;
 
 CREATE TABLE Post (
-    id          INT  PRIMARY KEY,
-    petID       INT  REFERENCES Pet (id),
+    id          INTEGER  PRIMARY KEY AUTOINCREMENT,
+    petID       INTEGER  REFERENCES Pet (id),
     description CHAR,
     photo       CHAR,
     date        DATE,
-    likes       INT
+    likes       INTEGER
 );
 
 
@@ -152,8 +152,8 @@ CREATE TABLE Post (
 DROP TABLE IF EXISTS PostComment;
 
 CREATE TABLE PostComment (
-    id     INT  PRIMARY KEY,
-    postID INT  REFERENCES Post (id),
+    id     INTEGER  PRIMARY KEY AUTOINCREMENT,
+    postID INTEGER  REFERENCES Post (id),
     text   CHAR,
     date   DATE
 );
@@ -163,9 +163,9 @@ CREATE TABLE PostComment (
 DROP TABLE IF EXISTS Proposal;
 
 CREATE TABLE Proposal (
-    id        INT  PRIMARY KEY,
-    petID     INT  REFERENCES Pet (id),
-    accountID INT  REFERENCES Account (id),
+    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
+    petID     INTEGER  REFERENCES Pet (id),
+    accountID INTEGER  REFERENCES Account (id),
     date      DATE,
     state     CHAR
 );
@@ -175,7 +175,7 @@ CREATE TABLE Proposal (
 DROP TABLE IF EXISTS Shelter;
 
 CREATE TABLE Shelter (
-    id       INT  PRIMARY KEY
+    id       INTEGER  PRIMARY KEY
                   REFERENCES Account (id),
     location CHAR
 );
@@ -185,7 +185,7 @@ CREATE TABLE Shelter (
 DROP TABLE IF EXISTS Species;
 
 CREATE TABLE Species (
-    id   INT  PRIMARY KEY,
+    id   INTEGER  PRIMARY KEY AUTOINCREMENT,
     name CHAR
 );
 
@@ -194,10 +194,10 @@ CREATE TABLE Species (
 DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
-    id           INT  REFERENCES Account (id) 
+    id           INTEGER  REFERENCES Account (id)
                       PRIMARY KEY,
     email        CHAR,
-    passwordhash INT
+    passwordhash INTEGER
 );
 
 
