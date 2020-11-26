@@ -1,10 +1,11 @@
+<?php include_once('connection.php')?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>    
+    <title>Petgram</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="register.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
   </head>
   <body>
@@ -13,12 +14,12 @@
       <h2>The best pet social media for adoption!</h2>
     </header>
     <div id="register">
-        <form action="#" method="get">
-            <label>First and Last Name: <input type="text" name="name"></label> <br>
-            <label>E-mail: <input type="email" name="email"></label> <br>
-            <label>Username: <input type="text" name="username"></label> <br>
-            <label>Password: <input type="password" name="password"></label> <br>
-            <label>Confirm Password: <input type="password" name="repeat"></label> <br>
+        <form action="register_action.php" method="get">
+            <label>First and Last Name: <input type="text" name="name" required></label> <br>
+            <label>E-mail: <input type="email" name="email" required></label> <br>
+            <label>Username: <input type="text" name="username"> required</label> <br>
+            <label>Password: <input type="password" name="password" required></label> <br>
+            <label>Confirm Password: <input type="password" name="repeat" required></label> <br>
             <input type="submit" value="Register">
           </form>
         </div>

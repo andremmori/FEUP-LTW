@@ -1,20 +1,21 @@
+<?php include_once('connection.php')?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>    
+    <title>Petgram</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="home.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
   </head>
   <body>
     <div id="hotBar">
       <h1>Petgram</h1>
-      <img src="images/home.png" alt="" width="50" height="50"> 
-      <img src="images/profile.png" alt="" width="50" height="50"> 
-      <img src="images/search.png" alt="" width="50" height="50"> 
-      <img src="images/settings.png" alt="" width="50" height="50">
-      <img src="images/logout.png" alt="" width="50" height="50"> 
+      <a href=""><img src="images/home.png" alt="" width="50" height="50"></a>
+      <a href="register.php"><img src="images/profile.png" alt="" width="50" height="50"></a>
+      <a href=""><img src="images/search.png" alt="" width="50" height="50"></a>
+      <a href=""><img src="images/settings.png" alt="" width="50" height="50"></a>
+      <a href=""><img src="images/logout.png" alt="" width="50" height="50"></a>
     </div>
     <aside id="sideBar">
       <div id="user">
@@ -22,7 +23,7 @@
         <div id="username">
           <p>Average pet fan</p>
           <p>petfan123</p>
-        </div>  
+        </div>
       </div>
       <p>Pets:</p>
       <ul>
@@ -30,7 +31,7 @@
         <li>Animal 2</li>
         <li>Animal 3</li>
       </ul>
-      <img src="images/petAdd.png" alt="" width="35" height="35"> 
+      <img src="images/petAdd.png" alt="" width="35" height="35">
     </aside>
     <section id="feed">
       <article class="post">

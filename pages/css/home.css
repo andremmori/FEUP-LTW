@@ -33,7 +33,7 @@ body {
     margin-top: 100px;
     margin-right: 10%;
     padding: 50px 20px 50px 20px;
-    
+
 }
 
 #sideBar #user{
@@ -54,7 +54,7 @@ body {
 #sideBar #user p{
     margin: 1px;
     text-align: center;
-    
+
     font-weight: bold;
 }
 
@@ -74,9 +74,9 @@ body {
 }
 
 .post #top img{
-    
+
     color: black;
-    margin: auto 0 auto 2%; 
+    margin: auto 0 auto 2%;
     border-radius: 60%;
 }
 
@@ -97,7 +97,7 @@ body {
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
-    color: black;  
+    color: black;
     width: 56%;
     height: auto;
     background-color: rgb(230, 230, 230);
