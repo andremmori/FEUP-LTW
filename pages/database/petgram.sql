@@ -196,7 +196,7 @@ DROP TABLE IF EXISTS User;
 CREATE TABLE User (
     id           INTEGER  REFERENCES Account (id)  ON DELETE CASCADE
                       PRIMARY KEY,
-    email        CHAR,
+    email        CHAR UNIQUE,
     passwordhash INTEGER
 );
 
