@@ -26,8 +26,7 @@
             $first_stmt = $db->prepare($account_sql);
             $first_exec = $first_stmt->execute([$name]);
 
-            if(!$exec) throw new Exception();
-
+            if(!$first_exec) throw new Exception();
             // Get Account id after insert
             $account_id = $db->lastInsertId();
 
@@ -36,7 +35,7 @@
             $second_stmt = $db->prepare($user_sql);
             $second_exec = $second_stmt->execute([$email, $password]);
 
-            if(!$exec) throw new Exception();
+            if(!$second_exec) throw new Exception();
 
             $db->commit();
         } catch (Exception $e) {
