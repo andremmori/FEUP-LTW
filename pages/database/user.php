@@ -42,6 +42,10 @@
             $db->rollback();
             return false;
         }
+        // Start session with new user
+        $_SESSION['id'] = $account_id;
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
         return true;
     }
 
