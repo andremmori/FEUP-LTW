@@ -6,28 +6,40 @@
 PRAGMA foreign_keys = on;
 BEGIN TRANSACTION;
 
--- Table: Account
 DROP TABLE IF EXISTS Account;
+DROP TABLE IF EXISTS Breed;
+DROP TABLE IF EXISTS Collaborator;
+DROP TABLE IF EXISTS Comment;
+DROP TABLE IF EXISTS Favourite;
+DROP TABLE IF EXISTS GroupPet;
+DROP TABLE IF EXISTS IndividualPet;
+DROP TABLE IF EXISTS Inquiry;
+DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Pet;
+DROP TABLE IF EXISTS PetGroupBreed;
+DROP TABLE IF EXISTS Post;
+DROP TABLE IF EXISTS PostComment;
+DROP TABLE IF EXISTS Proposal;
+DROP TABLE IF EXISTS Shelter;
+DROP TABLE IF EXISTS Species;
+DROP TABLE IF EXISTS User;
 
+-- Table: Account
 CREATE TABLE Account (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     name CHAR
 );
 
 
 -- Table: Breed
-DROP TABLE IF EXISTS Breed;
-
 CREATE TABLE Breed (
-    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id        INTEGER  PRIMARY KEY,
     speciesID      REFERENCES Species (id) ON DELETE CASCADE,
     name      CHAR
 );
 
 
 -- Table: Collaborator
-DROP TABLE IF EXISTS Collaborator;
-
 CREATE TABLE Collaborator (
     userID    INTEGER     REFERENCES User (id) ON DELETE CASCADE,
     shelterID INTEGER     REFERENCES Shelter (id) ON DELETE CASCADE,
@@ -40,10 +52,8 @@ CREATE TABLE Collaborator (
 
 
 -- Table: Comment
-DROP TABLE IF EXISTS Comment;
-
 CREATE TABLE Comment (
-    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id        INTEGER  PRIMARY KEY,
     petID     INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
     accountID INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
     text      CHAR,
@@ -52,8 +62,6 @@ CREATE TABLE Comment (
 
 
 -- Table: Favourite
-DROP TABLE IF EXISTS Favourite;
-
 CREATE TABLE Favourite (
     accountID INTEGER REFERENCES Account (id) ON DELETE CASCADE,
     petID     INTEGER REFERENCES IndividualPet (petID) ON DELETE CASCADE,
@@ -65,8 +73,6 @@ CREATE TABLE Favourite (
 
 
 -- Table: GroupPet
-DROP TABLE IF EXISTS GroupPet;
-
 CREATE TABLE GroupPet (
     petID  INTEGER PRIMARY KEY
                REFERENCES Pet (id) ON DELETE CASCADE,
@@ -75,8 +81,6 @@ CREATE TABLE GroupPet (
 
 
 -- Table: IndividualPet
-DROP TABLE IF EXISTS IndividualPet;
-
 CREATE TABLE IndividualPet (
     petID   INTEGER  PRIMARY KEY
                  REFERENCES Pet (id) ON DELETE CASCADE,
@@ -88,20 +92,16 @@ CREATE TABLE IndividualPet (
 
 
 -- Table: Inquiry
-DROP TABLE IF EXISTS Inquiry;
-
 CREATE TABLE Inquiry (
-    id     INTEGER PRIMARY KEY AUTOINCREMENT,
+    id     INTEGER PRIMARY KEY,
     petID  INTEGER REFERENCES Pet (id) ON DELETE CASCADE,
     userID INTEGER REFERENCES User (id) ON DELETE CASCADE
 );
 
 
 -- Table: Message
-DROP TABLE IF EXISTS Message;
-
 CREATE TABLE Message (
-    id        INTEGER     PRIMARY KEY AUTOINCREMENT,
+    id        INTEGER     PRIMARY KEY,
     inquiryID INTEGER     REFERENCES Inquiry (id) ON DELETE CASCADE,
     petOwner  BOOLEAN,
     text      CHAR,
@@ -110,10 +110,8 @@ CREATE TABLE Message (
 
 
 -- Table: Pet
-DROP TABLE IF EXISTS Pet;
-
 CREATE TABLE Pet (
-    id           INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id           INTEGER  PRIMARY KEY,
     ownerID      INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
     bio          CHAR,
     description  CHAR,
@@ -122,8 +120,6 @@ CREATE TABLE Pet (
 
 
 -- Table: PetGroupBreed
-DROP TABLE IF EXISTS PetGroupBreed;
-
 CREATE TABLE PetGroupBreed (
     petID        REFERENCES Pet (id) ON DELETE CASCADE,
     breedID  INTEGER REFERENCES Breed (id) ON DELETE CASCADE,
@@ -136,10 +132,8 @@ CREATE TABLE PetGroupBreed (
 
 
 -- Table: Post
-DROP TABLE IF EXISTS Post;
-
 CREATE TABLE Post (
-    id          INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id          INTEGER  PRIMARY KEY,
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
     description CHAR,
     photo       CHAR,
@@ -149,10 +143,8 @@ CREATE TABLE Post (
 
 
 -- Table: PostComment
-DROP TABLE IF EXISTS PostComment;
-
 CREATE TABLE PostComment (
-    id     INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id     INTEGER  PRIMARY KEY,
     postID INTEGER  REFERENCES Post (id) ON DELETE CASCADE,
     text   CHAR,
     date   DATE
@@ -160,10 +152,8 @@ CREATE TABLE PostComment (
 
 
 -- Table: Proposal
-DROP TABLE IF EXISTS Proposal;
-
 CREATE TABLE Proposal (
-    id        INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id        INTEGER  PRIMARY KEY,
     petID     INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
     accountID INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
     date      DATE,
@@ -172,8 +162,6 @@ CREATE TABLE Proposal (
 
 
 -- Table: Shelter
-DROP TABLE IF EXISTS Shelter;
-
 CREATE TABLE Shelter (
     id       INTEGER  PRIMARY KEY
                   REFERENCES Account (id) ON DELETE CASCADE,
@@ -182,22 +170,18 @@ CREATE TABLE Shelter (
 
 
 -- Table: Species
-DROP TABLE IF EXISTS Species;
-
 CREATE TABLE Species (
-    id   INTEGER  PRIMARY KEY AUTOINCREMENT,
+    id   INTEGER  PRIMARY KEY,
     name CHAR
 );
 
 
 -- Table: User
-DROP TABLE IF EXISTS User;
-
 CREATE TABLE User (
     id           INTEGER  REFERENCES Account (id)  ON DELETE CASCADE
                       PRIMARY KEY,
     email        CHAR UNIQUE,
-    passwordhash INTEGER
+    passwordhash TEXT
 );
 
 
