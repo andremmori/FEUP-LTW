@@ -15,7 +15,7 @@
         $password = $_GET['password'];
         $repeat = $_GET['repeat'];
 
-        if($password != $repeat) return false;
+        if($name == null || $email == null || $password == null || $repeat == null || $password != $repeat) return false;
 
         try {
             // Init transaction
