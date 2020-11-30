@@ -1,4 +1,3 @@
-<?php include_once('database/connection.php')?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -7,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div id="hotBar">
@@ -33,44 +33,18 @@
       </ul>
       <img src="images/petAdd.png" alt="" width="35" height="35">
     </aside>
-    <section id="feed">
-      <article class="post">
-        <div id="top">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <h1>Bobi</h1>
+    <section id="addPet">
+      <div id="auxDiv">
+          <h2>Create a profile for your pet!<h2>
+          <h4>You can create a profile for a single pet or create a profile for a group of pets</h4>
+          <form id="addPetForm" action="" method="get">
+            <input type="radio" name="individual_group" value="individual">Individual
+            <input type="radio" name="individual_group" value="group">Group <br>
+            <div id="newFields">
+            </div>
+          <form>
         </div>
-        <img src="images/img1.jpg" alt="">
-        <div id="bottom">
-          <p>Bobi</p>
-          <p>Hoje fui nadar! #afogeui-me #glugluglu</p>
-          <p>15/11/2020</p>
-        </div>
-      </article>
-      <article class="post">
-        <div id="top">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <h1>Bobi</h1>
-        </div>
-        <img src="images/img1.jpg" alt="">
-        <div id="bottom">
-          <p>Bobi</p>
-          <p>Hoje fui nadar! #afogeui-me #glugluglu</p>
-          <p>15/11/2020</p>
-        </div>
-      </article>
-      <article class="post">
-        <div id="top">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <h1>Bobi</h1>
-        </div>
-        <img src="images/img1.jpg" alt="">
-        <div id="bottom">
-          <p>Bobi</p>
-          <p>Hoje fui nadar! #afogeui-me #glugluglu</p>
-          <p>15/11/2020</p>
-        </div>
-      </article>
-
+      </div>          
     </section>
     <footer>
       <p>&copy; Petgram 2020</p>

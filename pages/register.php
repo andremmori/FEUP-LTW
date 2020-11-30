@@ -26,6 +26,7 @@
     <div id="login">
         <p>Already have an account? Log in!</p>
         <a href="main_page.php"><button>Login</button></a>
+    </div>
     <footer>
       <p>&copy; Petgram 2020</p>
     </footer>
