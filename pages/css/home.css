@@ -128,7 +128,7 @@ body {
 /* PET PROFILE */
 
 #profile {
-    margin: 50px 10% 0px 10%;  
+    margin: 50px 10% 0px 10%;
 }
 
 #profile > * {
@@ -137,7 +137,7 @@ body {
 }
 
 #profile #top {
-    
+
     position: relative;
     display: grid;
     grid-template-columns: 35% auto auto;
@@ -154,7 +154,7 @@ body {
 #profile #top #edit{
 
     position: absolute;
-    top: 0px; 
+    top: 0px;
     right: 0px;
 }
 
@@ -216,7 +216,7 @@ body {
 
 #profile #listing p{
     text-align: center;
-    
+
     width: auto;
     margin: 2%;
 }
@@ -233,7 +233,7 @@ body {
     grid-template-rows: 30%;
     grid-column-gap: 5%;
     margin-bottom: 5%;
-    
+
 }
 
 #profile #gallery .row *{
@@ -245,7 +245,7 @@ body {
 /* ADD PET */
 
 #addPet {
-    margin: 50px 10% 0px 10%;     
+    margin: 50px 10% 0px 10%;
     text-align: center;
 }
 
