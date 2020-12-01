@@ -6,6 +6,33 @@
         return $stmt->fetchAll();
     }
 
+    // Retrieve user from the database
+    function getUser(){
+        global $db;
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        // Get account/user with email specified by the user
+        $user_sql = "SELECT * FROM account JOIN user WHERE user.email = ? AND user.id = account.id";
+        $stmt = $db->prepare($user_sql);
+        $exec = $stmt->execute([$email]);
+
+        if(!$exec) return false;
+
+        // Fetch the user and compare the stored hashed password with the one sent by the user
+        $user = $stmt->fetch();
+        $passwordhash = hash('sha256', $password);
+
+        if($user == null || $passwordhash != $user['passwordhash']) return false;
+
+        // set the session to the current user
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['name'] = $user['name'];
+        $_SESSION['email'] = $user['email'];
+
+        return true;
+    }
+
     // Add User to the database
     function addUser(){
         global $db;
