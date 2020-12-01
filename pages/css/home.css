@@ -269,3 +269,26 @@ body {
 #addPet #newFields *{
     margin-bottom: 1%;
 }
+
+/* ADD SHELTER */
+
+#addShelter {
+    margin: 50px 10% 0px 10%;
+    text-align: center;
+}
+
+#addShelter #auxDiv {
+    width: 40%;
+    height: auto;
+
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+
+    background-color: tomato;
+}
+
+#addShelterForm label {
+    font-size: 80%;
+}
