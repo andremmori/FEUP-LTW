@@ -13,9 +13,9 @@
       <h2>The best pet social media for adoption!</h2>
     </header>
     <div id="login">
-      <form action="#" method="post">
-        <label>Username: <input type="text" name="username"></label> <br>
-        <label>Password: <input type="password" name="password"></label> <br>
+      <form action="login_action.php" method="post">
+        <label>Email: <input type="email" name="email" required></label> <br>
+        <label>Password: <input type="password" name="password" required></label> <br>
         <input type="submit" value="Login">
       </form>
       <a href="home.php"><button>Skip to Home Screen</button></a>
