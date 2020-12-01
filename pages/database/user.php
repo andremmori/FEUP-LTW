@@ -9,11 +9,11 @@
     // Add User to the database
     function addUser(){
         global $db;
-        $name = $_GET['name'];
-        $email = $_GET['email'];
-        $username = $_GET['username'];
-        $password = $_GET['password'];
-        $repeat = $_GET['repeat'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $repeat = $_POST['repeat'];
 
         if($name == null || $email == null || $password == null || $repeat == null || $password != $repeat) return false;
 
@@ -31,9 +31,12 @@
             $account_id = $db->lastInsertId();
 
             // Insert User
-            $user_sql = "INSERT INTO user (email, passwordhash) VALUES (?, ?)";
+            $user_sql = "INSERT INTO user (id, email, passwordhash) VALUES (?, ?, ?)";
             $second_stmt = $db->prepare($user_sql);
-            $second_exec = $second_stmt->execute([$email, $password]);
+
+            // Hash the password
+            $passwordhash = hash('sha256', $password);
+            $second_exec = $second_stmt->execute([$account_id, $email, $passwordhash]);
 
             if(!$second_exec) throw new Exception();
 

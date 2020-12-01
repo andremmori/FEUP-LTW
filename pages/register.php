@@ -14,7 +14,7 @@
       <h2>The best pet social media for adoption!</h2>
     </header>
     <div id="register">
-        <form action="register_action.php" method="get">
+        <form action="register_action.php" method="POST">
             <label>First and Last Name: <input type="text" name="name" required></label> <br>
             <label>E-mail: <input type="email" name="email" required></label> <br>
             <label>Username: <input type="text" name="username"> required</label> <br>
