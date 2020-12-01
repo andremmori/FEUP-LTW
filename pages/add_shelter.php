@@ -25,7 +25,6 @@
     <section id="addShelter">
         <div id="auxDiv">
             <h2>Create a page for your shelter!<h2>
-                <?php echo $_SESSION['id'] ?>
             <form id="addShelterForm" action="add_shelter_action.php" method="POST">
                 <input type="hidden" name="userId" value="<?php echo $_SESSION['id'] ?>">
                 <br>
