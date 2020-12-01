@@ -11,11 +11,11 @@ INSERT INTO account (name) VALUES ('Dogs Only Shelter'); -- id 9
 INSERT INTO account (name) VALUES ('Cats only Shelter'); -- id 10
 
 -- User
-INSERT INTO user (id, email, passwordhash) VALUES (1, 'johndoe@gmail.com', 1234); -- id 1
-INSERT INTO user (id, email, passwordhash) VALUES (2, 'janedoe@gmail.com', 1234); -- id 2
-INSERT INTO user (id, email, passwordhash) VALUES (3, 'johnwick@gmail.com', 1234); -- id 3
-INSERT INTO user (id, email, passwordhash) VALUES (4, 'sultanrowland@gmail.com', 1234); -- id 4
-INSERT INTO user (id, email, passwordhash) VALUES (5, 'erikhowells@gmail.com', 1234); -- id 5
+INSERT INTO user (id, email, passwordhash) VALUES (1, 'johndoe@gmail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'); -- id 1
+INSERT INTO user (id, email, passwordhash) VALUES (2, 'janedoe@gmail.com', 'e4ad93ca07acb8d908a3aa41e920ea4f4ef4f26e7f86cf8291c5db289780a5ae'); -- id 2
+INSERT INTO user (id, email, passwordhash) VALUES (3, 'johnwick@gmail.com', '6382deaf1f5dc6e792b76db4a4a7bf2ba468884e000b25e7928e621e27fb23cb'); -- id 3
+INSERT INTO user (id, email, passwordhash) VALUES (4, 'sultanrowland@gmail.com', '280d44ab1e9f79b5cce2dd4f58f5fe91f0fbacdac9f7447dffc318ceb79f2d02'); -- id 4
+INSERT INTO user (id, email, passwordhash) VALUES (5, 'erikhowells@gmail.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f'); -- id 5
 
 -- Shelter
 INSERT INTO shelter (id, location) VALUES (6, 'Porto');
