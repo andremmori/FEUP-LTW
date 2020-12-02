@@ -16,7 +16,7 @@
       <a href=""><img src="images/search.png" alt="" width="50" height="50"></a>
       <a href=""><img src="images/settings.png" alt="" width="50" height="50"></a>
       <a href=""><img src="images/logout.png" alt="" width="50" height="50"></a>
-    </div>
+    </div> 
     <aside id="sideBar">
       <div id="user">
         <img src="images/pfp.png" alt="" width="65" height="65">
@@ -36,12 +36,12 @@
     <section id="post">
       <article class="post">
         <div id="title">
-          <img src="images/puppy2.jpg" alt="" width="65" height="65">
+          <img src="images/puppy2.jpeg" alt="" width="65" height="65">
           <p>Doggy</p>
         </div>
         <img src="images/img1.jpg" alt="">
         <div id="description">
-          <p>Description</p>
+          <p>Title</p>
           <p>asdasdasd</p>
           <a href=""><img src="images/like.png" alt="" width="35" height="35"></a>
           <p>15 Likes</p>
@@ -77,4 +77,3 @@
     </footer>
   </body>
 </html>
-
