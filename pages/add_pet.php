@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>
+    <title>Add Pet</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
@@ -44,7 +44,7 @@
             </div>
           <form>
         </div>
-      </div>          
+      </div>
     </section>
     <footer>
       <p>&copy; Petgram 2020</p>

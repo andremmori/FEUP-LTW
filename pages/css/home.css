@@ -463,7 +463,7 @@ a {
     width: 84%;
     height: auto;
     background-color: rgba(79, 255, 35, 0.747);
-    
+
     margin: 5% auto 5% auto;
 }
 
@@ -477,7 +477,7 @@ a {
     width: 84%;
     height: auto;
     background-color: rgba(255, 152, 35, 0.747);
-    
+
     margin: 5% auto 5% auto;
 }
 
@@ -530,7 +530,7 @@ a {
     border-bottom-style: solid;
     border-radius: 25px;
     margin: auto 0% auto 0%;
-    
+
 }
 
 #inquiry .message_owner img{
@@ -543,7 +543,7 @@ a {
 
 
 #inquiry .message_user {
-    
+
 
     background-color: white;
     width: 50%;
@@ -562,14 +562,14 @@ a {
 }
 
 #inquiry #sendMessage {
-    
+
     border-right-style: solid;
     border-left-style: solid;
     border-bottom-style: solid;
 }
 
 #inquiry #sendMessage #messageText {
-    
+
     height: 60%;
     width: 80%;
     margin:2% 3% 2% 3%;
@@ -587,4 +587,26 @@ a {
     height: auto;
     border-style: solid;
     background-color: rgb(64, 106, 153);
+}
+
+/* User Settings */
+
+#settings {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#settings #main {
+    margin: 12% 15% 5% 10%;
+    padding: 2.5% 5%;
+    background-color: tomato;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+}
+
+#settings #main #header {
+    display: grid;
+    grid-template-columns: auto 35px;
 }
