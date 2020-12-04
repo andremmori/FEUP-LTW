@@ -42,11 +42,47 @@
         <p id="following">Following 35</p>
         <p id="bio">Eu sou um bobi muito fixe woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof</p>
       </div>
-
       <div id="listing">
-        <a href="listing.php"><p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p> </a>
-      </div>
+        <p>Este cão ta todo lixado por favor alguem o adote</p>
+        <p>Lista de requirements para o bicho:</p>
+        <ul>
+          <li>Tomem conta dele so pff</li>
+          <li>Dêem-lhe comida e teto i guess</li>
+          <li>Ah e carinho</li>
+        </ul>
+        <div id="comments">
+          <div class="comment">
+            <img src="images/pfp.png" alt="" width="65" height="65">
+              <div id="username">
+                <p>Johnny</p>
+              </div>
+              <div id="text">
+                <p>omd quem me dera adota-lo é tao fofo!!!</p>
+              </div>
+          </div>
+          <div class="comment">
+            <img src="images/pfp.png" alt="" width="65" height="65">
+              <div id="username">
+                <p>Zé</p>
+              </div>
+              <div id="text">
+                <p>sou alergico a caes :(</p>
+              </div>
+          </div>
+          <form id="postComment" action="" method="post"> <!-- action="post_comment.php"-->
+            <input id="commentText" type="text" name="comment" required>
+            <input type="submit" value="Comment">
+          </form>
+        </div>
 
+        <div id="inquiry">
+          <a href="inquiry.php"><p>Message the owner about the adoption.</p></a>
+        </div>
+
+        <div id="proposal">
+          <a href="proposal.php"><p>Make an addoption proposal to the owner.</p></a>
+        </div>
+      </div>
       <div id="gallery">
         <div class="row">
           <img src="images/puppy.jpg" alt="" width="65" height="65">

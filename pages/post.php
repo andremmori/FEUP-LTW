@@ -50,7 +50,7 @@
           <p>30/11/2020</p>
         </div>
         <div id="comments">
-            <div id="user">
+          <div class="comment">
             <img src="images/pfp.png" alt="" width="65" height="65">
               <div id="username">
                 <p>Johnny</p>
@@ -58,8 +58,8 @@
               <div id="text">
                 <p>omg omg omg!!!</p>
               </div>
-            </div>
-            <div id="user">
+          </div>
+          <div class="comment">
             <img src="images/pfp.png" alt="" width="65" height="65">
               <div id="username">
                 <p>Zé</p>
@@ -67,7 +67,11 @@
               <div id="text">
                 <p>w0w</p>
               </div>
-            </div>
+          </div>
+          <form id="postComment" action="" method="post"> <!-- action="post_comment.php"-->
+            <input id="commentText" type="text" name="comment" required>
+            <input type="submit" value="Comment">
+          </form>
         </div>
       </article>
     </section>
