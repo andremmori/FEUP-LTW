@@ -6,6 +6,14 @@
         return $stmt->fetchAll();
     }
 
+    function fetchUser($id) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM account JOIN user ON account.id = user.id WHERE user.id = ?');
+        $stmt->execute([$id]);
+
+        return $stmt->fetch();
+    }
+
     // Retrieve user from the database
     function getUser(){
         global $db;
@@ -26,9 +34,7 @@
         if($user == null || $passwordhash != $user['passwordhash']) return false;
 
         // set the session to the current user
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['name'] = $user['name'];
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['user'] = fetchUser($user['id']);
 
         return true;
     }
@@ -71,9 +77,7 @@
             return false;
         }
         // Start session with new user
-        $_SESSION['id'] = $account_id;
-        $_SESSION['name'] = $name;
-        $_SESSION['email'] = $email;
+        $_SESSION['user'] = fetchUser($account_id);
         return true;
     }
 

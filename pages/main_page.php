@@ -50,9 +50,9 @@ include_once('database/connection.php');
         <p>&copy; Petgram 2020</p>
     </footer>
 
-<?php
-include_once('modal/login.php');
-?>
+    <?php
+    include_once('modal/login.php');
+    ?>
 </body>
 <script>
     // Get the modal
