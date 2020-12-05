@@ -6,7 +6,7 @@
     if(addUser())
         header('Location: index.php'); // Redirect to index page if succesful
     else
-        header('Location: register.php'); // Redirect to form page if unsuccesful
+        header('Location: main_page.php'); // Redirect to form page if unsuccesful
 
 
 ?>

@@ -12,7 +12,7 @@
     <div id="hotBar">
       <h1>Petgram</h1>
       <a href=""><img src="images/home.png" alt="" width="50" height="50"></a>
-      <a href="register.php"><img src="images/profile.png" alt="" width="50" height="50"></a>
+      <a href=""><img src="images/profile.png" alt="" width="50" height="50"></a>
       <a href=""><img src="images/search.png" alt="" width="50" height="50"></a>
       <a href=""><img src="images/settings.png" alt="" width="50" height="50"></a>
       <a href=""><img src="images/logout.png" alt="" width="50" height="50"></a>
@@ -37,13 +37,13 @@
       <div id="div1">
           <h2>Make a proposal to adopt this pet!<h2>
           <textarea form=makeProposal name="text" rows=10 type="text" placeholder="Write something here" id="textid" required></textarea>
-           <form id="makeProposal" action="proposal_action.php" method="post"> 
+           <form id="makeProposal" action="proposal_action.php" method="post">
                 <input type="hidden" name="userId" value="<?php echo $_SESSION['id'] ?>">
-               <!-- 
+               <!--
                 <input type="hidden" name="petId" value="">
                 <input type="hidden" name="accountId" value="">  -->
-                <input type="hidden" name="date" value=<?php echo date('d/m/y');?>> 
-                <input type="hidden" name="status" value='PENDING'> 
+                <input type="hidden" name="date" value=<?php echo date('d/m/y');?>>
+                <input type="hidden" name="status" value='PENDING'>
                 <button type="submit">Submit</button>
             </form>
       </div>

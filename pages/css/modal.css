@@ -1,11 +1,11 @@
 /* Full-width input fields */
-input[type=text], input[type=password] {
+#modal-input {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 15px;
+  margin: 5px 0 22px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  border: none;
+  background: #f1f1f1;
 }
 
 /* Set a style for all buttons */
@@ -59,7 +59,7 @@ img.avatar {
   border-radius: 50%;
 }
 
-.container {
+#container {
   padding: 16px;
 }
 

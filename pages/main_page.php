@@ -8,31 +8,62 @@ include_once('database/connection.php');
     <title>Petgram</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/home.css" rel="stylesheet">
+    <link href="css/initial_page.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
 </head>
 
 <body>
-    <?php include_once('header.php') ?>
     <header>
         <h1>Petgram</h1>
         <h2>The best pet social media for adoption!</h2>
     </header>
-    <div id="login">
-        <form action="login_action.php" method="post">
-            <label>Email: <input type="email" name="email" required></label> <br>
-            <label>Password: <input type="password" name="password" required></label> <br>
-            <input type="submit" value="Login">
-        </form>
-        <a href="home.php"><button>Skip to Home Screen</button></a>
-    </div>
-    <div id="register">
-        <p>Don't have an account? Register now!</p>
-        <a href="register.php"><button>Register</button></a>
-    </div>
+
+    <form action="/register_action.php" method="POST">
+        <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+
+            <label for="name"><b>Name</b></label>
+            <input id="initial-input" type="text" placeholder="Enter Name" name="name" id="name" required>
+
+            <label for="email"><b>Email</b></label>
+            <input id="initial-input" type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="password"><b>Password</b></label>
+            <input id="initial-input" type="password" placeholder="Enter Password" name="password" id="password" required>
+
+            <label for="repeat"><b>Repeat Password</b></label>
+            <input id="initial-input" type="password" placeholder="Repeat Password" name="repeat" id="repeat" required>
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a type="button" href="#" id="" onclick="document.getElementById('login-modal').style.display='block'">Sign in</a>.</p>
+        </div>
+    </form>
     <footer>
         <p>&copy; Petgram 2020</p>
     </footer>
+
+<?php
+include_once('modal/login.php');
+?>
 </body>
+<script>
+    // Get the modal
+    var modal = document.getElementById('login-modal');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </html>

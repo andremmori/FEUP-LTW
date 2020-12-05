@@ -6,19 +6,19 @@
             <h1>Petgram</h1>
         </div>
         <br>
-        <div class="container">
+        <div id="container">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input id="modal-input" type="text" placeholder="Enter Email" name="email" required>
                 <br>
                 <br>
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
+                <input id="modal-input" type="password" placeholder="Enter Password" name="password" required>
                 <br>
                 <br>
                 <button id="btn" type="submit">Login</button>
         </div>
 
-        <div class="container" style="background-color:#f1f1f1">
+        <div id="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('login-modal').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
     </form>

@@ -38,12 +38,10 @@
         global $db;
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $username = $_POST['username'];
         $password = $_POST['password'];
         $repeat = $_POST['repeat'];
 
         if($name == null || $email == null || $password == null || $repeat == null || $password != $repeat) return false;
-
         try {
             // Init transaction
             $db->beginTransaction();
