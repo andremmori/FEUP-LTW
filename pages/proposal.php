@@ -40,8 +40,8 @@
            <form id="makeProposal" action="proposal_action.php" method="post"> 
                 <input type="hidden" name="userId" value="<?php echo $_SESSION['id'] ?>">
                <!-- 
-                <input type="hidden" name="petID" value="">
-                <input type="hidden" name="accountID" value="">  -->
+                <input type="hidden" name="petId" value="">
+                <input type="hidden" name="accountId" value="">  -->
                 <input type="hidden" name="date" value=<?php echo date('d/m/y');?>> 
                 <input type="hidden" name="status" value='PENDING'> 
                 <button type="submit">Submit</button>
