@@ -580,6 +580,7 @@ a {
 #proposal {
     margin: 50px 10% 0px 10%;
     text-align: center;
+    
 }
 
 #proposal #div1 {
@@ -588,6 +589,11 @@ a {
     border-style: solid;
     background-color: rgb(64, 106, 153);
 }
+
+#proposal #div1 #textid{
+    width:70%;
+}
+
 
 /* User Settings */
 
