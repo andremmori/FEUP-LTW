@@ -36,19 +36,18 @@
     <section id="proposal">
       <div id="div1">
           <h2>Make a proposal to adopt this pet!<h2>
-           <form id="makeProposal" action="" method="get">
+           <form id="makeProposal" action="" method="post"> <!-- action="make_proposal.php"-->
                 <input type="hidden" name="userId" value="<?php echo $_SESSION['id'] ?>">
                <!-- 
                 <input type="hidden" name="petID" value="">
-                <input type="hidden" name="accountID" value=""> 
-                <input type="hidden" name="date" value=""> 
-                <input type="hidden" name="accountID" value=""> 
-            -->
-            <textarea cols="100" rows="15"></textarea>
-                <br>
-                <button type="submit">Submit</button>
+                <input type="hidden" name="accountID" value="">             -->
+                <input type="hidden" name="date" value=date('now')> 
+                <input type="hidden" name="status" value='PENDING'> 
+
             </form>
-       
+            <textarea form=makeProposal name="text" type="text" rows="15" cols="100" placeholder="Write something here" required></textarea>
+            <br>
+            <button type="submit">Submit</button>
       </div>
     </section>
     <footer>
