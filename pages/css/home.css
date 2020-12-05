@@ -590,8 +590,8 @@ a {
     background-color: rgb(64, 106, 153);
 }
 
-#proposal #div1 #makeProposal text{ 
-    font-size: 38px; 
+#proposal #div1 #textid{
+    width:70%;
 }
 
 

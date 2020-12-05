@@ -36,7 +36,7 @@
     <section id="proposal">
       <div id="div1">
           <h2>Make a proposal to adopt this pet!<h2>
-          <textarea form=makeProposal name="text" type="text" rows="15" cols="100" placeholder="Write something here" required></textarea>
+          <textarea form=makeProposal name="text" rows=10 type="text" placeholder="Write something here" id="textid" required></textarea>
            <form id="makeProposal" action="proposal_action.php" method="post"> 
                 <input type="hidden" name="userId" value="<?php echo $_SESSION['id'] ?>">
                <!-- 
