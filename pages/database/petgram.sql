@@ -157,6 +157,7 @@ CREATE TABLE Proposal (
     petID     INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
     accountID INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
     date      DATE,
+    text      CHAR,
     state     CHAR
 );
 
