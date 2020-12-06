@@ -34,31 +34,16 @@ if ($comments == null) header('Location: index.php');
 
 <body>
     <?php include_once('hotbar.php') ?>
-    <aside id="sideBar">
-        <div id="user">
-            <img src="images/pfp.png" alt="" width="65" height="65">
-            <div id="username">
-                <p>Average pet fan</p>
-                <p>petfan123</p>
-            </div>
-        </div>
-        <p>Pets:</p>
-        <ul>
-            <li>Animal 1</li>
-            <li>Animal 2</li>
-            <li>Animal 3</li>
-        </ul>
-        <img src="images/petAdd.png" alt="" width="35" height="35">
-    </aside>
+    <?php include_once('sidebar.php') ?>
     <section id="post">
         <article class="post">
             <div id="title">
-                <img src="images/puppy2.jpeg" alt="" width="65" height="65">
-                <p><?php echo $pet['name'] ?></p>
+                <a href="pet_profile.php"><img src="images/puppy2.jpeg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a>
             </div>
             <img src="images/post/<?php echo $post['photo']?>" alt="">
             <div id="description">
-                <p><?php echo $pet['name'] ?></p>
+                <a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a>
                 <p><?php echo $post['description'] ?></p>
                 <a href=""><img src="images/like.png" alt="" width="35" height="35"></a>
                 <p><?php echo $post['likes'] ?> Likes</p>

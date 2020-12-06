@@ -10,22 +10,7 @@
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
-    <aside id="sideBar">
-      <div id="user">
-        <img src="images/pfp.png" alt="" width="65" height="65">
-        <div id="username">
-          <p>Average pet fan</p>
-          <p>petfan123</p>
-        </div>
-      </div>
-      <p>Pets:</p>
-      <ul>
-        <li>Animal 1</li>
-        <li>Animal 2</li>
-        <li>Animal 3</li>
-      </ul>
-      <img src="images/petAdd.png" alt="" width="35" height="35">
-    </aside>
+    <?php include_once('sidebar.php') ?>
     <section id="profile">
       <div id="top">
         <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
@@ -42,22 +27,22 @@
 
       <div id="gallery">
         <div class="row">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
         </div>
         <div class="row">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
         </div>
         <div class="row">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
         </div>
         <div class="row">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
+          <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
         </div>
       </div>
     </section>

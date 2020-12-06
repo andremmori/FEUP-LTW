@@ -10,31 +10,16 @@
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
-    <aside id="sideBar">
-      <div id="user">
-        <img src="images/pfp.png" alt="" width="65" height="65">
-        <div id="username">
-          <p>Average pet fan</p>
-          <p>petfan123</p>
-        </div>
-      </div>
-      <p>Pets:</p>
-      <ul>
-        <li>Animal 1</li>
-        <li>Animal 2</li>
-        <li>Animal 3</li>
-      </ul>
-      <img src="images/petAdd.png" alt="" width="35" height="35">
-    </aside>
+    <?php include_once('sidebar.php') ?>
     <section id="feed">
       <article class="post">
         <div id="top">
-          <img src="images/puppy.jpg" alt="" width="65" height="65">
-          <h1>Bobi</h1>
+          <a href="pet_profile.php"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+          <a href="pet_profile.php"><h1>Bobi</h1></a>
         </div>
         <img src="images/img1.jpg" alt="">
         <div id="bottom">
-          <p>Bobi</p>
+          <a href="pet_profile.php"><p>Bobi</p></a>
           <p>Hoje fui nadar! #afogeui-me #glugluglu</p>
           <p>15/11/2020</p>
         </div>

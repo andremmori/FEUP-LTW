@@ -14,7 +14,8 @@
 
 <body>
     <?php include_once('hotbar.php') ?>
-
+    <?php include_once('sidebar.php') ?>
+    
     <section id="addShelter">
         <div id="auxDiv">
             <h2>Create a page for your shelter!<h2>
@@ -34,22 +35,6 @@
             </form>
         </div>
     </section>
-    <aside id="sideBar">
-        <div id="user">
-            <img src="images/pfp.png" alt="" width="65" height="65">
-            <div id="username">
-                <p>Average pet fan</p>
-                <p>petfan123</p>
-            </div>
-        </div>
-        <p>Pets:</p>
-        <ul>
-            <li>Animal 1</li>
-            <li>Animal 2</li>
-            <li>Animal 3</li>
-        </ul>
-        <img src="images/petAdd.png" alt="" width="35" height="35">
-    </aside>
     </div>
     <footer>
         <p>&copy; Petgram 2020</p>

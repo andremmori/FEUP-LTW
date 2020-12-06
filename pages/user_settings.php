@@ -12,7 +12,7 @@
 
 <body>
     <?php include_once('hotbar.php') ?>
-
+    <?php include_once('sidebar.php') ?>
     <div id="settings">
         <div id="main">
             <div id="header">
@@ -33,24 +33,6 @@
                 <h3>Create a shelter:</h3>
                 <a href="add_shelter.php"><img src="images/addShelter.png" alt="Add Shelter" width="35" height="35"></a>
             </div>
-        </div>
-        <div>
-            <aside id="sideBar">
-                <div id="user">
-                    <img src="images/pfp.png" alt="" width="65" height="65">
-                    <div id="username">
-                        <p>Average pet fan</p>
-                        <p>petfan123</p>
-                    </div>
-                </div>
-                <p>Pets:</p>
-                <ul>
-                    <li>Animal 1</li>
-                    <li>Animal 2</li>
-                    <li>Animal 3</li>
-                </ul>
-                <img src="images/petAdd.png" alt="" width="35" height="35">
-            </aside>
         </div>
     </div>
 

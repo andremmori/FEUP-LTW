@@ -15,9 +15,11 @@ body {
     background-color: darkturquoise;
 }
 
-#hotBar h1{
-    height: min-content;
+#hotBar a{
     margin: auto 10px auto 10px;
+    width: min-content;
+    height: min-content;
+    padding: 0%;
 }
 
 #hotBar *{
@@ -37,15 +39,16 @@ body {
     right: 0;
     background-color: rgb(219, 219, 219);
     overflow-x: hidden; /* Disable horizontal scroll */
-    margin-top: 100px;
+    margin-top: 5%;
     margin-right: 10%;
-    padding: 50px 20px 50px 20px;
-
+    padding: 1% 2%;
 }
 
 #sideBar #user{
     display: flex;
 }
+
+
 
 #sideBar #user img{
     color: black;
@@ -64,14 +67,32 @@ body {
     font-weight: bold;
 }
 
+#sideBar ul{
+    font-weight: bold;
+}
+
+#sideBar a{
+    display: flex;
+}
+
 a {
     color: black;
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 
 /* HOME / INDEX */
 
 #feed .post {
     margin: 50px 10% 0px 10%;
+}
+
+#feed a{
+    margin: auto 0 auto 2%;
+}
+
+#feed #bottom a{
+    margin: auto 0 auto 0%;
 }
 
 #feed .post #top {
@@ -288,7 +309,7 @@ a {
 }
 
 #addShelter #auxDiv {
-    width: 40%;
+    width: 60%;
     height: auto;
 
     border-top-style: solid;
@@ -309,6 +330,13 @@ a {
     margin: 50px 10% 10px 10%;
 }
 
+#post a{
+    margin: auto 0 auto 2%;
+}
+
+#post #description a{
+    margin: auto 0 auto 0;
+}
 
 #post .post #title {
     border: solid black;
@@ -330,7 +358,8 @@ a {
 #post .post #title p{
     margin: auto 0 auto 2%;
     font-size: 150%;
-    }
+    width: 100%;
+}
 
 #post .post > img{
     border: solid black;
@@ -600,16 +629,22 @@ a {
 #settings {
     display: grid;
     grid-template-columns: auto auto;
+    width: 60%;
 }
 
+
 #settings #main {
-    margin: 12% 15% 5% 10%;
-    padding: 2.5% 5%;
+    
+    margin: 50px 3% 0px 17%;
     background-color: tomato;
     border-top-style: solid;
     border-right-style: solid;
     border-left-style: solid;
     border-bottom-style: solid;
+}
+
+#settings #main > *{   
+    margin: 2%;
 }
 
 #settings #main #header {
