@@ -47,17 +47,17 @@ INSERT INTO breed (speciesID, name) VALUES (1, 'POODLE'); -- id 4
 INSERT INTO breed (speciesID, name) VALUES (1, 'GERMAN SHEPHERD'); -- id 5
 
 -- Pet
-INSERT INTO pet (ownerID, bio, description, requirements) VALUES (1, 'Good boy', 'Great dog', 'Have a house'); -- id 1
-INSERT INTO pet (ownerID, bio, description, requirements) VALUES (2, 'Good girl', 'Great dog', 'Have a house'); -- id 2
-INSERT INTO pet (ownerID, bio, description, requirements) VALUES (3, 'Bad boy', 'Bad dog', 'Have a house'); -- id 3
-INSERT INTO pet (ownerID, bio, description, requirements) VALUES (4, 'Bad girl', 'Bad dog', 'Have a house'); -- id 4
-INSERT INTO pet (ownerID, bio, description, requirements) VALUES (5, 'Ok boys', 'Ok dogs', 'Have a house'); -- id 5
+INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (1, 'Agent 47', 'Good boy', 'Great dog', 'Have a house'); -- id 1
+INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (2, 'Abby', 'Good girl', 'Great dog', 'Have a house'); -- id 2
+INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (3, 'Ajax', 'Bad boy', 'Bad dog', 'Have a house'); -- id 3
+INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (4, 'Abigail', 'Bad girl', 'Bad dog', 'Have a house'); -- id 4
+INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (5, 'Bunch of dogs', 'Ok boys', 'Ok dogs', 'Have a house'); -- id 5
 
 -- IndividualPet
-INSERT INTO individualpet (petID, breedID, name, size, colour) VALUES (1, 1, 'Agent 47', 'SMALL', 'WHITE'); -- id 1
-INSERT INTO individualpet (petID, breedID, name, size, colour) VALUES (2, 4, 'Abby', 'SMALL', 'WHITE'); -- id 2
-INSERT INTO individualpet (petID, breedID, name, size, colour) VALUES (3, 5, 'Ajax', 'BIG', 'MIXED'); -- id 3
-INSERT INTO individualpet (petID, breedID, name, size, colour) VALUES (4, 2, 'Abigail', 'MEDIUM', 'MIXED'); -- id 4
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (1, 1, 'SMALL', 'WHITE'); -- id 1
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (2, 4, 'SMALL', 'WHITE'); -- id 2
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (3, 5, 'BIG', 'MIXED'); -- id 3
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (4, 2, 'MEDIUM', 'MIXED'); -- id 4
 
 -- GroupPet
 INSERT INTO grouppet (petID, number) VALUES (5, 3); -- id 5
@@ -86,11 +86,11 @@ INSERT INTO message (inquiryID, petOwner, text, date) VALUES (5, 0, 'Is this ava
 INSERT INTO message (inquiryID, petOwner, text, date) VALUES (5, 1, 'yes', date('now')); -- id 10
 
 -- Proposal
-INSERT INTO proposal (petID, accountID, date, state) VALUES (1, 5, date('now'), 'I want him!', 'PENDING'); -- id 1
-INSERT INTO proposal (petID, accountID, date, state) VALUES (2, 3, date('now'), 'I want him!', 'PENDING'); -- id 2
-INSERT INTO proposal (petID, accountID, date, state) VALUES (3, 4, date('now'), 'I want him!', 'PENDING'); -- id 3
-INSERT INTO proposal (petID, accountID, date, state) VALUES (4, 2, date('now'), 'I want him!', 'PENDING'); -- id 4
-INSERT INTO proposal (petID, accountID, date, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
+INSERT INTO proposal (petID, accountID, date, text, state) VALUES (1, 5, date('now'), 'I want him!', 'PENDING'); -- id 1
+INSERT INTO proposal (petID, accountID, date, text, state) VALUES (2, 3, date('now'), 'I want him!', 'PENDING'); -- id 2
+INSERT INTO proposal (petID, accountID, date, text, state) VALUES (3, 4, date('now'), 'I want him!', 'PENDING'); -- id 3
+INSERT INTO proposal (petID, accountID, date, text, state) VALUES (4, 2, date('now'), 'I want him!', 'PENDING'); -- id 4
+INSERT INTO proposal (petID, accountID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
 
 -- Post
 INSERT INTO post (petID, description, photo, date, likes) VALUES (1, 'Adopt me', null, date('now'), 111); -- id 1
