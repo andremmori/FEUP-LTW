@@ -93,18 +93,18 @@ INSERT INTO proposal (petID, accountID, date, text, state) VALUES (4, 2, date('n
 INSERT INTO proposal (petID, accountID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
 
 -- Post
-INSERT INTO post (petID, description, photo, date, likes) VALUES (1, 'Adopt me', null, date('now'), 111); -- id 1
-INSERT INTO post (petID, description, photo, date, likes) VALUES (2, 'Take me home', null, date('now'), 43); -- id 2
-INSERT INTO post (petID, description, photo, date, likes) VALUES (3, 'help me', null, date('now'), 69); -- id 3
-INSERT INTO post (petID, description, photo, date, likes) VALUES (4, 'I want someone', null, date('now'), 6); -- id 4
-INSERT INTO post (petID, description, photo, date, likes) VALUES (5, 'help us', null, date('now'), 4); -- id 5
+INSERT INTO post (petID, description, photo, date, likes) VALUES (1, 'Adopt me', '1.jpg', date('now'), 111); -- id 1
+INSERT INTO post (petID, description, photo, date, likes) VALUES (2, 'Take me home', '2.jpg', date('now'), 43); -- id 2
+INSERT INTO post (petID, description, photo, date, likes) VALUES (3, 'help me', '3.jpg', date('now'), 69); -- id 3
+INSERT INTO post (petID, description, photo, date, likes) VALUES (4, 'I want someone', '4.jpg', date('now'), 6); -- id 4
+INSERT INTO post (petID, description, photo, date, likes) VALUES (5, 'help us', '5.jpg', date('now'), 4); -- id 5
 
 -- PostComment
-INSERT INTO postcomment (postID, text, date) VALUES (1, 'cuteee', date('now')); -- id 1
-INSERT INTO postcomment (postID, text, date) VALUES (2, 'lovely', date('now')); -- id 2
-INSERT INTO postcomment (postID, text, date) VALUES (3, 'nice', date('now')); -- id 3
-INSERT INTO postcomment (postID, text, date) VALUES (4, 'wow', date('now')); -- id 4
-INSERT INTO postcomment (postID, text, date) VALUES (5, 'omg', date('now')); -- id 5
+INSERT INTO postcomment (postID, accountID, text, date) VALUES (1, 1, 'cuteee', date('now')); -- id 1
+INSERT INTO postcomment (postID, accountID, text, date) VALUES (2, 2, 'lovely', date('now')); -- id 2
+INSERT INTO postcomment (postID, accountID, text, date) VALUES (3, 3, 'nice', date('now')); -- id 3
+INSERT INTO postcomment (postID, accountID, text, date) VALUES (4, 4, 'wow', date('now')); -- id 4
+INSERT INTO postcomment (postID, accountID, text, date) VALUES (5, 5, 'omg', date('now')); -- id 5
 
 -- Favourite
 INSERT INTO favourite (accountID, petID) VALUES (1,3);

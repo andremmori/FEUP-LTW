@@ -146,6 +146,7 @@ CREATE TABLE Post (
 CREATE TABLE PostComment (
     id     INTEGER  PRIMARY KEY,
     postID INTEGER  REFERENCES Post (id) ON DELETE CASCADE,
+    accountID INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
     text   CHAR,
     date   DATE
 );
