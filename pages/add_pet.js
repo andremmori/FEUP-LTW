@@ -103,6 +103,6 @@ group.addEventListener('click', function() {
         box2=false;
         box1=true;
     }
-    
+
 })
   

@@ -85,7 +85,6 @@ CREATE TABLE IndividualPet (
     petID   INTEGER  PRIMARY KEY
                  REFERENCES Pet (id) ON DELETE CASCADE,
     breedID INTEGER  REFERENCES Breed (id) ON DELETE CASCADE,
-    name    CHAR,
     size    CHAR,
     colour  CHAR
 );
@@ -113,6 +112,7 @@ CREATE TABLE Message (
 CREATE TABLE Pet (
     id           INTEGER  PRIMARY KEY,
     ownerID      INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
+    name         CHAR,
     bio          CHAR,
     description  CHAR,
     requirements CHAR
