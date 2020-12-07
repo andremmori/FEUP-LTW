@@ -1,4 +1,13 @@
-<?php include_once('database/connection.php')?>
+<?php 
+include_once('database/connection.php');
+include_once('database/pet.php');
+
+// Get current pet's id and info from db
+$id = $_GET['id'];
+$pet = getPet($id);
+if ($pet == null) header('Location: index.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -15,16 +24,13 @@
       <div id="top">
         <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
         <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
-        <h1 id="name">Bobi</h1>
+        <h1 id="name"><a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a></h1>
         <p id="followers">Followers 30</p>
         <p id="following">Following 35</p>
-        <p id="bio">Eu sou um bobi muito fixe woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof</p>
-      </div>
-
+        <p id="bio"><a href="pet_profile.php"><?php echo $pet['bio'] ?></a></p>      </div>
       <div id="listing">
-        <a href="listing.php"><p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p> </a>
+        <a href="listing.php?id=<?php echo $_GET['id'];?>"><p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p> </a>
       </div>
-
       <div id="gallery">
         <div class="row">
           <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>

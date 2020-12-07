@@ -1,4 +1,13 @@
-<?php include_once('database/connection.php')?>
+<?php 
+include_once('database/connection.php');
+include_once('database/pet.php');
+
+// Get current pet's id and info from db
+$id = $_GET['id'];
+$pet = getPet($id);
+if ($pet == null) header('Location: index.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -15,18 +24,16 @@
       <div id="top">
         <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
         <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
-        <h1 id="name">Bobi</h1>
+        <h1 id="name"><p><?php echo $pet['name'] ?></p></h1>
         <p id="followers">Followers 30</p>
         <p id="following">Following 35</p>
-        <p id="bio">Eu sou um bobi muito fixe woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof woof</p>
+        <p id="bio"><?php echo $pet['bio'] ?></p>      
       </div>
       <div id="listing">
-        <p>Este cão ta todo lixado por favor alguem o adote</p>
-        <p>Lista de requirements para o bicho:</p>
+      <p><?php echo $pet['description'] ?></p>
+        <p>List of requirements to adopt this pet:</p>
         <ul>
-          <li>Tomem conta dele so pff</li>
-          <li>Dêem-lhe comida e teto i guess</li>
-          <li>Ah e carinho</li>
+          <li><?php echo $pet['requirements']?></li>
         </ul>
         <div id="comments">
           <div class="comment">
@@ -54,11 +61,11 @@
         </div>
 
         <div id="inquiry">
-          <a href="inquiry.php"><p>Message the owner about the adoption.</p></a>
+          <a href="inquiry.php?id=<?php echo $_GET['id'];?>"><p>Message the owner about the adoption.</p></a>
         </div>
 
         <div id="proposal">
-          <a href="proposal.php"><p>Make an addoption proposal to the owner.</p></a>
+          <a href="proposal.php?id=<?php echo $_GET['id'];?>"><p>Make an addoption proposal to the owner.</p></a>
         </div>
       </div>
       <div id="gallery">

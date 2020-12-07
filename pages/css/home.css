@@ -196,37 +196,37 @@ a {
 
 #profile #top #name{
 
-   margin: auto 0 2% 0;
-   font-size: 200%;
-
-   grid-column: 2 / 4;
-   grid-row: 1 / 2;
-}
-
-#profile #top #followers{
-
-    margin: auto 0 auto 0;
-
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    margin: auto 0 2% 0;
+    font-size: 200%;
+ 
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+ }
+ 
+ #profile #top #followers{
+ 
+     margin: 5% 0 auto 0;
+ 
+     grid-column: 2 / 3;
+     grid-row: 2 / 3;
+  }
+ 
+  #profile #top #following{
+ 
+     margin: 5% 0 auto 0;
+ 
+     grid-column: 3 / 4;
+     grid-row: 2 / 3;
+  }
+ 
+ #profile #top #bio{
+ 
+     margin: 5% 5% auto 5%;
+ 
+     grid-column: 1 / 4;
+     grid-row: 3 / 4;
  }
 
- #profile #top #following{
-
-    margin: auto 0 auto 0;
-
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-
- }
-
-#profile #top #bio{
-
-    margin: 5% 5% auto 5%;
-
-    grid-column: 1 / 4;
-    grid-row: 3 / 4;
-}
 
 #profile #listing {
     border-top-style: solid;

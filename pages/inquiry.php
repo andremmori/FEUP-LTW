@@ -1,4 +1,13 @@
-<?php include_once('database/connection.php')?>
+<?php 
+include_once('database/connection.php');
+include_once('database/pet.php');
+
+// Get current pet's id and info from db
+$id = $_GET['id'];
+$pet = getPet($id);
+if ($pet == null) header('Location: index.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
