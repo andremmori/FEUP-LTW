@@ -21,7 +21,6 @@
             <div id="newFields">
             </div>
           <form>
-        </div>
       </div>
     </section>
     <footer>

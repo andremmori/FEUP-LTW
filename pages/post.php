@@ -38,8 +38,9 @@ if ($comments == null) header('Location: index.php');
     <section id="post">
         <article class="post">
             <div id="title">
-                <a href="pet_profile.php"><img src="images/puppy2.jpeg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php"><img id="pet_profile_pic" src="images/puppy2.jpeg" alt="" width="65" height="65"></a>
                 <a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a>
+                <a href="<?php echo "edit_post.php?id=".$id?>"> <img id="edit" src="images/three_dots.png" alt="" width="35" height="35"></a>
             </div>
             <img src="images/post/<?php echo $post['photo']?>" alt="">
             <div id="description">
