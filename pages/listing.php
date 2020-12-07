@@ -1,11 +1,18 @@
 <?php 
 include_once('database/connection.php');
 include_once('database/pet.php');
+include_once('database/account.php');
+include_once('database/listingcomment.php');
 
 // Get current pet's id and info from db
 $id = $_GET['id'];
 $pet = getPet($id);
 if ($pet == null) header('Location: index.php');
+
+
+//Get comments from pet
+$comments = getListingComments($id);
+//if ($comments == null) header('Location: index.php');
 
 ?>
 <!DOCTYPE html>
@@ -36,28 +43,12 @@ if ($pet == null) header('Location: index.php');
           <li><?php echo $pet['requirements']?></li>
         </ul>
         <div id="comments">
-          <div class="comment">
-            <img src="images/pfp.png" alt="" width="65" height="65">
-              <div id="username">
-                <p>Johnny</p>
-              </div>
-              <div id="text">
-                <p>omd quem me dera adota-lo é tao fofo!!!</p>
-              </div>
-          </div>
-          <div class="comment">
-            <img src="images/pfp.png" alt="" width="65" height="65">
-              <div id="username">
-                <p>Zé</p>
-              </div>
-              <div id="text">
-                <p>sou alergico a caes :(</p>
-              </div>
-          </div>
-          <form id="postComment" action="" method="post"> <!-- action="post_comment.php"-->
-            <input id="commentText" type="text" name="comment" required>
-            <input type="submit" value="Comment">
-          </form>
+                <?php foreach ($comments as $comment) echo getListingComment($comment); ?>
+                <form id="postComment" action="" method="post">
+                    <!-- action="post_comment.php"-->
+                    <input id="commentText" type="text" name="comment" required>
+                    <input type="submit" value="Comment">
+                </form>
         </div>
 
         <div id="inquiry">

@@ -246,12 +246,6 @@ a {
     margin: 2%;
 }
 
-#profile #listing p{
-
-    width: auto;
-    margin: 2%;
-}
-
 #profile #gallery{
     display: flex;
     flex-direction: column;
@@ -481,6 +475,37 @@ a {
     padding: 2%;
     margin: 5% auto 5% auto;
 }
+
+#profile #listing #comments .comment{
+    display: flex;
+}
+
+#profile #listing #comments .comment img{
+    color: black;
+    margin: 1% 3% 0% 0%;
+    border-radius: 50%;
+}
+
+#profile #listing #comments .comment #username{
+    padding: 1% 3% 0% 1%;
+    font-weight: bold;
+}
+
+#profile #listing #comments .comment #text{
+    padding: 1% 0% 0% 0%;
+}
+
+#profile #listing #comments #postComment{
+    text-align: center;
+    margin-top: 3%;
+}
+
+#profile #listing #comments #postComment #commentText{
+
+    width: 80%;
+}
+
+
 
 #profile #listing #inquiry{
 
