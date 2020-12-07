@@ -1,46 +1,44 @@
 <?php
-    function search() {
-        global $db;
-        $input = $_GET['input'];
+    function search($input) {
 
-        if($input == null) return false;
+        global $db;
+        $breeds = [];
+        $pets = [];
 
         try {
 
             // Search for breeds
             $breed_sql = "SELECT FROM breed WHERE (?) = $input";
             $breed_stmt = $db->prepare($breed_sql);
-            $breed_stmt->execute([$name]);
+            $breed_exec = $breed_stmt->execute([$name]);
 
             if (!$breed_exec) throw new Exception();
             
             $breeds = $breed_stmt->fetchAll();
 
-            echo "<p>List of breeds: </p> <br>";
+            echo "breeds: ";
             foreach($breeds as $breed)
             {
-                echo "<p>$breed</p> <br>";
+                echo $breed;
             }
-            
             // Search for pets
             $pet_sql = "SELECT FROM pet WHERE (?) = $input";
             $pet_stmt = $db->prepare($pet_sql);
-            $pet_stmt->execute([$name]);
+            $pet_exec = $pet_stmt->execute([$name]);
 
             if (!$pet_exec) throw new Exception();
 
-
             $pets = $pet_stmt->fetchAll();
 
-            echo "<p>List of pets: </p> <br>";
+            echo "pets: ";
             foreach($pets as $pet)
             {
-                echo "<p>$pet</p> <br>";
+                echo $pet;
             }
 
         } catch (\Throwable $th) {
-            return false;
+            return [];
         }
-        return true;
+        return [$breeds, $pets];
     }
 ?>
