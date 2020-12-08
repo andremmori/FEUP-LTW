@@ -16,18 +16,22 @@ if ($pet == null) header('Location: index.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
+    <script src="pet_profile.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
     <?php include_once('sidebar.php') ?>
     <section id="profile">
       <div id="top">
-        <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
+        <a href="<?php echo "make_post.php?id=".$id ?>"><img id ="postpic" src="images/addPicture.png" alt="" width="35" height="35"></a>
+        <a href="<?php echo "edit_pet_profile.php?id=".$id ?>"><img id ="edit" src="images/edit.png" alt="" width="35" height="35"></a>
+        <img id ="fav" src="images/unfavourited.png" alt="" width="35" height="35" onclick="changeFavouriteIcon()">     
         <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
-        <h1 id="name"><a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a></h1>
+        <h1 id="name"><?php echo $pet['name'] ?></h1>
         <p id="followers">Followers 30</p>
         <p id="following">Following 35</p>
-        <p id="bio"><a href="pet_profile.php"><?php echo $pet['bio'] ?></a></p>      </div>
+        <p id="bio"><?php echo $pet['bio'] ?></p>
+      </div>
       <div id="listing">
         <a href="listing.php?id=<?php echo $_GET['id'];?>"><p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p> </a>
       </div>
