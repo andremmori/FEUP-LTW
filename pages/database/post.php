@@ -12,4 +12,22 @@
         return $post;
     }
 
+    function deletePost($id) {
+        global $db;
+
+        // Delte post from given id
+        $stmt = $db->prepare('DELETE FROM post WHERE id = ?');
+        return $stmt->execute([$id]);
+    }
+
+    function updatePost($id) {
+        global $db;
+
+        $description = $_POST['description'];
+
+        // Update post form given id
+        $stmt = $db->prepare('UPDATE post SET description = ? WHERE id = ?');
+        return $stmt->execute([$description, $id]);
+    }
+
 ?>
