@@ -1,3 +1,4 @@
+<?php include_once('database/connection.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
 <body>
     <?php include_once('hotbar.php') ?>
     <?php include_once('sidebar.php') ?>
-    
+
     <section id="profile">
         <div id="top">
             <img id="edit" src="images/edit.png" alt="" width="35" height="35">
