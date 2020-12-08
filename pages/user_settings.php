@@ -1,4 +1,13 @@
-<?php include_once('database/connection.php') ?>
+<?php
+include_once('database/connection.php');
+
+// Get user's session
+$user = $_SESSION['user'];
+
+if ($user == null)
+    header('Location: main_page.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +33,13 @@
                 </div>
             </div>
             <br>
-            <div>
-                <h3>Name: <?php echo $_SESSION['name'] ?></h3>
-                <h3>Email: <?php echo $_SESSION['email'] ?></h3>
+            <div id="form">
+                <form action="update_user_action.php" method="post">
+                    <h3>Name: <input type="text" name="name" value="<?php echo $user['name'] ?>"></h3>
+                    <h3>Email: <input type="text" name="email" value="<?php echo $user['email'] ?>"></h3>
+                    <h3>Password: <input type="password" name="password" placeholder="Enter new password" value=""></h3>
+                    <button id="btn" type="submit">Update</button>
+                </form>
             </div>
             <br><br>
             <div>

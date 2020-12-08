@@ -216,31 +216,31 @@ a {
 
     margin: 5% 0 2% 0;
     font-size: 200%;
- 
+
     grid-column: 2 / 4;
     grid-row: 1 / 2;
  }
- 
+
  #profile #top #followers{
- 
+
      margin: 5% 0 auto 0;
- 
+
      grid-column: 2 / 3;
      grid-row: 2 / 3;
   }
- 
+
   #profile #top #following{
- 
+
      margin: 5% 0 auto 0;
- 
+
      grid-column: 3 / 4;
      grid-row: 2 / 3;
   }
- 
+
  #profile #top #bio{
- 
+
      margin: 7% 5% auto 5%;
- 
+
      grid-column: 1 / 4;
      grid-row: 3 / 4;
  }
@@ -340,7 +340,7 @@ a {
 
 #post .post {
     margin: 50px 10% 10px 10%;
-    
+
 }
 
 #post a{
@@ -352,7 +352,7 @@ a {
 }
 
 #post .post #title {
-    
+
     position: relative;
     border: solid black;
     font-size: 150%;
@@ -660,7 +660,7 @@ a {
 
 #proposal {
     margin: 50px 10% 0px 10%;
-    text-align: center; 
+    text-align: center;
 }
 
 #proposal h2{
@@ -690,7 +690,7 @@ a {
 
 
 #settings #main {
-    
+
     margin: 50px 3% 0px 17%;
     background-color: tomato;
     border-top-style: solid;
@@ -699,13 +699,22 @@ a {
     border-bottom-style: solid;
 }
 
-#settings #main > *{   
+#settings #main > *{
     margin: 2%;
 }
 
 #settings #main #header {
     display: grid;
     grid-template-columns: auto 35px;
+}
+
+#settings #main #form form #btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 18px;
+  margin: 0% 0;
+  border: none;
+  cursor: pointer;
 }
 
 /* SEARCH_PAGE */
@@ -715,7 +724,7 @@ a {
 }
 
 
-#search #searchBar #input {  
+#search #searchBar #input {
     width: 10%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -743,7 +752,7 @@ a {
 
 #edit_post .post {
     margin: 50px 10% 10px 10%;
-    
+
 }
 
 #edit_post a{
@@ -755,7 +764,7 @@ a {
 }
 
 #edit_post .post #title {
-    
+
     position: relative;
     border: solid black;
     font-size: 150%;
@@ -808,7 +817,7 @@ a {
 
 #edit_post .post #description #updateDescription{
     display: inline;
-    
+
 }
 
 #edit_post .post #description #updateDescription #commentText{
@@ -888,29 +897,29 @@ a {
     margin: auto 0 2% 0;
     font-size: 200%;
     width: 80%;
- 
+
     grid-column: 2 / 4;
     grid-row: 1 / 2;
  }
- 
+
  #edit_pet_profile #top #followers{
- 
+
      margin: 5% 0 auto 0;
- 
+
      grid-column: 2 / 3;
      grid-row: 2 / 3;
   }
- 
+
   #edit_pet_profile #top #following{
- 
+
      margin: 5% 0 auto 0;
- 
+
      grid-column: 3 / 4;
      grid-row: 2 / 3;
   }
- 
+
  #edit_pet_profile #top #bioText{
- 
+
      margin: 7% 5% auto 5%;
 
      grid-column: 1 / 4;
