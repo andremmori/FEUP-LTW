@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS Message;
 DROP TABLE IF EXISTS Pet;
 DROP TABLE IF EXISTS PetGroupBreed;
 DROP TABLE IF EXISTS Post;
+DROP TABLE IF EXISTS Image;
 DROP TABLE IF EXISTS PostComment;
 DROP TABLE IF EXISTS Proposal;
 DROP TABLE IF EXISTS Shelter;
@@ -139,6 +140,13 @@ CREATE TABLE Post (
     photo       CHAR,
     date        DATE,
     likes       INTEGER
+);
+
+
+-- Table: Image
+CREATE TABLE Image (
+    id          INTEGER  PRIMARY KEY,
+    petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
 );
 
 
