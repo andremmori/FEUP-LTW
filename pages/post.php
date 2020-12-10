@@ -7,8 +7,8 @@ include_once('database/post.php');
 include_once('database/postcomment.php');
 
 // Get current post's id and info from db
-$id = $_GET['id'];
-$post = getPost($id);
+$post_id = $_GET['id'];
+$post = getPost($post_id);
 if ($post == null) header('Location: index.php');
 
 // Get pet from post
@@ -16,8 +16,8 @@ $pet = getPet($post['petID']);
 if ($pet == null) header('Location: index.php');
 
 //Get comments from post
-$comments = getPostComments($id);
-if ($comments == null) header('Location: index.php');
+$comments = getPostComments($post_id);
+// if ($comments == null) header('Location: index.php');
 ?>
 
 
@@ -39,12 +39,20 @@ if ($comments == null) header('Location: index.php');
         <article class="post">
             <div id="title">
                 <a href="pet_profile.php"><img id="pet_profile_pic" src="images/puppy2.jpeg" alt="" width="65" height="65"></a>
-                <a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a>
-                <a href="<?php echo "edit_post.php?id=".$id?>"> <img id="edit" src="images/three_dots.png" alt="" width="35" height="35"></a>
+                <a href="pet_profile.php">
+                    <p><?php echo $pet['name'] ?></p>
+                </a>
+                <?php
+                // Display option to edit only if its the owner
+                if (isPetOwner($pet['id'], $_SESSION['user']['id']))
+                    echo '<a href="edit_post.php?id=' . $post_id . '"> <img id="edit" src="images/three_dots.png" alt="" width="35" height="35"></a>';
+                ?>
             </div>
-            <img src="images/post/<?php echo $post['photo']?>" alt="">
+            <img src="images/post/<?php echo $post['photo'] ?>" alt="">
             <div id="description">
-                <a href="pet_profile.php"><p><?php echo $pet['name'] ?></p></a>
+                <a href="pet_profile.php">
+                    <p><?php echo $pet['name'] ?></p>
+                </a>
                 <p><?php echo $post['description'] ?></p>
                 <a href=""><img src="images/like.png" alt="" width="35" height="35"></a>
                 <p><?php echo $post['likes'] ?> Likes</p>

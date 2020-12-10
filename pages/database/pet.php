@@ -31,4 +31,13 @@
         $stmt = $db->prepare('UPDATE pet SET name = ?, bio = ? WHERE id = ?');
         return $stmt->execute([$name, $bio, $id]);
     }
+
+    function isPetOwner($pet_id, $user_id) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM pet WHERE id = ? AND ownerID = ?');
+        $stmt->execute([$pet_id, $user_id]);
+        $pet = $stmt->fetch();
+
+        return $pet;
+    }
 ?>

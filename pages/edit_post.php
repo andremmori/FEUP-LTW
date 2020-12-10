@@ -15,9 +15,8 @@ if ($post == null) header('Location: index.php');
 $pet = getPet($post['petID']);
 if ($pet == null) header('Location: index.php');
 
-//Get comments from post
-$comments = getPostComments($id);
-if ($comments == null) header('Location: index.php');
+// Check if user is the owner
+if ($_SESSION['user']['id'] != $pet['ownerID']) header('Location: index.php');
 ?>
 
 <!DOCTYPE html>
