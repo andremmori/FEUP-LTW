@@ -1,30 +1,4 @@
-<?php
-include_once('database/connection.php');
 
-include_once('database/search.php');
-
-// Get current post's id and info from db
-$input = $_GET['input'];
-if($input != "") 
-{
-  $contents = search($input);
-  foreach($contents as $content)
-  {
-    echo $content;
-  }
-}
-/*
-$post = getPost($id);
-if ($post == null) header('Location: index.php');
-
-// Get pet from post
-$pet = getPet($post['petID']);
-if ($pet == null) header('Location: index.php');
-
-//Get comments from post
-$comments = getPostComments($id);
-if ($comments == null) header('Location: index.php');*/
-?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -40,14 +14,15 @@ if ($comments == null) header('Location: index.php');*/
     <?php include_once('hotbar.php') ?>
     <?php include_once('sidebar.php') ?>
     <section id="search">
+      <div id="header">
+        <h1>Find pets by entering their name or breed!</h1>
+      </div>
       <div id="searchBar">
-        <form id="searchBarForm" method="get">
-          <img src="images/search.png" alt="search_action.php" width="30" height="30">
-          <input id="input" type="text" name="input" required>
-        </form>
+        <img src="images/search.png" alt="search_action.php" width="30" height="30" >
+        <input id="input" type="text" name="input" onchange="receiveData(this.value)" required>
       </div>
       <div id="searchResults">
-      </div>
+      </div> 
     </section>
     <footer>
       <p>&copy; Petgram 2020</p>

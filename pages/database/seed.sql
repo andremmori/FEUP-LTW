@@ -54,8 +54,8 @@ INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (4, 'Abig
 INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (5, 'Bunch of dogs', 'Ok boys', 'Ok dogs', 'Have a house'); -- id 5
 
 -- IndividualPet
-INSERT INTO individualpet (petID, breedID, size, colour) VALUES (1, 1, 'SMALL', 'WHITE'); -- id 1
-INSERT INTO individualpet (petID, breedID, size, colour) VALUES (2, 4, 'SMALL', 'WHITE'); -- id 2
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (1, 2, 'SMALL', 'WHITE'); -- id 1
+INSERT INTO individualpet (petID, breedID, size, colour) VALUES (2, 2, 'SMALL', 'WHITE'); -- id 2
 INSERT INTO individualpet (petID, breedID, size, colour) VALUES (3, 5, 'BIG', 'MIXED'); -- id 3
 INSERT INTO individualpet (petID, breedID, size, colour) VALUES (4, 2, 'MEDIUM', 'MIXED'); -- id 4
 

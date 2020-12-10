@@ -6,8 +6,8 @@
 PRAGMA foreign_keys = on;
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS Account;
-DROP TABLE IF EXISTS Breed;
+
+
 DROP TABLE IF EXISTS Collaborator;
 DROP TABLE IF EXISTS Comment;
 DROP TABLE IF EXISTS Favourite;
@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS Species;
 DROP TABLE IF EXISTS User;
 
 -- Table: Account
+DROP TABLE IF EXISTS Account;
 CREATE TABLE Account (
     id INTEGER PRIMARY KEY,
     name CHAR
@@ -33,6 +34,7 @@ CREATE TABLE Account (
 
 
 -- Table: Breed
+DROP TABLE IF EXISTS Breed;
 CREATE TABLE Breed (
     id        INTEGER  PRIMARY KEY,
     speciesID      REFERENCES Species (id) ON DELETE CASCADE,
@@ -146,7 +148,7 @@ CREATE TABLE Post (
 -- Table: Image
 CREATE TABLE Image (
     id          INTEGER  PRIMARY KEY,
-    petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
+    petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE
 );
 
 

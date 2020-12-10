@@ -2,43 +2,41 @@
     function search($input) {
 
         global $db;
-        $breeds = [];
-        $pets = [];
 
         try {
-
-            // Search for breeds
-            $breed_sql = "SELECT FROM breed WHERE (?) = $input";
-            $breed_stmt = $db->prepare($breed_sql);
-            $breed_exec = $breed_stmt->execute([$name]);
-
-            if (!$breed_exec) throw new Exception();
+            $search_sql = "SELECT petID FROM (SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id) where name=(?) or breed=(?) COLLATE NOCASE" ;
+                
+            $search_stmt = $db->prepare($search_sql);
             
-            $breeds = $breed_stmt->fetchAll();
+            $search_exec = $search_stmt->execute([$input, $input]);
+            
+            if (!$search_exec) throw new Exception();
 
-            echo "breeds: ";
-            foreach($breeds as $breed)
+            $results = $search_stmt->fetchAll();
+            if(count($results) == 0)
             {
-                echo $breed;
+                echo '<h2 id="noResults"> NO PETS FOUND </h2>';
             }
-            // Search for pets
-            $pet_sql = "SELECT FROM pet WHERE (?) = $input";
-            $pet_stmt = $db->prepare($pet_sql);
-            $pet_exec = $pet_stmt->execute([$name]);
-
-            if (!$pet_exec) throw new Exception();
-
-            $pets = $pet_stmt->fetchAll();
-
-            echo "pets: ";
-            foreach($pets as $pet)
+            else
             {
-                echo $pet;
+                foreach($results as $a)
+                {
+                    // nao sei imprimir isto direito
+                    foreach($a as $petID)
+                    {
+                        $pet = getPet($petID);
+                        echo '<a  href="pet_profile.php?id=' . $pet['id'] .'"><div class="petResult"> <h3>'.$pet['id'] . '   ' .$pet['name'] . '</h3></div></a>';
+                    }
+                }
             }
+            
+            
+            return $results;
 
         } catch (\Throwable $th) {
-            return [];
+            echo "deu merda";
+            return null;
         }
-        return [$breeds, $pets];
+        
     }
 ?>

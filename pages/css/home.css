@@ -718,8 +718,28 @@ a {
 }
 
 /* SEARCH_PAGE */
-#search #searchBar {
+
+#search {
     margin: 50px 10% 10px 10%;
+}
+#search > *{
+    width: 60%;
+}  
+
+#search #header{
+    text-align: center;
+    border-color: black;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    background-color: rgb(150, 26, 150);
+    color: rgba(255, 255, 255, 0.904);
+    text-shadow: 2px 2px #0000006b;
+}
+
+#search #searchBar {
+    
     position: relative;
 }
 
@@ -738,7 +758,7 @@ a {
 }
 
 #search #searchBar #input:focus {
-    width: 60%;
+    width: 100%;
     border: 3px solid #555;
 }
 
@@ -746,6 +766,28 @@ a {
     position: absolute;
     top: 25%;
     left: 0.5%;
+}
+
+#search #searchResults .petResult {
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+#search #noResults {
+
+    text-align: center;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    width: 50%;
+    margin: auto;
+    padding: 1%;
+
+    background-color: #f44336;
+
 }
 
 /* EDIT PROFILE*/
