@@ -22,6 +22,6 @@
                                 <p>%s</p>
                             </div>
                         </div>';
-        return sprintf($listing_comment, $account['name'], $comment['text']);
+        return sprintf($listing_comment, $account['name'], $listing_comment['text']);
     }
 ?>

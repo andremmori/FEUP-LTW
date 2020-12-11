@@ -4,7 +4,7 @@
         global $db;
 
         try {
-            $search_sql = "SELECT petID FROM (SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id) where name=(?) or breed=(?) COLLATE NOCASE" ;
+            $search_sql = "SELECT petID FROM (SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id) where name=(?) COLLATE NOCASE or breed=(?) COLLATE NOCASE" ;
                 
             $search_stmt = $db->prepare($search_sql);
             

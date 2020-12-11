@@ -1,11 +1,17 @@
 <?php 
 include_once('database/connection.php');
 include_once('database/pet.php');
+include_once('database/account.php');
+include_once('database/inquiry.php');
 
-// Get current pet's id and info from db
+// Get current inquiry's id and info from db
 $id = $_GET['id'];
-$pet = getPet($id);
-if ($pet == null) header('Location: index.php');
+$inquiry = getInquiry($id);
+if ($inquiry == null) header('Location: index.php');
+
+
+//Get comments from pet
+$messages = getInquiryMessages($id);
 
 ?>
 <!DOCTYPE html>
@@ -25,23 +31,12 @@ if ($pet == null) header('Location: index.php');
         <h1>Conversa com: Dono desnaturado</h1>
       </div>
       <div id="chat">
-        <div class="message_user">
-          <p id="message">quanto é o bro?</p>
-        </div>
-        <div class="message_owner">
-          <img src="images/pfp.png" alt="" width="65" height="65">
-          <div id="messageBox">
-            <p id="message">como assim bro é de graça como assim bro é de graça como assim bro é de graça como assim bro é de graça como assim bro é de graça</p>
-          </div>
-        </div>
-        <div class="message_user">
-          <p id="message">ah sbem orienta aí ent ah sbem orienta aí ent ah sbem orienta aí ent ah sbem orienta aí ent</p>
-        </div>
+                <?php foreach ($messages as $message) echo getInquiryMessage($message); ?>
+                <form id="sendMessage" action="" method="post"> <!-- action="send_message.php"-->
+                  <input id="messageText" type="text" name="message" required>
+                  <input type="submit" value="Send">
+                </form>
       </div>
-      <form id="sendMessage" action="" method="post"> <!-- action="send_message.php"-->
-        <input id="messageText" type="text" name="message" required>
-        <input type="submit" value="Send">
-      </form>
     </section>
     <footer>
       <p>&copy; Petgram 2020</p>
