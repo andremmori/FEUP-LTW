@@ -771,8 +771,8 @@ a {
 #search #searchResults .petResult {
     border-right-style: solid;
     border-left-style: solid;
-    border-bottom-style: solid;
     border-top-style: solid;
+    border-bottom-style: solid; 
 }
 
 #search #noResults {

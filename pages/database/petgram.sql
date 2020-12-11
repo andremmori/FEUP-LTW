@@ -146,7 +146,12 @@ CREATE TABLE Post (
 
 
 -- Table: Image
-CREATE TABLE Image (
+CREATE TABLE AccountImage (
+    id          INTEGER  PRIMARY KEY,
+    accountID       INTEGER  REFERENCES Account (id) ON DELETE CASCADE
+);
+
+CREATE TABLE PetImage (
     id          INTEGER  PRIMARY KEY,
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE
 );
