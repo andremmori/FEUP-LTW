@@ -23,7 +23,6 @@ include_once('database/post.php');
     <section id="feed">
         <?php
             $posts = getFavouritePetsPost($_SESSION['user']['id']);
-            print_r($posts);
             if(count($posts) == 0)
                 echo 'sad :(';
             else
