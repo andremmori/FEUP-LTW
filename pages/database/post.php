@@ -30,4 +30,38 @@
         return $stmt->execute([$description, $id]);
     }
 
-?>
+    function getFavouritePetsPost($user_id)
+    {
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM favourite JOIN post ON favourite.petID = post.petID WHERE accountID = ? ORDER BY date DESC');
+        $stmt->execute([$user_id]);
+
+        return $stmt->fetchAll();
+    }
+
+    function makeFeedPost($post) {
+        $article = "";
+
+
+        $pet = getPet($post['petID']);
+        $article =
+        '<article class="post">
+            <div id="top">
+                <a href="pet_profile.php?id='.$pet['id'].'"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php?id='.$pet['id']. '">
+                    <h1>'. $pet['name'] .'</h1>
+                </a>
+            </div>
+            <img src="images/post/'. $post['photo'] .'" alt="">
+            <div id="bottom">
+                <a href="pet_profile.php?id=' . $pet['id'] . '">
+                    <p>'. $pet['name'] .'</p>
+                </a>
+                <p>' . $post['description'] . '</p>
+                <p>'. $post['date'] .'</p>
+            </div>
+        </article>';
+
+        return $article;
+    }
