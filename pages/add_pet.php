@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
-    <script src="add_pet.js" defer></script>
+    <script src="js/add_pet.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>

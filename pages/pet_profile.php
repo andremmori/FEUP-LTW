@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 
@@ -16,7 +16,7 @@ if ($pet == null) header('Location: index.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
-    <script src="pet_profile.js" defer></script>
+    <script src="js/pet_profile.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
@@ -25,7 +25,7 @@ if ($pet == null) header('Location: index.php');
       <div id="top">
         <a href="<?php echo "add_post.php?id=".$id ?>"><img id ="postpic" src="images/addPicture.png" alt="" width="35" height="35"></a>
         <a href="<?php echo "edit_pet_profile.php?id=".$id ?>"><img id ="edit" src="images/edit.png" alt="" width="35" height="35"></a>
-        <img id ="fav" src="images/unfavourited.png" alt="" width="35" height="35" onclick="changeFavouriteIcon()">     
+        <img id ="fav" src="images/unfavourited.png" alt="" width="35" height="35" onclick="changeFavouriteIcon()">
         <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
         <h1 id="name"><?php echo $pet['name'] ?></h1>
         <p id="followers">Followers 30</p>

@@ -140,13 +140,23 @@ CREATE TABLE Post (
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
     description CHAR,
     photo       CHAR,
-    date        DATE,
-    likes       INTEGER
+    date        DATE
 );
 
+-- Table: PostLike
+CREATE TABLE PostLike (
+    accountID INTEGER REFERENCES Account (id) ON DELETE CASCADE,
+    postID    INTEGER REFERENCES Post (id) ON DELETE CASCADE,
+    PRIMARY KEY (accountID, postID)
+);
 
 -- Table: Image
-CREATE TABLE Image (
+CREATE TABLE AccountImage (
+    id          INTEGER  PRIMARY KEY,
+    accountID       INTEGER  REFERENCES Account (id) ON DELETE CASCADE
+);
+
+CREATE TABLE PetImage (
     id          INTEGER  PRIMARY KEY,
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE
 );

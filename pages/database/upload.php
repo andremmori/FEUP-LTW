@@ -8,7 +8,7 @@
       $db->beginTransaction();
       
       // Insert image data into database
-      $stmt = $db->prepare("INSERT INTO image VALUES(NULL, $id)");
+      $stmt = $db->prepare("INSERT INTO PetImage VALUES(NULL, $id)");
 
       // Get image ID
       $image_id = $db->lastInsertId();

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 
@@ -16,7 +16,7 @@ if ($pet == null) header('Location: index.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
-    <script src="proposal_list.js" defer></script>
+    <script src="js/proposal_list.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>

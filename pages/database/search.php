@@ -4,7 +4,9 @@
         global $db;
 
         try {
-            $search_sql = "SELECT petID FROM (SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id) where name=(?) COLLATE NOCASE or breed=(?) COLLATE NOCASE" ;
+            $view = "SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id";
+
+            $search_sql = "SELECT petID FROM ($view) where name=(?) COLLATE NOCASE or breed=(?) COLLATE NOCASE" ;
                 
             $search_stmt = $db->prepare($search_sql);
             
@@ -19,23 +21,15 @@
             }
             else
             {
-                foreach($results as $a)
-                {
-                    // nao sei imprimir isto direito
-                    foreach($a as $petID)
+                foreach($results as $petID)
                     {
-                        $pet = getPet($petID);
+                        $pet = getPet($petID[0]);
                         echo '<a  href="pet_profile.php?id=' . $pet['id'] .'"><div class="petResult"> <h3>'.$pet['id'] . '   ' .$pet['name'] . '</h3></div></a>';
                     }
-                }
             }
             
-            
-            return $results;
-
         } catch (\Throwable $th) {
-            echo "deu merda";
-            return null;
+            echo "exception thrown";
         }
         
     }

@@ -93,11 +93,33 @@ INSERT INTO proposal (petID, accountID, date, text, state) VALUES (4, 2, date('n
 INSERT INTO proposal (petID, accountID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
 
 -- Post
-INSERT INTO post (petID, description, photo, date, likes) VALUES (1, 'Adopt me', '1.jpg', date('now'), 111); -- id 1
-INSERT INTO post (petID, description, photo, date, likes) VALUES (2, 'Take me home', '2.jpg', date('now'), 43); -- id 2
-INSERT INTO post (petID, description, photo, date, likes) VALUES (3, 'help me', '3.jpg', date('now'), 69); -- id 3
-INSERT INTO post (petID, description, photo, date, likes) VALUES (4, 'I want someone', '4.jpg', date('now'), 6); -- id 4
-INSERT INTO post (petID, description, photo, date, likes) VALUES (5, 'help us', '5.jpg', date('now'), 4); -- id 5
+INSERT INTO post (petID, description, photo, date) VALUES (1, 'Adopt me', '1.jpg', date('now')); -- id 1
+INSERT INTO post (petID, description, photo, date) VALUES (2, 'Take me home', '2.jpg', date('now')); -- id 2
+INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me', '3.jpg', date('now')); -- id 3
+INSERT INTO post (petID, description, photo, date) VALUES (4, 'I want someone', '4.jpg', date('now')); -- id 4
+INSERT INTO post (petID, description, photo, date) VALUES (5, 'help us', '5.jpg', date('now')); -- id 5
+
+-- PostLike
+INSERT INTO postlike (accountID, postID) VALUES (1, 2);
+INSERT INTO postlike (accountID, postID) VALUES (1, 3);
+INSERT INTO postlike (accountID, postID) VALUES (1, 4);
+INSERT INTO postlike (accountID, postID) VALUES (1, 5);
+INSERT INTO postlike (accountID, postID) VALUES (2, 1);
+INSERT INTO postlike (accountID, postID) VALUES (2, 3);
+INSERT INTO postlike (accountID, postID) VALUES (2, 4);
+INSERT INTO postlike (accountID, postID) VALUES (2, 5);
+INSERT INTO postlike (accountID, postID) VALUES (3, 2);
+INSERT INTO postlike (accountID, postID) VALUES (3, 1);
+INSERT INTO postlike (accountID, postID) VALUES (3, 4);
+INSERT INTO postlike (accountID, postID) VALUES (3, 5);
+INSERT INTO postlike (accountID, postID) VALUES (4, 2);
+INSERT INTO postlike (accountID, postID) VALUES (4, 3);
+INSERT INTO postlike (accountID, postID) VALUES (4, 1);
+INSERT INTO postlike (accountID, postID) VALUES (4, 5);
+INSERT INTO postlike (accountID, postID) VALUES (5, 2);
+INSERT INTO postlike (accountID, postID) VALUES (5, 3);
+INSERT INTO postlike (accountID, postID) VALUES (5, 4);
+INSERT INTO postlike (accountID, postID) VALUES (5, 1);
 
 -- PostComment
 INSERT INTO postcomment (postID, accountID, text, date) VALUES (1, 1, 'cuteee', date('now')); -- id 1

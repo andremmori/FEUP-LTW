@@ -65,3 +65,39 @@
 
         return $article;
     }
+
+    function likePost($account_id, $post_id) {
+        global $db;
+
+        $stmt = $db->prepare('INSERT INTO postlike (accountID, postID) VALUES (? , ?)');
+        $stmt->execute([$account_id, $post_id]);
+
+        return $stmt->execute([$account_id, $post_id]);;
+    }
+
+    function dislikePost($account_id, $post_id) {
+        global $db;
+
+        $stmt = $db->prepare('DELETE FROM postlike WHERE accountID = ? AND postID = ?');
+        $stmt->execute([$account_id, $post_id]);
+
+        return $stmt->execute([$account_id, $post_id]);;
+    }
+
+    function hasLikedPost($account_id, $post_id) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM postlike WHERE accountID = ? AND postID = ?');
+        $stmt->execute([$account_id, $post_id]);
+
+        return $stmt->fetch() != NULL;
+    }
+
+    function getPostLikes($post_id) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM postlike WHERE postID = ?');
+        $stmt->execute([$post_id]);
+
+        return $stmt->fetchAll();
+    }

@@ -17,6 +17,7 @@ if ($pet == null) header('Location: index.php');
 
 //Get comments from post
 $comments = getPostComments($post_id);
+$likes = getPostLikes($post_id);
 // if ($comments == null) header('Location: index.php');
 ?>
 
@@ -29,6 +30,7 @@ $comments = getPostComments($post_id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
+    <script src="js/post.js"></script>
     <link rel="icon" href="images/icon.jpg">
 </head>
 
@@ -54,8 +56,13 @@ $comments = getPostComments($post_id);
                     <p><?php echo $pet['name'] ?></p>
                 </a>
                 <p><?php echo $post['description'] ?></p>
-                <a href=""><img src="images/like.png" alt="" width="35" height="35"></a>
-                <p><?php echo $post['likes'] ?> Likes</p>
+                <?php
+                if (!hasLikedPost($_SESSION['user']['id'], $post['id']))
+                    echo '<a id="like-btn" type="button" onclick="likePost(' . $_SESSION['user']['id'] . ',' . $post['id'] . ')"><img id="like-icon" src="images/like.png" alt="" width="35" height="35"></a>';
+                else
+                    echo '<a id="like-btn" type="button" onclick="dislikePost(' . $_SESSION['user']['id'] . ',' . $post['id'] . ')"><img id="like-icon" src="images/liked.png" alt="" width="35" height="35"></a>';
+                ?>
+                <p id="post-likes"><?php echo count($likes) ?> Likes</p>
                 <a href=""><img src="images/comment.png" alt="" width="35" height="35"></a>
                 <p><?php echo count($comments) ?> Comments</p>
                 <p><?php echo $post['date'] ?></p>
