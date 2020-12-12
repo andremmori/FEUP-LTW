@@ -65,3 +65,12 @@
 
         return $article;
     }
+
+    function getPostLikes($post_id) {
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM postlike WHERE postID = ?');
+        $stmt->execute([$post_id]);
+
+        return $stmt->fetchAll();
+    }

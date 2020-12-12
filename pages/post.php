@@ -17,6 +17,7 @@ if ($pet == null) header('Location: index.php');
 
 //Get comments from post
 $comments = getPostComments($post_id);
+$likes = getPostLikes($post_id);
 // if ($comments == null) header('Location: index.php');
 ?>
 
@@ -55,7 +56,7 @@ $comments = getPostComments($post_id);
                 </a>
                 <p><?php echo $post['description'] ?></p>
                 <a href=""><img src="images/like.png" alt="" width="35" height="35"></a>
-                <p><?php echo $post['likes'] ?> Likes</p>
+                <p><?php echo count($likes) ?> Likes</p>
                 <a href=""><img src="images/comment.png" alt="" width="35" height="35"></a>
                 <p><?php echo count($comments) ?> Comments</p>
                 <p><?php echo $post['date'] ?></p>

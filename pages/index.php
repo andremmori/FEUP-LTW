@@ -3,8 +3,6 @@ include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/post.php');
 
-// Get favourite pets
-// getFavourites();
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
