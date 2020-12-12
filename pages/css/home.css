@@ -594,12 +594,13 @@ a {
     min-height: 200px;
 }
 
-#inquiry .message_owner {
-
-    display: flex;
+#inquiry #chat .message_owner {
+ 
     margin: 2%;
+    align-items:right;
+    display: flex;
 }
-#inquiry .message_user {
+#inquiry #chat .message_user {
 
     display: flex;
     margin: 2%;
@@ -608,7 +609,7 @@ a {
 #inquiry .message_owner #messageBox{
 
     background-color: white;
-    width: 50%;
+    width: 90%;
     height: fit-content;
     border-top-style: solid;
     border-right-style: solid;
@@ -621,14 +622,13 @@ a {
 
 #inquiry .message_owner img{
     color: black;
-    margin: 1% 3% 0% 0%;
+    margin: 2% 0% 0% 3%;
     border-radius: 50%;
-
 }
 
 #inquiry .message_user img{
     color: black;
-    margin: 1% 3% 0% 0%;
+    margin: 2% 3% 0% 0%;
     border-radius: 50%;
 
 }
@@ -636,7 +636,7 @@ a {
 
 #inquiry .message_user #messageBox{
     background-color: white;
-    width: 50%;
+    width: 90%;
     height: fit-content;
     border-top-style: solid;
     border-right-style: solid;

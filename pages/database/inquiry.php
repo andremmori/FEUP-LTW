@@ -28,11 +28,10 @@
         if ($message['petOwner'] == 1){
             $account = getAccount($message['ownerID']);
             $inquiry_message = '<div class="message_owner">
-                                <img src="images/pfp.png" alt="" width="65" height="65">
                                 <div id="messageBox">
                                     <p>%s</p>
                                 </div>
-                                
+                                <img src="images/pfp.png" alt="" width="65" height="65">
                             </div>';
         }
         else{
