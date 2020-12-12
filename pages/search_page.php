@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
-    <script src="search.js" defer></script>
+    <script src="js/search.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
@@ -22,7 +22,7 @@
         <input id="input" type="text" name="input" onchange="receiveData(this.value)" required>
       </div>
       <div id="searchResults">
-      </div> 
+      </div>
     </section>
     <footer>
       <p>&copy; Petgram 2020</p>
