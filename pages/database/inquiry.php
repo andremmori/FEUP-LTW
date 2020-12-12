@@ -27,28 +27,23 @@
     function getInquiryMessage($message){
         if ($message['petOwner'] == 1){
             $account = getAccount($message['ownerID']);
-            $inquiry_message = '<div class="comment">
+            $inquiry_message = '<div class="message_owner">
                                 <img src="images/pfp.png" alt="" width="65" height="65">
-                                <div id="username">
+                                <div id="messageBox">
                                     <p>%s</p>
                                 </div>
-                                <div id="text">
-                                    <p>%s</p>
-                                </div>
+                                
                             </div>';
         }
         else{
             $account = getAccount($message['userID']);
-            $inquiry_message = '<div class="comment">
+            $inquiry_message = '<div class="message_user">
                                 <img src="images/pfp.png" alt="" width="65" height="65">
-                                <div id="username">
-                                    <p>%s</p>
-                                </div>
-                                <div id="text">
+                                <div id="messageBox">
                                     <p>%s</p>
                                 </div>
                             </div>';
         }
-        return sprintf($inquiry_message, $account['name'], $message['text']);
+        return sprintf($inquiry_message, $message['text']);
     }
 ?>

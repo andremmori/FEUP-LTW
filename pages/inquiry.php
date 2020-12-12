@@ -28,7 +28,7 @@ $messages = getInquiryMessages($id);
     <?php include_once('sidebar.php') ?>
     <section id="inquiry">
       <div id=top>
-        <h1>Conversa com: Dono desnaturado</h1>
+        <h1>Inquiry about <?php echo $messages[0]['name'] ?></h1>
       </div>
       <div id="chat">
                 <?php foreach ($messages as $message) echo getInquiryMessage($message); ?>

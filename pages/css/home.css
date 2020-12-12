@@ -597,9 +597,14 @@ a {
 #inquiry .message_owner {
 
     display: flex;
-    margin: 2%
+    margin: 2%;
 }
+#inquiry .message_user {
 
+    display: flex;
+    margin: 2%;
+    
+}
 #inquiry .message_owner #messageBox{
 
     background-color: white;
@@ -610,7 +615,7 @@ a {
     border-left-style: solid;
     border-bottom-style: solid;
     border-radius: 25px;
-    margin: auto 0% auto 0%;
+    margin: 2% 0% auto 0%;
 
 }
 
@@ -621,11 +626,15 @@ a {
 
 }
 
+#inquiry .message_user img{
+    color: black;
+    margin: 1% 3% 0% 0%;
+    border-radius: 50%;
+
+}
 
 
-#inquiry .message_user {
-
-
+#inquiry .message_user #messageBox{
     background-color: white;
     width: 50%;
     height: fit-content;
@@ -634,7 +643,7 @@ a {
     border-left-style: solid;
     border-bottom-style: solid;
     border-radius: 25px;
-    margin: 2% 2% 2% auto;
+    margin: 2% 0% auto 0%;
 }
 
 #inquiry p{
@@ -642,12 +651,6 @@ a {
     margin: 2%
 }
 
-#inquiry #sendMessage {
-
-    border-right-style: solid;
-    border-left-style: solid;
-    border-bottom-style: solid;
-}
 
 #inquiry #sendMessage #messageText {
 
