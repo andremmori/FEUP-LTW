@@ -1171,6 +1171,12 @@ a {
     margin: 5%;
 }
 
-#add_post #auxDiv #descriptionForm #description {
+#add_post #auxDiv #descriptionDiv #description {
     width: 80%;
+}
+
+#add_post #auxDiv #selectedImage{
+    width: 60%;
+    height: auto;
+
 }

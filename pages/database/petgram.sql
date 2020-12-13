@@ -18,7 +18,8 @@ DROP TABLE IF EXISTS Message;
 DROP TABLE IF EXISTS Pet;
 DROP TABLE IF EXISTS PetGroupBreed;
 DROP TABLE IF EXISTS Post;
-DROP TABLE IF EXISTS Image;
+DROP TABLE IF EXISTS PetImage;
+DROP TABLE IF EXISTS AccountImage;
 DROP TABLE IF EXISTS PostComment;
 DROP TABLE IF EXISTS Proposal;
 DROP TABLE IF EXISTS Shelter;
@@ -29,6 +30,7 @@ DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Account;
 CREATE TABLE Account (
     id INTEGER PRIMARY KEY,
+    profilePic   INTEGER  REFERENCES AccountImage (id) ON DELETE CASCADE,
     name CHAR
 );
 
@@ -115,6 +117,7 @@ CREATE TABLE Message (
 CREATE TABLE Pet (
     id           INTEGER  PRIMARY KEY,
     ownerID      INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
+    profilePic   INTEGER  REFERENCES PetImage (id) ON DELETE CASCADE,
     name         CHAR,
     bio          CHAR,
     description  CHAR,
@@ -138,8 +141,8 @@ CREATE TABLE PetGroupBreed (
 CREATE TABLE Post (
     id          INTEGER  PRIMARY KEY,
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
+    photo       INTEGER  REFERENCES PetImage (id) ON DELETE CASCADE,
     description CHAR,
-    photo       CHAR,
     date        DATE
 );
 
@@ -150,12 +153,13 @@ CREATE TABLE PostLike (
     PRIMARY KEY (accountID, postID)
 );
 
--- Table: Image
+-- Table: AccountImage
 CREATE TABLE AccountImage (
     id          INTEGER  PRIMARY KEY,
     accountID       INTEGER  REFERENCES Account (id) ON DELETE CASCADE
 );
 
+-- Table: PetImage
 CREATE TABLE PetImage (
     id          INTEGER  PRIMARY KEY,
     petID       INTEGER  REFERENCES Pet (id) ON DELETE CASCADE

@@ -121,6 +121,16 @@ INSERT INTO postlike (accountID, postID) VALUES (5, 3);
 INSERT INTO postlike (accountID, postID) VALUES (5, 4);
 INSERT INTO postlike (accountID, postID) VALUES (5, 1);
 
+-- AccountImage
+INSERT INTO AccountImage (id, accountID) VALUES (1, 1); -- id 1
+INSERT INTO AccountImage (id, accountID) VALUES (2, 2); -- id 1
+INSERT INTO AccountImage (id, accountID) VALUES (3, 3); -- id 1
+
+-- PetImage
+INSERT INTO AccountImage (id, petID) VALUES (1, 1); -- id 1
+INSERT INTO AccountImage (id, accountID) VALUES (2, 2); -- id 1
+INSERT INTO AccountImage (id, accountID) VALUES (3, 3); -- id 1
+
 -- PostComment
 INSERT INTO postcomment (postID, accountID, text, date) VALUES (1, 1, 'cuteee', date('now')); -- id 1
 INSERT INTO postcomment (postID, accountID, text, date) VALUES (2, 2, 'lovely', date('now')); -- id 2

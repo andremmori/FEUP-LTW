@@ -1,8 +1,3 @@
-let form = document.getElementById("searchBarForm");
-let input = document.getElementById("input")
-let submit = document.getElementById("submit")
-console.log(form)
-
 
 
 function receiveData(x) {
@@ -16,10 +11,3 @@ function receiveData(x) {
     xhttp.open("GET", "search_action.php?input="+x, true)
     xhttp.send()
 }
-
-//form.addEventListener('submit', receiveData)
-
-/*
-request.onload = 
-request.open("get", "search_action.php?input="+input.value, true)
-request.send()*/

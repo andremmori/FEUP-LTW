@@ -1,6 +1,6 @@
 <?php
 
-  function upload($id, $file)
+  function upload($petID, $file, $description)
   {
     global $db;
     try {
@@ -8,15 +8,18 @@
       $db->beginTransaction();
       
       // Insert image data into database
-      $stmt = $db->prepare("INSERT INTO PetImage VALUES(NULL, $id)");
+      $stmt = $db->prepare("INSERT INTO PetImage VALUES(NULL, (?))");
+
+      $exec = $stmt->execute([$petID]);
+            
+      if (!$exec) throw new Exception();
 
       // Get image ID
       $image_id = $db->lastInsertId();
 
       // Generate filenames for original, small and medium files
-      $originalFileName = "images/originals/".$image_id.".jpg";
-      $smallFileName = "images/thumbs_small/".$image_id.".jpg";
-      //$mediumFileName = "images/thumbs_medium/$image_id.jpg";
+      $originalFileName = "images/pet/originals/".$image_id.".jpg";
+      $squareFileName = "images/pet/squared/".$image_id.".jpg";
 
       // Move the uploaded file to its final destination
       move_uploaded_file($file, $originalFileName);
@@ -29,26 +32,20 @@
       $square = min($width, $height);  // size length of the maximum square
 
       // Create and save a small square thumbnail
-      $small = imagecreatetruecolor(65, 65);
-      imagecopyresized($small, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 60, 60, $square, $square);
-      imagejpeg($small, $smallFileName);
+      $squaredImage = imagecreatetruecolor(65, 65);
+      imagecopyresized($squaredImage, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 65, 65, $square, $square);
+      imagejpeg($squaredImage, $squareFileName); 
 
-      /*
-      // Calculate width and height of medium sized image (max width: 400)
-      $mediumwidth = $width;
-      $mediumheight = $height;
-      if ($mediumwidth > 400) {
-        $mediumwidth = 400;
-        $mediumheight = $mediumheight * ( $mediumwidth / $width );
-      }
+      // Make post
 
-      // Create and save a medium image
-      $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
-      imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
-      imagejpeg($medium, $mediumFileName);*/
+      $stmt = $db->prepare("INSERT INTO Post VALUES(NULL, (?), (?), (?), date('now'))");
+
+      $exec = $stmt->execute([$petID, $image_id, $description]);
+            
+      if (!$exec) throw new Exception();
 
       $db->commit();
-
+      
       return true;
     } catch (\Throwable $th) {
         $db->rollback();
