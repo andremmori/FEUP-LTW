@@ -2,8 +2,10 @@
     include_once('database/connection.php');
     include_once('database/proposal.php');
 
+    $id = $_POST['petId'];
+
     if(makeProposal())
-        header('Location: listing.php'); // Redirect to listing page if succesful
+        header('Location: listing.php?id='.$id);
     else
-        header('Location: proposal.php'); // Redirect to proposal page if unsuccesful
+        header('Location: index.php');
 ?>
