@@ -39,14 +39,14 @@ $likes = getPostLikes($post_id);
     <?php include_once('sidebar.php') ?>
     <section id="post">
         <article class="post">
-            <div id="title">      
+            <div id="title">
                 <a href="pet_profile.php?id=<?php echo $pet['id']?>"><img id="pet_profile_pic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65"></a>
                 <a href="pet_profile.php?id=<?php echo $pet['id']?>">
                     <p><?php echo $pet['name'] ?></p>
                 </a>
                 <?php
                 // Display option to edit only if its the owner
-                if (isPetOwner($pet['id'], $_SESSION['user']['id']))
+                if (isPetOwner($pet['id']))
                     echo '<a href="edit_post.php?id=' . $post_id . '"> <img id="edit" src="images/three_dots.png" alt="" width="35" height="35"></a>';
                 ?>
             </div>

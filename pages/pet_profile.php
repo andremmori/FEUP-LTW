@@ -26,11 +26,15 @@ if ($pet == null) header('Location: index.php');
     <?php include_once('sidebar.php') ?>
     <section id="profile">
         <div id="top">
-            <a href="<?php echo "add_post.php?id=" . $id ?>"><img id="postpic" src="images/addPicture.png" alt="" width="35" height="35"></a>
-            <a href="<?php echo "edit_pet_profile.php?id=" . $id ?>"><img id="edit" src="images/edit.png" alt="" width="35" height="35"></a>
-
             <?php
-            if (!isPetOwner($pet['id'], $_SESSION['user']['id']))
+                if(isPetOwner($pet['id'])){
+                    echo $pet['id'];
+                    echo '<a href="add_post.php?id='.$pet['id'].'"><img id="postpic" src="images/addPicture.png" alt="" width="35" height="35"></a>';
+                    echo '<a href="edit_pet_profile.php?id='.$pet['id'].'"><img id="edit" src="images/edit.png" alt="" width="35" height="35"></a>';
+                }
+            ?>
+            <?php
+            if (!isPetOwner($pet['id']))
                 if (isFavourite($_SESSION['user']['id'], $pet['id']))
                     echo '<img id ="fav" src="images/favourited.png" alt="" width="35" height="35" onclick="unfavouritePet(' . $_SESSION['user']['id'] . ',' . $pet['id'] . ')">';
                 else

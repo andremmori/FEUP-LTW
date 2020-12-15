@@ -32,8 +32,9 @@
         return $stmt->execute([$name, $bio, $id]);
     }
 
-    function isPetOwner($pet_id, $user_id) {
+    function isPetOwner($pet_id) {
         global $db;
+        $user_id = $_SESSION['user']['id'];
         $stmt = $db->prepare('SELECT * FROM pet WHERE id = ? AND ownerID = ?');
         $stmt->execute([$pet_id, $user_id]);
         $pet = $stmt->fetch();

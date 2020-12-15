@@ -1,6 +1,6 @@
 <?php
 include_once('database/user.php');
-$pets = getUserPets();
+$user_pets = getUserPets();
 $shelters = shelterCollaborator();
 ?>
 <aside id="sideBar">
@@ -23,12 +23,12 @@ $shelters = shelterCollaborator();
     <p>Pets:</p>
     <ul>
         <?php
-        if (count($pets) == 0)
+        if (count($user_pets) == 0)
             echo '<li>No pets yet</li>';
         else
-            foreach ($pets as $pet)
-                echo '<a href="pet_profile.php?id=' . $pet['id'] . '">
-                    <li>' . $pet['name'] . '</li>
+            foreach ($user_pets as $user_pet)
+                echo '<a href="pet_profile.php?id=' . $user_pet['id'] . '">
+                    <li>' . $user_pet['name'] . '</li>
                   </a>'
         ?>
     </ul>
