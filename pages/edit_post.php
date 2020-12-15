@@ -40,7 +40,7 @@ if ($_SESSION['user']['id'] != $pet['ownerID']) header('Location: index.php');
                 <p><?php echo $pet['name'] ?></p>
                 <img id="edit" src="images/three_dots.png" alt="" width="35" height="35">
             </div>
-            <img src="images/post/<?php echo $post['photo'] ?>" alt="">
+            <img src="images/petImages/originals/<?php echo $post['photo'] ?>.jpg" alt="">
             <div id="description">
                 <p><?php echo $pet['name'] ?></p>
                 <form id="updateDescription" action="update_post_action.php?id=<?php echo $id ?>" method="post">

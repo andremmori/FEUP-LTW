@@ -37,7 +37,7 @@ if ($pet == null) header('Location: index.php');
                     echo '<img id ="fav" src="images/unfavourited.png" alt="" width="35" height="35" onclick="favouritePet(' . $_SESSION['user']['id'] . ',' . $pet['id'] . ')">';
 
             ?>
-            <img id="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
+            <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
             <h1 id="name"><?php echo $pet['name'] ?></h1>
             <p id="followers">Followers 30</p>
             <p id="following">Following 35</p>
@@ -49,24 +49,23 @@ if ($pet == null) header('Location: index.php');
             </a>
         </div>
         <div id="gallery">
-            <div class="row">
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-            </div>
-            <div class="row">
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-            </div>
-            <div class="row">
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-            </div>
-            <div class="row">
-                <a href="post.php?id=1"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
-            </div>
+            <?php
+                $posts = getPetPosts($pet['id']);
+                $numPosts = count($posts);
+                $i = 0;
+                while($i < $numPosts)
+                {
+                    $j = 0;
+                    echo '<div class="row">';
+                    while($j < 3 && $i < $numPosts)
+                    {
+                        echo '<a href="post.php?id='.$posts[$i]['id'].'"><img src="images/petImages/squared/'.$posts[$i]['photo'].'.jpg" alt="" width="65" height="65"></a>';
+                        $j++;
+                        $i++;
+                    }
+                    echo '</div>';
+                }
+            ?>
         </div>
     </section>
     <footer>

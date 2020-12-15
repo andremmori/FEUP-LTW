@@ -40,4 +40,14 @@
 
         return $pet;
     }
+
+    function getPetPosts($pet_id)
+    {
+        global $db;
+        $stmt = $db->prepare('SELECT id, photo FROM post WHERE petId = ?');
+        $stmt->execute([$pet_id]);
+        $posts = $stmt->fetchAll();
+
+        return $posts;
+    }
 ?>

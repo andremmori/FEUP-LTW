@@ -43,17 +43,17 @@
     function makeFeedPost($post) {
         $article = "";
 
-
         $pet = getPet($post['petID']);
+
         $article =
         '<article class="post">
             <div id="top">
-                <a href="pet_profile.php?id='.$pet['id'].'"><img src="images/puppy.jpg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php?id='.$pet['id'].'"><img src="images/profileImages/squared/'.$pet['profilePic'].'.jpg" alt="" width="65" height="65"></a>
                 <a href="pet_profile.php?id='.$pet['id']. '">
                     <h1>'. $pet['name'] .'</h1>
                 </a>
             </div>
-            <img src="images/post/'. $post['photo'] .'" alt="">
+            <img src="images/petImages/originals/'. $post['photo'] .'.jpg" alt="">
             <div id="bottom">
                 <a href="pet_profile.php?id=' . $pet['id'] . '">
                     <p>'. $pet['name'] .'</p>

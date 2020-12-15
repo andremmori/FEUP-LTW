@@ -22,13 +22,14 @@
       <div id="auxDiv">
         <h2>Post a picture of your pet!<h2>
         <h4>Upload a picture from and add a description (optional)</h4>
-        <form id="addPostForm" action="upload_action.php" method="post" enctype="multipart/form-data">
+        <form id="addPostForm" action="upload_image_action.php" method="post" enctype="multipart/form-data">
           <input id="input" type="file" name="image" onchange="selectImage(event)" required>
           <!--<input id="submit" type="submit" value="Upload" onclick="<//?php echo "selectImage(".$petID.")" ?>" required>-->
         </form>
         <div id="uploadedImage"> </div>
         <div id="descriptionDiv">
           <input form="addPostForm" id="description" type="description" name="description" placeholder="Enter a description for your post.">
+          <input form="addPostForm" type="hidden" name="petID" value="<?php echo $petID ?>">
           <input form="addPostForm" type="submit" value="Post"/>
         </div>          
       </div>

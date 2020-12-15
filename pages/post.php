@@ -39,9 +39,9 @@ $likes = getPostLikes($post_id);
     <?php include_once('sidebar.php') ?>
     <section id="post">
         <article class="post">
-            <div id="title">
-                <a href="pet_profile.php"><img id="pet_profile_pic" src="images/puppy2.jpeg" alt="" width="65" height="65"></a>
-                <a href="pet_profile.php">
+            <div id="title">      
+                <a href="pet_profile.php?id=<?php echo $pet['id']?>"><img id="pet_profile_pic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php?id=<?php echo $pet['id']?>">
                     <p><?php echo $pet['name'] ?></p>
                 </a>
                 <?php
@@ -50,7 +50,7 @@ $likes = getPostLikes($post_id);
                     echo '<a href="edit_post.php?id=' . $post_id . '"> <img id="edit" src="images/three_dots.png" alt="" width="35" height="35"></a>';
                 ?>
             </div>
-            <img src="images/post/<?php echo $post['photo'] ?>" alt="">
+            <img src="images/petImages/originals/<?php echo $post['photo'] ?>.jpg" alt="">
             <div id="description">
                 <a href="pet_profile.php">
                     <p><?php echo $pet['name'] ?></p>

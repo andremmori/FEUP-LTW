@@ -1,14 +1,19 @@
+-- ProfileImage
+INSERT INTO ProfileImage (id) VALUES (1); -- id 1
+INSERT INTO ProfileImage (id) VALUES (2); -- id 2
+INSERT INTO ProfileImage (id) VALUES (3); -- id 3
+
 -- Account
-INSERT INTO account (name) VALUES ('John Doe'); -- id 1
-INSERT INTO account (name) VALUES ('Jane Doe'); -- id 2
-INSERT INTO account (name) VALUES ('John Wick'); -- id 3
-INSERT INTO account (name) VALUES ('Sultan Rowland'); -- id 4
-INSERT INTO account (name) VALUES ('Erik Howells'); -- id 5
-INSERT INTO account (name) VALUES ('Happy Shelter'); -- id 6
-INSERT INTO account (name) VALUES ('Cool Shelter'); -- id 7
-INSERT INTO account (name) VALUES ('Sad Shelter'); -- id 8
-INSERT INTO account (name) VALUES ('Dogs Only Shelter'); -- id 9
-INSERT INTO account (name) VALUES ('Cats only Shelter'); -- id 10
+INSERT INTO account (profilePic, name) VALUES (1, 'John Doe'); -- id 1
+INSERT INTO account (profilePic, name) VALUES (1, 'Jane Doe'); -- id 2
+INSERT INTO account (profilePic, name) VALUES (1, 'John Wick'); -- id 3
+INSERT INTO account (profilePic, name) VALUES (1, 'Sultan Rowland'); -- id 4
+INSERT INTO account (profilePic, name) VALUES (1, 'Erik Howells'); -- id 5
+INSERT INTO account (profilePic, name) VALUES (1, 'Happy Shelter'); -- id 6
+INSERT INTO account (profilePic, name) VALUES (1, 'Cool Shelter'); -- id 7
+INSERT INTO account (profilePic, name) VALUES (1, 'Sad Shelter'); -- id 8
+INSERT INTO account (profilePic, name) VALUES (1, 'Dogs Only Shelter'); -- id 9
+INSERT INTO account (profilePic, name) VALUES (1, 'Cats only Shelter'); -- id 10
 
 -- User
 INSERT INTO user (id, email, passwordhash) VALUES (1, 'johndoe@gmail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'); -- id 1
@@ -47,11 +52,12 @@ INSERT INTO breed (speciesID, name) VALUES (1, 'POODLE'); -- id 4
 INSERT INTO breed (speciesID, name) VALUES (1, 'GERMAN SHEPHERD'); -- id 5
 
 -- Pet
-INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (1, 'Agent 47', 'Good boy', 'Great dog', 'Have a house'); -- id 1
-INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (2, 'Abby', 'Good girl', 'Great dog', 'Have a house'); -- id 2
-INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (3, 'Ajax', 'Bad boy', 'Bad dog', 'Have a house'); -- id 3
-INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (4, 'Abigail', 'Bad girl', 'Bad dog', 'Have a house'); -- id 4
-INSERT INTO pet (ownerID, name, bio, description, requirements) VALUES (5, 'Bunch of dogs', 'Ok boys', 'Ok dogs', 'Have a house'); -- id 5
+INSERT INTO pet (ownerID, profilePic, name, bio, description, requirements) VALUES (1, 1, 'Agent 47', 'Good boy', 'Great dog', 'Have a house'); -- id 1
+INSERT INTO pet (ownerID, profilePic, name, bio, description, requirements) VALUES (2, 1, 'Abby', 'Good girl', 'Great dog', 'Have a house'); -- id 2
+INSERT INTO pet (ownerID, profilePic, name, bio, description, requirements) VALUES (3, 1, 'Ajax', 'Bad boy', 'Bad dog', 'Have a house'); -- id 3
+INSERT INTO pet (ownerID, profilePic, name, bio, description, requirements) VALUES (4, 1, 'Abigail', 'Bad girl', 'Bad dog', 'Have a house'); -- id 4
+INSERT INTO pet (ownerID, profilePic, name, bio, description, requirements) VALUES (5, 1, 'Bunch of dogs', 'Ok boys', 'Ok dogs', 'Have a house'); -- id 5
+
 
 -- IndividualPet
 INSERT INTO individualpet (petID, breedID, size, colour) VALUES (1, 2, 'SMALL', 'WHITE'); -- id 1
@@ -93,11 +99,14 @@ INSERT INTO proposal (petID, accountID, date, text, state) VALUES (4, 2, date('n
 INSERT INTO proposal (petID, accountID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
 
 -- Post
-INSERT INTO post (petID, description, photo, date) VALUES (1, 'Adopt me', '1.jpg', date('now')); -- id 1
-INSERT INTO post (petID, description, photo, date) VALUES (2, 'Take me home', '2.jpg', date('now')); -- id 2
-INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me', '3.jpg', date('now')); -- id 3
-INSERT INTO post (petID, description, photo, date) VALUES (4, 'I want someone', '4.jpg', date('now')); -- id 4
-INSERT INTO post (petID, description, photo, date) VALUES (5, 'help us', '5.jpg', date('now')); -- id 5
+INSERT INTO post (petID, description, photo, date) VALUES (1, 'Adopt me', 1, date('now')); -- id 1
+INSERT INTO post (petID, description, photo, date) VALUES (2, 'Take me home', 2, date('now')); -- id 2
+INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me 1', 3, date('now')); -- id 3
+INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me 2', 4, date('now')); -- id 3
+INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me 3', 5, date('now')); -- id 3
+INSERT INTO post (petID, description, photo, date) VALUES (3, 'help me 4', 6, date('now')); -- id 3
+INSERT INTO post (petID, description, photo, date) VALUES (4, 'I want someone', 7, date('now')); -- id 4
+INSERT INTO post (petID, description, photo, date) VALUES (5, 'help us', 8, date('now')); -- id 5
 
 -- PostLike
 INSERT INTO postlike (accountID, postID) VALUES (1, 2);
@@ -121,15 +130,6 @@ INSERT INTO postlike (accountID, postID) VALUES (5, 3);
 INSERT INTO postlike (accountID, postID) VALUES (5, 4);
 INSERT INTO postlike (accountID, postID) VALUES (5, 1);
 
--- AccountImage
-INSERT INTO AccountImage (id, accountID) VALUES (1, 1); -- id 1
-INSERT INTO AccountImage (id, accountID) VALUES (2, 2); -- id 1
-INSERT INTO AccountImage (id, accountID) VALUES (3, 3); -- id 1
-
--- PetImage
-INSERT INTO AccountImage (id, petID) VALUES (1, 1); -- id 1
-INSERT INTO AccountImage (id, accountID) VALUES (2, 2); -- id 1
-INSERT INTO AccountImage (id, accountID) VALUES (3, 3); -- id 1
 
 -- PostComment
 INSERT INTO postcomment (postID, accountID, text, date) VALUES (1, 1, 'cuteee', date('now')); -- id 1

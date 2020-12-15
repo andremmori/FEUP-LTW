@@ -22,10 +22,16 @@
             else
             {
                 foreach($results as $petID)
-                    {
-                        $pet = getPet($petID[0]);
-                        echo '<a  href="pet_profile.php?id=' . $pet['id'] .'"><div class="petResult"> <h3>'.$pet['id'] . '   ' .$pet['name'] . '</h3></div></a>';
-                    }
+                {
+                    $pet = getPet($petID[0]);
+                    echo 
+                    '<a  href="pet_profile.php?id=' . $pet['id'] .'">
+                        <div class="petResult"> 
+                            <img src="images/profileImages/squared/'.$pet['profilePic'].'.jpg" alt="" width="65" height="65">
+                            <h1>'. $pet['name'] .'</h1>
+                        </div>
+                    </a>';
+                }
             }
             
         } catch (\Throwable $th) {

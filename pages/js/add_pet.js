@@ -4,26 +4,33 @@ let group = form[1]
 let newFields = document.getElementById("newFields")
 
 let nameElement = document.createElement("label")
-nameElement.innerHTML = 'Pet profile name: <input type="text" name="name" required>'
+nameElement.innerHTML = 'Pet profile name: <input form="addPetForm" type="text" name="name" required>'
 
 let ammountElement = document.createElement("label")
-ammountElement.innerHTML = 'Number of pets: <input type="number" name="ammount" min="2" required>'
+ammountElement.innerHTML = 'Number of pets: <input form="addPetForm" type="number" name="ammount" min="2" value="2" required>'
+
+let breedGroupElement = document.createElement("label")
+breedGroupElement.innerHTML = 'Each pet\'s breed (separated by \',\'): <input form="addPetForm" type="text" name="breedGroup">'
+
+let quantityGroupElement = document.createElement("label")
+quantityGroupElement.innerHTML = 'Each breed\'s quantity (separated by \',\'): <input form="addPetForm" type="text" name="quantityGroup">'
 
 let speciesElement = document.createElement("label")
-speciesElement.innerHTML = 'Species: <input type="text" name="species" required>'
+speciesElement.innerHTML = 'Species: <input form="addPetForm" type="text" name="species" required>'
 
 let breedElement = document.createElement("label")
-breedElement.innerHTML = 'Breed: <input type="text" name="breed">'
+breedElement.innerHTML = 'Breed: <input form="addPetForm" type="text" name="breed">'
 
 let sizeElement = document.createElement("label")
-sizeElement.innerHTML = 'Size: <input type="text" name="size" required>'
+sizeElement.innerHTML = 'Size: <input form="addPetForm" type="text" name="size" required>'
 
 let colourElement = document.createElement("label")
-colourElement.innerHTML = 'Colour: <input type="text" name="colour">'
+colourElement.innerHTML = 'Colour: <input form="addPetForm" type="text" name="colour">'
 
 let submitElement = document.createElement("input")
 submitElement.setAttribute("type","submit")
 submitElement.setAttribute("value","Add Pet")
+submitElement.setAttribute("form","addPetForm");
 
 let br1 = document.createElement("BR");
 let br2 = document.createElement("BR");
@@ -40,12 +47,16 @@ individual.addEventListener('click', function() {
     {
         if(aux)
         {
-            newFields.removeChild(nameElement)   
+            newFields.removeChild(nameElement)
             newFields.removeChild(ammountElement)
+            newFields.removeChild(breedGroupElement)
+            newFields.removeChild(quantityGroupElement)
             newFields.removeChild(submitElement)
 
             newFields.removeChild(br1)
             newFields.removeChild(br2)
+            newFields.removeChild(br3)
+            newFields.removeChild(br4)
         }
 
         aux = true;
@@ -95,10 +106,14 @@ group.addEventListener('click', function() {
 
         newFields.appendChild(nameElement)   
         newFields.appendChild(ammountElement)
+        newFields.appendChild(breedGroupElement)   
+        newFields.appendChild(quantityGroupElement)
         newFields.appendChild(submitElement)
 
         newFields.insertBefore(br1, ammountElement)
-        newFields.insertBefore(br2, submitElement)  
+        newFields.insertBefore(br2, breedGroupElement) 
+        newFields.insertBefore(br3, quantityGroupElement)
+        newFields.insertBefore(br4, submitElement)  
 
         box2=false;
         box1=true;

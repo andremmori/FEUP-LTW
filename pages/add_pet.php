@@ -1,4 +1,9 @@
-<?php include_once('database/connection.php');?>
+<?php 
+  
+  include_once('database/connection.php');
+  $id = $_SESSION['user']['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -8,6 +13,7 @@
     <link href="css/home.css" rel="stylesheet">
     <link rel="icon" href="images/icon.jpg">
     <script src="js/add_pet.js" defer></script>
+    <script src="js/upload.js" defer></script>
   </head>
   <body>
     <?php include_once('hotbar.php') ?>
@@ -16,12 +22,13 @@
       <div id="auxDiv">
           <h2>Create a profile for your pet!<h2>
           <h4>You can create a profile for a single pet or create a profile for a group of pets</h4>
-          <form id="addPetForm" action="" method="get">
+          <form id="addPetForm" action="upload_profilepic_action.php" method="post" enctype="multipart/form-data">
             <input type="radio" name="individual_group" value="individual">Individual
             <input type="radio" name="individual_group" value="group">Group <br>
-            <div id="newFields">
-            </div>
-          <form>
+            <input id="input" type="file" name="image" onchange="selectImage(event)" >
+          </form>
+          <div id="uploadedImage"> </div>
+          <div id="newFields"> </div>
       </div>
     </section>
     <footer>
