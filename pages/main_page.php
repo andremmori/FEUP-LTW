@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/initial_page.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
+    <script src="js/modal.js"></script>
     <link rel="icon" href="images/icon.jpg">
 </head>
 
@@ -51,16 +52,5 @@
     include_once('modal/login.php');
     ?>
 </body>
-<script>
-    // Get the modal
-    var modal = document.getElementById('login-modal');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 
 </html>

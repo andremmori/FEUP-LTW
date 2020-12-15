@@ -118,7 +118,7 @@ function updateUser($id)
             $second_stmt->execute([$email, $passwordhash, $id]);
         }
 
-        if(!$second_stmt) throw new Exception();
+        if (!$second_stmt) throw new Exception();
 
         $db->commit();
     } catch (Exception $e) {
@@ -126,4 +126,28 @@ function updateUser($id)
         return false;
     }
     return true;
+}
+
+function getUserPets()
+{
+    global $db;
+
+    $user_id = $_SESSION['user']['id'];
+
+    $stmt = $db->prepare('SELECT * FROM pet WHERE ownerID = ?');
+    $stmt->execute([$user_id]);
+
+    return $stmt->fetchAll();
+}
+
+function shelterCollaborator() {
+    global $db;
+
+    $user_id = $_SESSION['user']['id'];
+
+    $stmt = $db->prepare('SELECT * FROM collaborator INNER JOIN shelter ON shelter.id = collaborator.shelterID INNER JOIN account ON account.id = shelter.id WHERE collaborator.userID = ?');
+    $stmt->execute([$user_id]);
+
+    return $stmt->fetchAll();
+
 }

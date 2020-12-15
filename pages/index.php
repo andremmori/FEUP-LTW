@@ -22,7 +22,7 @@ include_once('database/post.php');
         <?php
             $posts = getFavouritePetsPost($_SESSION['user']['id']);
             if(count($posts) == 0)
-                echo 'sad :(';
+                echo 'No favourites yet';
             else
                 foreach($posts as $post)
                     echo makeFeedPost($post);

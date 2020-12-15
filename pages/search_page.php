@@ -1,5 +1,4 @@
-
-
+<?php include_once('database/connection.php') ?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
