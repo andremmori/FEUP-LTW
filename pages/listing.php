@@ -52,11 +52,18 @@ $comments = getListingComments($id);
         </div>
 
         <div id="inquiry">
-          <a href="inquiry.php?id=<?php echo $_GET['id'];?>"><p>Message the owner about the adoption.</p></a>
+            <?php 
+                if(isPetOwner($pet['id'])) echo '<a href="inquiry_list.php?id='.$pet['id'].'"><p>Check inquiries about this pet</p></a>';
+                else echo '<a href="inquiry.php?id='.$pet['id'].'"<p>Message the owner about the adoption.</p></a>';
+            ?>
         </div>
 
         <div id="proposal">
-          <a href="proposal.php?id=<?php echo $_GET['id'];?>"><p>Make an addoption proposal to the owner.</p></a>
+        <?php 
+                if(isPetOwner($pet['id'])) echo '<a href="proposal_list.php?id='.$pet['id'].'"><p>Check proposals to adopt this pet</p></a>';
+                else echo '<a href="proposal.php?id='.$pet['id'].'"<p>Make an addoption proposal to the owner.</p></a>';
+            ?>
+          
         </div>
       </div>
       <div id="gallery">

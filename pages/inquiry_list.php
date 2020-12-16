@@ -1,11 +1,15 @@
 <?php 
 include_once('database/connection.php');
 include_once('database/pet.php');
+include_once('database/inquirylist.php');
+include_once('database/inquiry.php');
 
 // Get current pet's id and info from db
 $id = $_GET['id'];
 $pet = getPet($id);
 if ($pet == null) header('Location: index.php');
+
+$inquiries = getInquiryList($id);
 
 ?>
 <!DOCTYPE html>
@@ -25,21 +29,7 @@ if ($pet == null) header('Location: index.php');
         <h1>List of conversations about: <?php echo $pet['name'] ?></h1>
       </div>
       <div id="list">
-        <a href="inquiry.php?id=1"><div class="conversation">
-          <img src="images/pfp.png" alt="" width="55" height="55">
-          <p id="username">Average pet fan</p>
-          <p id="lastMessage">Ultima mensUltima mensageUltima mensagem enviada m enviada Ultima mensagem enviada agem enviada </p>
-        </div></a>
-        <a href="inquiry.php?id=1"><div class="conversation">
-          <img src="images/pfp.png" alt="" width="55" height="55">
-          <p id="username">Average pet fan</p>
-          <p id="lastMessage">Ultima mensUltima mensageUltima mensagem enviada m enviada Ultima mensagem enviada agem enviada </p>
-        </div></a>
-        <a href="inquiry.php?id=1"><div class="conversation">
-          <img src="images/pfp.png" alt="" width="55" height="55">
-          <p id="username">Average pet fan</p>
-          <p id="lastMessage">Ultima mensUltima mensageUltima mensagem enviada m enviada Ultima mensagem enviada agem enviada </p>
-        </div></a>
+        <?php foreach ($inquiries as $inquiry) echo getInquiryInfo($inquiry); ?>
       </div>
     </section>
     <footer>
