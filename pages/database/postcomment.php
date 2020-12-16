@@ -24,4 +24,19 @@
                         </div>';
         return sprintf($post_comment, $account['name'], $comment['text']);
     }
-?>
+
+    function addPostComment($text, $post_id) {
+        global $db;
+
+        $account_id = $_SESSION['user']['id'];
+
+        $stmt = $db->prepare('INSERT INTO postcomment (postID, accountID, text, date) VALUES (?,?,?,?)');
+        $stmt->execute([$account_id, $post_id, $text, date('now')]);
+        $new_id  = $db->lastInsertId();
+
+        $stmt_2 = $db->prepare('SELECT * FROM postcomment WHERE id = ?');
+        $stmt_2->execute([$new_id]);
+        $comment = getPostComment($stmt_2->fetch());
+
+        return $comment;
+    }

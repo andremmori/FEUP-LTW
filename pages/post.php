@@ -40,8 +40,8 @@ $likes = getPostLikes($post_id);
     <section id="post">
         <article class="post">
             <div id="title">
-                <a href="pet_profile.php?id=<?php echo $pet['id']?>"><img id="pet_profile_pic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65"></a>
-                <a href="pet_profile.php?id=<?php echo $pet['id']?>">
+                <a href="pet_profile.php?id=<?php echo $pet['id'] ?>"><img id="pet_profile_pic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65"></a>
+                <a href="pet_profile.php?id=<?php echo $pet['id'] ?>">
                     <p><?php echo $pet['name'] ?></p>
                 </a>
                 <?php
@@ -62,18 +62,17 @@ $likes = getPostLikes($post_id);
                 else
                     echo '<a id="like-btn" type="button" onclick="dislikePost(' . $_SESSION['user']['id'] . ',' . $post['id'] . ')"><img id="like-icon" src="images/liked.png" alt="" width="35" height="35"></a>';
                 ?>
-                <p id="post-likes"><?php echo count($likes) ?> Likes</p>
+                <p id="post-likes"><?php echo count($likes) ?></p>
                 <a href=""><img src="images/comment.png" alt="" width="35" height="35"></a>
-                <p><?php echo count($comments) ?> Comments</p>
+                <p id="comments-count"><?php echo count($comments) ?></p>
                 <p><?php echo $post['date'] ?></p>
             </div>
             <div id="comments">
                 <?php foreach ($comments as $comment) echo getPostComment($comment); ?>
-                <form id="postComment" action="" method="post">
-                    <!-- action="post_comment.php"-->
-                    <input id="commentText" type="text" name="comment" required>
-                    <input type="submit" value="Comment">
-                </form>
+                <div id="postComment">
+                    <input id="commentText" type="text" name="comment" onsubmit="addPostComment(<?php echo $_SESSION['user']['id'] . ',' . $post_id ?>)" required>
+                    <button type="button" onclick="addPostComment(<?php echo $post_id ?>)">Comment</button>
+                </div>
             </div>
         </article>
     </section>
