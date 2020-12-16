@@ -28,7 +28,6 @@ if ($pet == null) header('Location: index.php');
         <div id="top">
             <?php
                 if(isPetOwner($pet['id'])){
-                    echo $pet['id'];
                     echo '<a href="add_post.php?id='.$pet['id'].'"><img id="postpic" src="images/addPicture.png" alt="" width="35" height="35"></a>';
                     echo '<a href="edit_pet_profile.php?id='.$pet['id'].'"><img id="edit" src="images/edit.png" alt="" width="35" height="35"></a>';
                 }
