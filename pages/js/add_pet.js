@@ -3,9 +3,6 @@ let individual = form[0]
 let group = form[1]
 let newFields = document.getElementById("newFields")
 
-let nameElement = document.createElement("label")
-nameElement.innerHTML = 'Pet profile name: <input form="addPetForm" type="text" name="name" required>'
-
 let ammountElement = document.createElement("label")
 ammountElement.innerHTML = 'Number of pets: <input form="addPetForm" type="number" name="ammount" min="2" value="2" required>'
 
@@ -36,7 +33,6 @@ let br1 = document.createElement("BR");
 let br2 = document.createElement("BR");
 let br3 = document.createElement("BR");
 let br4 = document.createElement("BR");
-let br5 = document.createElement("BR");
 
 var aux=false;
 var box1= true, box2=true;
@@ -47,7 +43,6 @@ individual.addEventListener('click', function() {
     {
         if(aux)
         {
-            newFields.removeChild(nameElement)
             newFields.removeChild(ammountElement)
             newFields.removeChild(breedGroupElement)
             newFields.removeChild(quantityGroupElement)
@@ -56,13 +51,11 @@ individual.addEventListener('click', function() {
             newFields.removeChild(br1)
             newFields.removeChild(br2)
             newFields.removeChild(br3)
-            newFields.removeChild(br4)
         }
 
         aux = true;
         
 
-        newFields.appendChild(nameElement)   
         newFields.appendChild(speciesElement)
         newFields.appendChild(breedElement)
         newFields.appendChild(sizeElement)
@@ -70,11 +63,10 @@ individual.addEventListener('click', function() {
         newFields.appendChild(submitElement)
 
 
-        newFields.insertBefore(br1, speciesElement)
-        newFields.insertBefore(br2, breedElement)
-        newFields.insertBefore(br3, sizeElement)
-        newFields.insertBefore(br4, colourElement)
-        newFields.insertBefore(br5, submitElement)
+        newFields.insertBefore(br1, breedElement)
+        newFields.insertBefore(br2, sizeElement)
+        newFields.insertBefore(br3, colourElement)
+        newFields.insertBefore(br4, submitElement)
 
         box1=false;
         box2= true;
@@ -86,8 +78,7 @@ group.addEventListener('click', function() {
     if(box2)
     {   
         if(aux)
-        {
-            newFields.removeChild(nameElement)   
+        {  
             newFields.removeChild(speciesElement)
             newFields.removeChild(breedElement)
             newFields.removeChild(sizeElement)
@@ -98,22 +89,19 @@ group.addEventListener('click', function() {
             newFields.removeChild(br2)
             newFields.removeChild(br3)
             newFields.removeChild(br4)
-            newFields.removeChild(br5)
         }
     
 
         aux = true;
-
-        newFields.appendChild(nameElement)   
+ 
         newFields.appendChild(ammountElement)
         newFields.appendChild(breedGroupElement)   
         newFields.appendChild(quantityGroupElement)
         newFields.appendChild(submitElement)
 
-        newFields.insertBefore(br1, ammountElement)
-        newFields.insertBefore(br2, breedGroupElement) 
-        newFields.insertBefore(br3, quantityGroupElement)
-        newFields.insertBefore(br4, submitElement)  
+        newFields.insertBefore(br1, breedGroupElement) 
+        newFields.insertBefore(br2, quantityGroupElement)
+        newFields.insertBefore(br3, submitElement)  
 
         box2=false;
         box1=true;

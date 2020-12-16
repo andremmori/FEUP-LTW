@@ -26,7 +26,7 @@ if ($pet == null) header('Location: index.php');
     <form action="update_pet_action.php?id=<?php echo $id ?>" method="post">
         <section id="edit_pet_profile">
             <div id="top">
-                <img id="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
+                <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
                 <img id="changepic" src="images/pen.png" alt="" width="35" height="35">
                 <input id="nameText" type="description" name="name" value="<?php echo $pet['name'] ?>" required>
                 <p id="followers">Followers 30</p>

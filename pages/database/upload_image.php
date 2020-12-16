@@ -5,9 +5,6 @@
     global $db;
     try {
       // Init transaction
-      echo $petID, '<br>';
-      echo $file, '<br>';
-      echo $description, '<br>';
 
       $db->beginTransaction();
       // Insert image data into database

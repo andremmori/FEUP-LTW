@@ -1,11 +1,12 @@
 <?php
 
-  function upload($petID, $file, $description)
+  function upload_profilePic($file)
   {
     global $db;
     try {
       // Init transaction
-      $db->beginTransaction();
+
+      echo 'beggining add_pfp', '<br>';
 
       // Insert image data into database
       $stmt = $db->prepare("INSERT INTO ProfileImage VALUES(NULL)");
@@ -13,7 +14,9 @@
 
       if (!$exec) throw new Exception();
 
-      $image_id = $dbh->lastInsertId();
+      $image_id = $db->lastInsertId();
+
+      echo $image_id, '<br>';
 
       // Generate filenames for original, small and medium files
       $originalFileName = "images/profileImages/originals/".$image_id.".jpg";
@@ -31,7 +34,6 @@
       }  
 
       // Crete an image representation of the original image
-      
 
       $width = imagesx($original);     // width of the original image
       $height = imagesy($original);    // height of the original image
@@ -42,21 +44,11 @@
       imagecopyresized($squaredImage, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 400, 400, $square, $square);
       imagejpeg($squaredImage, $squareFileName); 
 
-      // Make post
-
-      $stmt = $db->prepare("UPDATE Pet SET photo=(?) WHERE id=");
-
-      $exec = $stmt->execute([$petID, $description, $image_id]);
-            
-      if (!$exec) throw new Exception();
-
-      $db->commit();
-      
-      return true;
+      return $image_id;
     } catch (\Throwable $th) {
-        $db->rollback();
-    
-        return false;
+      echo 'upload pfp failed', '<br>';
+  
+        return -1;
     }
   }
   

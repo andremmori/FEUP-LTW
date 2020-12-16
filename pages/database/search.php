@@ -4,13 +4,13 @@
         global $db;
 
         try {
-            $view = "SELECT petID,pet.name as name,breed.name as breed from individualpet,pet,breed where pet.id=individualpet.petID and breed.id=individualpet.breedID UNION select petID, pet.name as name, breed.name as breed from petgroupbreed, pet, breed where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id";
+            $view = "SELECT petID,pet.name as name,breed.name as breed,species.name as species from individualpet,pet,breed,species where pet.id=individualpet.petID and breed.id=individualpet.breedID and species.id=breed.speciesID UNION select petID, pet.name as name, breed.name as breed, species.name as species from petgroupbreed, pet, breed, species where petgroupbreed.petID=pet.id and petgroupbreed.breedID = breed.id and breed.speciesID=species.id";
 
-            $search_sql = "SELECT petID FROM ($view) where name=(?) COLLATE NOCASE or breed=(?) COLLATE NOCASE" ;
+            $search_sql = "SELECT petID FROM ($view) where name=(?) COLLATE NOCASE or breed=(?) COLLATE NOCASE or species=(?) COLLATE NOCASE" ;
                 
             $search_stmt = $db->prepare($search_sql);
             
-            $search_exec = $search_stmt->execute([$input, $input]);
+            $search_exec = $search_stmt->execute([$input, $input, $input]);
             
             if (!$search_exec) throw new Exception();
 

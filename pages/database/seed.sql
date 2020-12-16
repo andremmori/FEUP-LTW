@@ -1,7 +1,5 @@
 -- ProfileImage
 INSERT INTO ProfileImage (id) VALUES (1); -- id 1
-INSERT INTO ProfileImage (id) VALUES (2); -- id 2
-INSERT INTO ProfileImage (id) VALUES (3); -- id 3
 
 -- Account
 INSERT INTO account (profilePic, name) VALUES (1, 'John Doe'); -- id 1

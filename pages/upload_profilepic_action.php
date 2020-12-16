@@ -2,6 +2,7 @@
     include_once('database/connection.php');
     include_once('database/upload_profilepic.php');
 
+    /*
     $i_g = $_POST['individual_group'];
     if($i_g == 'individual')
     {
@@ -23,6 +24,7 @@
             header('Location: add_post.php?id='.$id);
     }
     else
-        header('Location: add_post.php?id='.$id);*/
+        header('Location: add_post.php?id='.$id);
+        */
 
 ?>

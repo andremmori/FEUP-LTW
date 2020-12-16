@@ -1,62 +1,124 @@
 <?php
 
-  function addPet($individual_group, $fields)
+  include_once('database/upload_profilepic.php');
+
+  function addPet($userID, $individual_group, $fields)
   {
     global $db;
     try {
+      echo 'begginning', '<br>';
       // Init transaction
       $db->beginTransaction();
 
-      // Insert image data into database
-      $stmt = $db->prepare("INSERT INTO Pet (ownerID, profilePic, name, bio, description, requirements) VALUES((?), )");
+      $stmt = $db->prepare("SELECT max(id) from Pet");
       $exec = $stmt->execute();
 
       if (!$exec) throw new Exception();
 
-      $image_id = $dbh->lastInsertId();
+      $petID = $stmt->fetch()[0];
 
-      // Generate filenames for original, small and medium files
-      $originalFileName = "images/profileImages/originals/".$image_id.".jpg";
-      $squareFileName = "images/profileImages/squared/".$image_id.".jpg";  
+      $petID++;
 
-      // Move the uploaded file to its final destination
-      move_uploaded_file($file, $originalFileName);
+      echo $petID, '<br>';
 
-      $original = imagecreatefromjpeg($originalFileName);
-      if(!$original)
-      {
-        $original = imagecreatefrompng($originalFileName);
-        if(!$original)
-          throw new Exception();
-      }  
+      $profilePic = upload_profilePic($fields[0]);
 
-      // Crete an image representation of the original image
-      
+      echo $profilePic, '<br>';
 
-      $width = imagesx($original);     // width of the original image
-      $height = imagesy($original);    // height of the original image
-      $square = min($width, $height);  // size length of the maximum square
+      if($profilePic == -1)
+        throw new Exception();
 
-      // Create and save a small square thumbnail
-      $squaredImage = imagecreatetruecolor(400, 400);
-      imagecopyresized($squaredImage, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 400, 400, $square, $square);
-      imagejpeg($squaredImage, $squareFileName); 
+      // Insert image data into database
+      $stmt = $db->prepare("INSERT INTO Pet (ownerID, profilePic, name, bio, description, requirements) VALUES((?), (?), (?), \"\", \"\", \"\")");
+      $exec = $stmt->execute([$userID, $profilePic, $fields[1]]);
 
-      // Make post
-
-      $stmt = $db->prepare("UPDATE Pet SET photo=(?) WHERE id=");
-
-      $exec = $stmt->execute([$petID, $description, $image_id]);
-            
       if (!$exec) throw new Exception();
+
+      echo 'pet added', '<br>';
+
+      if($individual_group == "individual")
+      {
+        // $fields = [$file, $nameElement, $speciesElement, $breedElement, $sizeElement, $colourElement];
+        // INSERT INTO individualpet (petID, breedID, size, colour)
+
+        // SPECIES ===========================================================
+
+        $stmt = $db->prepare("SELECT id from Species where name=(?) COLLATE NOCASE");
+        $exec = $stmt->execute([$fields[2]]);
+
+        if (!$exec) throw new Exception();
+
+        $speciesID = $stmt->fetch();
+
+        echo 'species fetch: ';
+        print_r($speciesID);
+        echo '*<br>';
+        if($speciesID == "") // new species added
+        {
+          $stmt = $db->prepare("INSERT INTO Species VALUES(NULL, UPPER((?)) )");
+          $exec = $stmt->execute([$fields[2]]);
+
+          if (!$exec) throw new Exception();
+
+          $speciesID = $db->lastInsertId();
+        }
+        else
+          $speciesID = $speciesID[0];
+
+        echo $speciesID, '<br>';
+
+        // BREED ===========================================================
+
+        $stmt = $db->prepare("SELECT id from Breed where name=(?) COLLATE NOCASE");
+        $exec = $stmt->execute([$fields[3]]);
+
+        if (!$exec) throw new Exception();
+
+        $breedId = $stmt->fetch();
+
+        echo 'breed fetch: ';
+        print_r($breedId);
+        echo '*<br>';
+
+        if($breedId == "") // new breed added
+        {
+          $stmt = $db->prepare("INSERT INTO Breed VALUES(NULL, (?), UPPER((?)) )");
+          $exec = $stmt->execute([$speciesID, $fields[2]]);
+
+          if (!$exec) throw new Exception();
+
+          $breedId = $db->lastInsertId();
+        }
+        else
+          $breedId = $breedId[0];
+
+        echo $breedId, '<br>';
+
+        print_r([$petID, $breedId, $fields[4], $fields[5]]);
+
+        // INDIVIDUAL PET ===========================================================
+
+        $stmt = $db->prepare("INSERT INTO individualpet (petID, breedID, size, colour) VALUES ((?), (?), (?), (?))");
+        $exec = $stmt->execute([$petID, $breedId, $fields[4], $fields[5]]);
+
+        if (!$exec) throw new Exception();       
+      }
+      else //group
+      {
+        // $fields = [$file, $nameElement, $ammountElement, $breedGroupElement, $quantityGroupElement];
+        // INSERT INTO petgroupbreed (petID, breedID, quantity)
+        // INSERT INTO grouppet (petID, number) 
+
+      }
 
       $db->commit();
       
-      return true;
+      return $petID;
+
     } catch (\Throwable $th) {
         $db->rollback();
     
-        return false;
+        return -1;
     }
   }
   
