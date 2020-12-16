@@ -609,7 +609,6 @@ a {
     border-left-style: solid;
     border-bottom-style: solid;
     background-color: lavender;
-    min-height: 200px;
 }
 
 #inquiry .message_owner {

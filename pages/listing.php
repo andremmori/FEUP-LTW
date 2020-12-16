@@ -54,10 +54,9 @@ $comments = getListingComments($id);
         <div id="inquiry">
             <?php 
                 if(isPetOwner($pet['id'])) echo '<a href="inquiry_list.php?id='.$pet['id'].'"><p>Check inquiries about this pet</p></a>';
-                else echo '<a href="inquiry.php?id='.$pet['id'].'"<p>Message the owner about the adoption.</p></a>';
+                else echo '<a href="open_inquiry.php?id='.$pet['id'].'"<p>Message the owner about the adoption.</p></a>';
             ?>
         </div>
-
         <div id="proposal">
         <?php 
                 if(isPetOwner($pet['id'])) echo '<a href="proposal_list.php?id='.$pet['id'].'"><p>Check proposals to adopt this pet</p></a>';
