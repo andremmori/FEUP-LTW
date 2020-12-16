@@ -8,6 +8,7 @@
     <link href="css/initial_page.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
     <script src="js/modal.js"></script>
+    <script src="js/upload.js"></script>
     <link rel="icon" href="images/icon.jpg">
 </head>
 
@@ -34,6 +35,10 @@
 
             <label for="repeat"><b>Repeat Password</b></label>
             <input id="initial-input" type="password" placeholder="Repeat Password" name="repeat" id="repeat" required>
+
+            <label for="image"><b>Upload a Profile Picture</b></label> <br>
+            <input id="initial-input" type="file" name="image" onchange="selectImage(event)" > <br>
+            <div id="uploadedImage"> </div> <br>
             <hr>
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 

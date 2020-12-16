@@ -50,16 +50,25 @@ function addUser()
     $email = $_POST['email'];
     $password = $_POST['password'];
     $repeat = $_POST['repeat'];
+    $file = $_FILES['image']['tmp_name'];
+    echo '*', $file, '*<br>';
 
     if ($name == null || $email == null || $password == null || $repeat == null || $password != $repeat) return false;
     try {
         // Init transaction
         $db->beginTransaction();
 
+        $profilePic = upload_profilePic($file);
+
+        echo $profilePic, '<br>';
+
+        if($profilePic == -1)
+            throw new Exception();
+
         // Insert Account
-        $account_sql = "INSERT INTO account (name) VALUES (?)";
+        $account_sql = "INSERT INTO account (profilePic, name) VALUES (?, ?)";
         $first_stmt = $db->prepare($account_sql);
-        $first_exec = $first_stmt->execute([$name]);
+        $first_exec = $first_stmt->execute([$profilePic, $name]);
 
         if (!$first_exec) throw new Exception();
         // Get Account id after insert

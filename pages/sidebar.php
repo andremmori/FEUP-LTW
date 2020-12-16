@@ -1,11 +1,15 @@
 <?php
 include_once('database/user.php');
+include_once('database/account.php');
 $user_pets = getUserPets();
 $shelters = shelterCollaborator();
+$id = $_SESSION['user']['id'];
+$account = getAccount($id);
+echo $account['profilePic'];
 ?>
 <aside id="sideBar">
     <div id="user">
-        <img src="images/pfp.png" alt="" width="65" height="65">
+        <img src="images/profileImages/squared/<?php echo $account['profilePic'] ?>.jpg" alt="" width="65" height="65">
         <div id="username">
             <p><?php echo $_SESSION['user']['name'] ?></p>
             <p>

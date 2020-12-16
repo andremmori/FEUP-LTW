@@ -1,6 +1,7 @@
 <?php
     include_once('database/connection.php');
     include_once('database/user.php');
+    include_once('database/upload_profilepic.php');
 
     // Add a user using the arguments submited
     if(addUser())
