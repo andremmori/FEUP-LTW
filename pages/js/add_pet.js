@@ -6,6 +6,9 @@ let newFields = document.getElementById("newFields")
 let ammountElement = document.createElement("label")
 ammountElement.innerHTML = 'Number of pets: <input form="addPetForm" type="number" name="ammount" min="2" value="2" required>'
 
+let speciesGroupElement = document.createElement("label")
+speciesGroupElement.innerHTML = 'Each pet\'s species (separated by \',\'): <input form="addPetForm" type="text" name="speciesGroup">'
+
 let breedGroupElement = document.createElement("label")
 breedGroupElement.innerHTML = 'Each pet\'s breed (separated by \',\'): <input form="addPetForm" type="text" name="breedGroup">'
 
@@ -44,6 +47,7 @@ individual.addEventListener('click', function() {
         if(aux)
         {
             newFields.removeChild(ammountElement)
+            newFields.removeChild(speciesGroupElement)
             newFields.removeChild(breedGroupElement)
             newFields.removeChild(quantityGroupElement)
             newFields.removeChild(submitElement)
@@ -51,6 +55,7 @@ individual.addEventListener('click', function() {
             newFields.removeChild(br1)
             newFields.removeChild(br2)
             newFields.removeChild(br3)
+            newFields.removeChild(br4)
         }
 
         aux = true;
@@ -95,13 +100,15 @@ group.addEventListener('click', function() {
         aux = true;
  
         newFields.appendChild(ammountElement)
+        newFields.appendChild(speciesGroupElement)
         newFields.appendChild(breedGroupElement)   
         newFields.appendChild(quantityGroupElement)
         newFields.appendChild(submitElement)
 
-        newFields.insertBefore(br1, breedGroupElement) 
-        newFields.insertBefore(br2, quantityGroupElement)
-        newFields.insertBefore(br3, submitElement)  
+        newFields.insertBefore(br1, speciesGroupElement) 
+        newFields.insertBefore(br2, breedGroupElement) 
+        newFields.insertBefore(br3, quantityGroupElement)
+        newFields.insertBefore(br4, submitElement)  
 
         box2=false;
         box1=true;

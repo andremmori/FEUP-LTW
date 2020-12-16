@@ -27,18 +27,21 @@
         $file = $_FILES['image']['tmp_name'];
         $nameElement = $_POST['name'];
         $ammountElement = $_POST['ammount'];
+        $speciesGroupElement = $_POST['speciesGroup'];
         $breedGroupElement = $_POST['breedGroup'];
         $quantityGroupElement = $_POST['quantityGroup'];
-        $fields = [$file, $nameElement, $ammountElement, $breedGroupElement, $quantityGroupElement];
+        $fields = [$file, $nameElement, $ammountElement, $speciesGroupElement, $breedGroupElement, $quantityGroupElement];
     }
     else echo "ERROR";
 
     print_r($fields);
     echo '<br>';
     
-    if(addPet($userID, $individual_group, $fields) != -1)
-        echo "AYYYYYYY";
+    $petID = addPet($userID, $individual_group, $fields);
+
+    if($petID != -1)
+        header('Location: pet_profile.php?id='.$petID);
     else
-        echo ":(";
+        header('Location: add_pet.php');
 
 ?>
