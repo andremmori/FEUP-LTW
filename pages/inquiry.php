@@ -38,7 +38,7 @@ $messages = getInquiryMessages($id);
                   <input type="hidden" name="petOwner" value="<?php echo $messages[0]['petOwner'] ?>">
                   <input id="messageText" type="text" name="message" required>
                   <input type="hidden" name="date" value=<?php echo date('d/m/Y');?>>
-                  <button type="submit">Submit</button>
+                  <button type="submit">Send</button>
                 </form>
       </div>
     </section>

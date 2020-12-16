@@ -5,7 +5,6 @@ $user_pets = getUserPets();
 $shelters = shelterCollaborator();
 $id = $_SESSION['user']['id'];
 $account = getAccount($id);
-echo $account['profilePic'];
 ?>
 <aside id="sideBar">
     <div id="user">

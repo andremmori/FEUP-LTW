@@ -14,7 +14,7 @@
     function getPostComment($comment){
         $account = getAccount($comment['accountID']);
         $post_comment = '<div class="comment">
-                            <img src="images/pfp.png" alt="" width="65" height="65">
+                            <img src="images/profileImages/squared/'.$account['profilePic'].'.jpg" alt="" width="65" height="65">
                             <div id="username">
                                 <p>%s</p>
                             </div>
