@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/account.php');
@@ -18,7 +18,7 @@ $comments = getListingComments($id);
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>
+    <title>Listing</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
@@ -34,7 +34,7 @@ $comments = getListingComments($id);
         <h1 id="name"><p><?php echo $pet['name'] ?></p></h1>
         <p id="followers">Followers 30</p>
         <p id="following">Following 35</p>
-        <p id="bio"><?php echo $pet['bio'] ?></p>      
+        <p id="bio"><?php echo $pet['bio'] ?></p>
       </div>
       <div id="listing">
       <p><?php echo $pet['description'] ?></p>
@@ -52,17 +52,17 @@ $comments = getListingComments($id);
         </div>
 
         <div id="inquiry">
-            <?php 
+            <?php
                 if(isPetOwner($pet['id'])) echo '<a href="inquiry_list.php?id='.$pet['id'].'"><p>Check inquiries about this pet</p></a>';
                 else echo '<a href="open_inquiry.php?id='.$pet['id'].'"<p>Message the owner about the adoption.</p></a>';
             ?>
         </div>
         <div id="proposal">
-        <?php 
+        <?php
                 if(isPetOwner($pet['id'])) echo '<a href="proposal_list.php?id='.$pet['id'].'"><p>Check proposals to adopt this pet</p></a>';
                 else echo '<a href="proposal.php?id='.$pet['id'].'"<p>Make an addoption proposal to the owner.</p></a>';
             ?>
-          
+
         </div>
       </div>
       <div id="gallery">

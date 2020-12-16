@@ -44,4 +44,13 @@
         }
         return true;
     }
-?>
+
+    function getShelter($shelter_id)
+    {
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM account INNER JOIN shelter ON account.id = shelter.id WHERE shelter.id = ?');
+        $stmt->execute([$shelter_id]);
+
+        return $stmt->fetch();
+    }

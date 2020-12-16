@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 
@@ -11,7 +11,7 @@ if ($pet == null) header('Location: index.php');
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>
+    <title>Proposal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
@@ -26,7 +26,7 @@ if ($pet == null) header('Location: index.php');
           <textarea form=makeProposal name="text" rows=10 type="text" placeholder="Write something here" id="textid" required></textarea>
            <form id="makeProposal" action="proposal_action.php" method="post">
                 <input type="hidden" name="petId" value="<?php echo $pet['id'] ?>">
-                <input type="hidden" name="accountId" value="<?php echo $pet['ownerID'] ?>">  
+                <input type="hidden" name="accountId" value="<?php echo $pet['ownerID'] ?>">
                 <input type="hidden" name="date" value=<?php echo date('d/m/Y');?>>
                 <input type="hidden" name="status" value='PENDING'>
                 <button type="submit">Submit</button>

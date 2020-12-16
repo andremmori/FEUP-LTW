@@ -1,14 +1,12 @@
-
 <?php
   include_once('database/connection.php');
-
   $petID = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Add Pet</title>
+    <title>Add Post</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
@@ -31,7 +29,7 @@
           <input form="addPostForm" id="description" type="description" name="description" placeholder="Enter a description for your post.">
           <input form="addPostForm" type="hidden" name="petID" value="<?php echo $petID ?>">
           <input form="addPostForm" type="submit" value="Post"/>
-        </div>          
+        </div>
       </div>
     </section>
     <footer>
@@ -39,4 +37,4 @@
     </footer>
   </body>
 </html>
-<!-- " echo "images/thumbs_small/" . $image['id'] . ".jpg" "  --> 
+<!-- " echo "images/thumbs_small/" . $image['id'] . ".jpg" "  -->

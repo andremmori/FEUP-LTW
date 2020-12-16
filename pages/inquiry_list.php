@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/inquirylist.php');
@@ -15,7 +15,7 @@ $inquiries = getInquiryList($id);
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>
+    <title>Inquiry List</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
