@@ -53,7 +53,7 @@
                     <h1>'. $pet['name'] .'</h1>
                 </a>
             </div>
-            <img src="images/petImages/originals/'. $post['photo'] .'.jpg" alt="">
+            <a id="imageLink" href="post.php?id='.$post['id'].'"><img id="image" src="images/petImages/originals/'. $post['photo'] .'.jpg" alt=""></a>
             <div id="bottom">
                 <a href="pet_profile.php?id=' . $pet['id'] . '">
                     <p>'. $pet['name'] .'</p>

@@ -118,7 +118,12 @@ a {
     font-size: 200%;
 }
 
-#feed .post > img{
+#feed .post #imageLink{
+    margin: 0px;
+    padding: 0px;
+}
+
+#feed .post #image{
     border: solid black;
     width: 60%;
     height: auto;
@@ -393,6 +398,7 @@ a {
     top: 30%;
     right: 4%;
 }
+
 
 #post .post > img{
     border: solid black;
