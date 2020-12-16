@@ -34,7 +34,7 @@ $messages = getInquiryMessages($id);
       <div id="chat">
                 <?php foreach ($messages as $message) echo getInquiryMessage($message); ?>
                 <form id="sendMessage" action="send_message.php" method="post">
-                  <input type="hidden" name="inquiryID" value="<?php echo $inquiry['id']?>">
+                  <input type="hidden" name="inquiryID" value="<?php echo $id?>">
                   <input type="hidden" name="petOwner" value="<?php echo $messages[0]['petOwner'] ?>">
                   <input id="messageText" type="text" name="message" required>
                   <input type="hidden" name="date" value=<?php echo date('d/m/Y');?>>

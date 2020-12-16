@@ -171,7 +171,7 @@ CREATE TABLE PostComment (
 CREATE TABLE Proposal (
     id        INTEGER  PRIMARY KEY,
     petID     INTEGER  REFERENCES Pet (id) ON DELETE CASCADE,
-    accountID INTEGER  REFERENCES Account (id) ON DELETE CASCADE,
+    userID INTEGER  REFERENCES User (id) ON DELETE CASCADE,
     date      DATE,
     text      CHAR,
     state     CHAR

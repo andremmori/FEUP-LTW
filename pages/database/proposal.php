@@ -26,4 +26,28 @@
         }
         return true;
     }
+
+    function getPendingProposals($petID) {
+        global $db;
+
+        //echo $petID, '<br>';
+        try {
+            // Insert Proposal
+            $first_stmt = $db->prepare("SELECT * FROM proposal WHERE petID=(?) and state='PENDING'");
+            $first_exec = $first_stmt->execute([$petID]);
+
+            if (!$first_exec) throw new Exception();
+
+            $proposals = $first_stmt->fetchAll();
+
+            //echo 'gotit <br>';
+
+
+            return $proposals;
+
+        } catch (Exception $e) {
+            //echo 'rekt <br>';
+            return [-1];
+        }
+    }
 ?>

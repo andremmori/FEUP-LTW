@@ -90,11 +90,11 @@ INSERT INTO message (inquiryID, petOwner, text, date) VALUES (5, 0, 'Is this ava
 INSERT INTO message (inquiryID, petOwner, text, date) VALUES (5, 1, 'yes', date('now')); -- id 10
 
 -- Proposal
-INSERT INTO proposal (petID, accountID, date, text, state) VALUES (1, 5, date('now'), 'I want him!', 'PENDING'); -- id 1
-INSERT INTO proposal (petID, accountID, date, text, state) VALUES (2, 3, date('now'), 'I want him!', 'PENDING'); -- id 2
-INSERT INTO proposal (petID, accountID, date, text, state) VALUES (3, 4, date('now'), 'I want him!', 'PENDING'); -- id 3
-INSERT INTO proposal (petID, accountID, date, text, state) VALUES (4, 2, date('now'), 'I want him!', 'PENDING'); -- id 4
-INSERT INTO proposal (petID, accountID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
+INSERT INTO proposal (petID, userID, date, text, state) VALUES (1, 5, date('now'), 'I want him!', 'PENDING'); -- id 1
+INSERT INTO proposal (petID, userID, date, text, state) VALUES (2, 3, date('now'), 'I want him!', 'PENDING'); -- id 2
+INSERT INTO proposal (petID, userID, date, text, state) VALUES (3, 4, date('now'), 'I want him!', 'PENDING'); -- id 3
+INSERT INTO proposal (petID, userID, date, text, state) VALUES (4, 2, date('now'), 'I want him!', 'PENDING'); -- id 4
+INSERT INTO proposal (petID, userID, date, text, state) VALUES (5, 1, date('now'), 'I want him!', 'PENDING'); -- id 5
 
 -- Post
 INSERT INTO post (petID, description, photo, date) VALUES (1, 'Adopt me', 1, date('now')); -- id 1

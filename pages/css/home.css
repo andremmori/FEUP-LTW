@@ -1184,11 +1184,16 @@ a {
     margin: 3%;
 }
 
+#proposal_list .list .proposal #proposalDate {
+    margin: 1% 0% 0% 0%;
+    font-weight: lighter;
+}
+
 #proposal_list #list .proposal #confirmDeny{
     margin-left: 50%;
 }
 
-#proposal_list #list .proposal *{
+#proposal_list #list .proposal #confirmDeny *{
     cursor: pointer;
 }
 
