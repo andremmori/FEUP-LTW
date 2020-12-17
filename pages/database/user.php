@@ -40,7 +40,10 @@ function login()
     $user = $stmt->fetch();
     $passwordhash = hash('sha256', $password);
 
-    if ($user == null || $passwordhash != $user['passwordhash']) return false;
+    if ($user == null || $passwordhash != $user['passwordhash']) {
+        $_SESSION['errors']['login'] = 'Invalid email/password combination';
+        return false;
+    }
 
     // set the session to the current user
     $_SESSION['user'] = fetchUser($user['id']);
