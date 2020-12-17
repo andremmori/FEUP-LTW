@@ -17,12 +17,18 @@ function fetchUser($id)
 }
 
 // Retrieve user from the database
-function getUser()
+function login()
 {
     global $db;
-    $email = $_POST['email'];
-    $password = $_POST['password'];
 
+    // Validate input
+    $email = InputValidator::email($_POST['email']);
+    $password = InputValidator::password($_POST['password']);
+
+    if (is_null($email) || is_null($password)) {
+        $_SESSION['errors']['login'] = 'Invalid email/password combination';
+        return false;
+    }
     // Get account/user with email specified by the user
     $user_sql = "SELECT * FROM account JOIN user WHERE user.email = ? AND user.id = account.id";
     $stmt = $db->prepare($user_sql);
@@ -38,7 +44,7 @@ function getUser()
 
     // set the session to the current user
     $_SESSION['user'] = fetchUser($user['id']);
-
+    $_SESSION['errors'] = array("error" => "invalid date");
     return true;
 }
 
@@ -62,7 +68,7 @@ function addUser()
 
         echo $profilePic, '<br>';
 
-        if($profilePic == -1)
+        if ($profilePic == -1)
             throw new Exception();
 
         // Insert Account
@@ -149,7 +155,8 @@ function getUserPets()
     return $stmt->fetchAll();
 }
 
-function shelterCollaborator() {
+function shelterCollaborator()
+{
     global $db;
 
     $user_id = $_SESSION['user']['id'];
@@ -158,5 +165,4 @@ function shelterCollaborator() {
     $stmt->execute([$user_id]);
 
     return $stmt->fetchAll();
-
 }

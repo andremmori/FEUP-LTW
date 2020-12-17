@@ -7,3 +7,11 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+window.onload = function () {
+    // code
+    console.log(document.getElementById('login-error').innerText.length);
+    if (document.getElementById('login-error').innerText.length > 0) {
+        document.getElementById('login-modal').style.display = 'block';
+    }
+};

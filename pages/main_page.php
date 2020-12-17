@@ -1,3 +1,7 @@
+<?php
+include_once('database/connection.php');
+if ($_SESSION['user'] != null) header('Location: index.php');
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -17,7 +21,6 @@
         <h1>Petgram</h1>
         <h2>The best pet social media for adoption!</h2>
     </header>
-
     <form action="/register_action.php" method="POST">
         <div class="container">
             <h1>Register</h1>
@@ -37,7 +40,7 @@
             <input id="initial-input" type="password" placeholder="Repeat Password" name="repeat" id="repeat" required>
 
             <label for="image"><b>Upload a Profile Picture</b></label> <br>
-            <input id="initial-input" type="file" name="image" onchange="selectImage(event)" > <br>
+            <input id="initial-input" type="file" name="image" onchange="selectImage(event)"> <br>
             <div id="uploadedImage"> </div> <br>
             <hr>
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>

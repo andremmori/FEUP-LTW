@@ -7,15 +7,16 @@
         </div>
         <br>
         <div id="container">
-                <label for="email"><b>Email</b></label>
-                <input id="modal-input" type="text" placeholder="Enter Email" name="email" required>
-                <br>
-                <br>
-                <label for="password"><b>Password</b></label>
-                <input id="modal-input" type="password" placeholder="Enter Password" name="password" required>
-                <br>
-                <br>
-                <button id="btn" type="submit">Login</button>
+            <span id="login-error" class="danger"><?php echo $errors['login'] . '<br><br><br>' ?></span>
+            <label for="email"><b>Email</b></label>
+            <input id="modal-input" type="email" placeholder="Enter Email" name="email" required>
+            <br>
+            <br>
+            <label for="password"><b>Password</b></label>
+            <input id="modal-input" type="password" placeholder="Enter Password" name="password" required>
+            <br>
+            <br>
+            <button id="btn" type="submit">Login</button>
         </div>
 
         <div id="container" style="background-color:#f1f1f1">
