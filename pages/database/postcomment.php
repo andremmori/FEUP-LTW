@@ -31,7 +31,7 @@
         $account_id = $_SESSION['user']['id'];
 
         $stmt = $db->prepare('INSERT INTO postcomment (postID, accountID, text, date) VALUES (?,?,?,?)');
-        $stmt->execute([$account_id, $post_id, $text, date('now')]);
+        $stmt->execute([$post_id, $account_id, $text, date('now')]);
         $new_id  = $db->lastInsertId();
 
         $stmt_2 = $db->prepare('SELECT * FROM postcomment WHERE id = ?');
