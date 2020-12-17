@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('database/connection.php');
 include_once('database/pet.php');
 
@@ -11,7 +11,7 @@ if ($pet == null) header('Location: index.php');
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Petgram</title>
+    <title>Inquiry List</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">

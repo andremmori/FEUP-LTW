@@ -1,9 +1,16 @@
-<?php include_once('database/connection.php');?>
+<?php
+include_once('database/connection.php');
+include_once('database/shelter.php');
+$shelter_id = $_GET['id'];
+$shelter = getShelter($shelter_id);
+if ($shelter == null) header('Location: index.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Petgram</title>
+    <title><?php echo $shelter['name'] ?> - Profile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
@@ -18,7 +25,7 @@
         <div id="top">
             <img id="edit" src="images/edit.png" alt="" width="35" height="35">
             <img id="petpic" src="images/shelter_profile.jpeg" alt="" width="65" height="65">
-            <h1 id="name">Good Boy Shelter</h1>
+            <h1 id="name"><?php echo $shelter['name'] ?></h1>
             <p id="followers">Followers 151</p>
             <p id="following">Following 4</p>
             <p id="bio">Sou um shelter muito bonito com varios animais fofinhos hihihi</p>

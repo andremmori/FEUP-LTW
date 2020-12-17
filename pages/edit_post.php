@@ -23,7 +23,7 @@ if ($_SESSION['user']['id'] != $pet['ownerID']) header('Location: index.php');
 <html lang="en-US">
 
 <head>
-    <title>Petgram</title>
+    <title>Edit Post</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">

@@ -1,4 +1,33 @@
 <?php
+    function checkInquiry($id){
+        global $db;
+        $user_id = $_SESSION['user']['id'];
+        $stmt = $db->prepare('SELECT * FROM Inquiry WHERE petID = ? AND userID = ?');
+        $stmt->execute([$id, $user_id]);
+        $check = $stmt->fetch();
+        
+        return $check['id'];
+    }
+
+    function addInquiry($id){
+        global $db;
+        $user_id = $_SESSION['user']['id'];
+  
+            // Init transaction
+            $db->beginTransaction();
+
+            // Insert Account
+            $inquiry_sql = "INSERT INTO inquiry (petID, userID) VALUES (?, ?)";
+            $first_stmt = $db->prepare($inquiry_sql);
+            $first_exec = $first_stmt->execute([$id, $user_id]);
+            
+            $db->commit();
+
+            $inquiry_id = $db->lastInsertId();
+
+            return $inquiry_id;
+    }
+
     function getInquiry($id) {
         global $db;
 

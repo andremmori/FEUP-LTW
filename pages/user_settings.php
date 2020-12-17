@@ -12,7 +12,7 @@ if ($user == null)
 <html lang="en">
 
 <head>
-    <title>Settings</title>
+    <title><?php echo $user['name'] ?> - Settings</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/home.css" rel="stylesheet">
