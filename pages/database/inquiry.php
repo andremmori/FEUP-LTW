@@ -66,7 +66,6 @@
         }
         else{
             $account = getAccount($message['userID']);
-            $pfp = $account['profilePic'];
             $inquiry_message = '<div class="message_user">
                                 <div id="messageBox">
                                     <p>%s</p>

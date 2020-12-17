@@ -3,6 +3,7 @@ include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/account.php');
 include_once('database/inquiry.php');
+include_once('database/inquirylist.php');
 
 // Get current inquiry's id and info from db
 $id = $_GET['id'];
