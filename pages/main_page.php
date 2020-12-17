@@ -28,7 +28,7 @@
             <input id="initial-input" type="text" placeholder="Enter Name" name="name" id="name" required>
 
             <label for="email"><b>Email</b></label>
-            <input id="initial-input" type="text" placeholder="Enter Email" name="email" id="email" required>
+            <input id="initial-input" type="email" placeholder="Enter Email" name="email" id="email" required>
 
             <label for="password"><b>Password</b></label>
             <input id="initial-input" type="password" placeholder="Enter Password" name="password" id="password" required>
