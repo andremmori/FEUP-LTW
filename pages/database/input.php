@@ -25,4 +25,13 @@ class InputValidator {
 
         return $data;
     }
+
+    static function name($data) {
+        $data = self::sanitize($data);
+
+        if(!is_string($data) || !preg_match('/^([ \u00c0-\u01ffa-zA-Z\'\-])+$/', $data))
+            return null;
+
+        return $data;
+    }
 }

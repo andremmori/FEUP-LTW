@@ -55,21 +55,22 @@ function login()
 function addUser()
 {
     global $db;
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $repeat = $_POST['repeat'];
+    $name = InputValidator::name($_POST['name']);
+    $email = InputValidator::email($_POST['email']);
+    $password = InputValidator::password($_POST['password']);
+    $repeat = InputValidator::password($_POST['repeat']);
     $file = $_FILES['image']['tmp_name'];
-    echo '*', $file, '*<br>';
+
+    $_SESSION['error']['params']['name'] = $name;
+    $_SESSION['error']['params']['email'] = $email;
 
     if ($name == null || $email == null || $password == null || $repeat == null || $password != $repeat) return false;
+
     try {
         // Init transaction
         $db->beginTransaction();
 
         $profilePic = upload_profilePic($file);
-
-        echo $profilePic, '<br>';
 
         if ($profilePic == -1)
             throw new Exception();
