@@ -7,7 +7,7 @@
         </div>
         <br>
         <div id="container">
-            <span id="login-error" class="danger"><?php echo $errors['login'] . '<br><br><br>' ?></span>
+            <span id="login-error" class="danger"><?php if(isset($errors['login'])) echo $errors['login'] . '<br><br><br>'; ?></span>
             <label for="email"><b>Email</b></label>
             <input id="modal-input" type="email" placeholder="Enter Email" name="email" required>
             <br>

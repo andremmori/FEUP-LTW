@@ -70,7 +70,7 @@ $likes = getPostLikes($post_id);
             <div id="comments">
                 <?php foreach ($comments as $comment) echo getPostComment($comment); ?>
                 <div id="postComment">
-                    <input id="commentText" type="text" name="comment" onsubmit="addPostComment(<?php echo $_SESSION['user']['id'] . ',' . $post_id ?>)" required>
+                    <input id="commentText" type="text" name="comment" onsubmit="addPostComment(<?php echo $post_id ?>)" required>
                     <button type="button" onclick="addPostComment(<?php echo $post_id ?>)">Comment</button>
                 </div>
             </div>

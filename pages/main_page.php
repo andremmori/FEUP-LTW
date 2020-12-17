@@ -1,6 +1,6 @@
 <?php
 include_once('database/connection.php');
-if ($_SESSION['user'] != null) header('Location: index.php');
+if (isset($_SESSION['user'])) header('Location: index.php');
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -28,10 +28,10 @@ if ($_SESSION['user'] != null) header('Location: index.php');
             <hr>
 
             <label for="name"><b>Name</b></label>
-            <input id="initial-input" value="<?php echo $errors['params']['name'] ?>" type="text" placeholder="Enter Name" name="name" id="name" required>
+            <input id="initial-input" value="<?php if(isset($errors['params']['name'])) echo $errors['params']['name']; ?>" type="text" placeholder="Enter Name" name="name" id="name" required>
 
             <label for="email"><b>Email</b></label>
-            <input id="initial-input" value="<?php echo $errors['params']['email'] ?>" type="email" placeholder="Enter Email" name="email" id="email" required>
+            <input id="initial-input" value="<?php if(isset($errors['params']['email'])) echo $errors['params']['email']; ?>" type="email" placeholder="Enter Email" name="email" id="email" required>
 
             <label for="password"><b>Password</b></label>
             <input id="initial-input" type="password" placeholder="Enter Password" name="password" id="password" required>
