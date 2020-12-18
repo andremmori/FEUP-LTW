@@ -1051,6 +1051,18 @@ a {
     margin-left: 23%;
 }
 
+#edit_pet_profile #addListing {
+
+    width: auto;
+    padding: 10px 18px;
+    background-color: #e46e00;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin-top: 0%;
+    margin-left: 23%;
+}
+
 #edit_pet_profile #updateInfoForm {
 
     display: inline;

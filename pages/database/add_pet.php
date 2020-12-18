@@ -31,7 +31,7 @@
         throw new Exception();
 
       // Insert image data into database
-      $stmt = $db->prepare("INSERT INTO Pet (ownerID, profilePic, name, bio, description, requirements) VALUES((?), (?), (?), \"\", \"\", \"\")");
+      $stmt = $db->prepare("INSERT INTO Pet (ownerID, profilePic, name, bio, description, requirements) VALUES((?), (?), (?), '[blank]', '[blank]', '[blank]')");
       $exec = $stmt->execute([$userID, $profilePic, $fields[1]]);
 
       if (!$exec) throw new Exception();

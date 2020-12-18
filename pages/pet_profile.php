@@ -45,11 +45,16 @@ if ($pet == null) header('Location: index.php');
             <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
             <p id="bio"><?php echo $pet['bio'] ?></p>
         </div>
-        <div id="listing">
-            <a href="listing.php?id=<?php echo $_GET['id']; ?>">
-                <p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p>
-            </a>
-        </div>
+        <?php
+            if(isset($pet['description']) && isset($pet['requirements'])){
+                echo 
+                '<div id="listing">
+                    <a href="listing.php?id='.$pet['id'].'">
+                        <p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p>
+                    </a>
+                </div>';
+            }
+        ?>
         <div id="gallery">
             <?php
                 $posts = getPetPosts($pet['id']);

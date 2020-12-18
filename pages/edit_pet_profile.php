@@ -33,11 +33,16 @@ if ($pet == null || !isPetOwner($pet['id'])) header('Location: index.php');
                 <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
                 <input id="bioText" type="description" name="bio" value="<?php echo $pet['bio'] ?>" required>
             </div>
-            <div id="listing">
-                <p id="warning">Este pet está para adoção, clique aqui para ver mais informaçao.</p>
-            </div>
 
-            <a href="index.php"><button id="removeListing" type="button">Remove Listing</button></a> <br>
+            <?php
+                if(isset($pet['description']) && isset($pet['requirements'])){
+                    echo '<a href="remove_listing_action.php?id='.$pet['id'].'"><button id="removeListing" type="button">Remove Listing</button></a> <br>';
+                }
+                else {
+                    echo '<a href="add_listing_action.php?id='.$pet['id'].'"><button id="addListing" type="button">Add Listing</button></a> <br>';
+                }
+            ?>
+
             <!-- <form id="updateInfoForm" action="" method="post"> -->
             <button id="updateInfo" type="submit">Update Info</button>
             <!-- </form> -->

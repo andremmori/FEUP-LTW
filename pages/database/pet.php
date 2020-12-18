@@ -51,4 +51,50 @@
 
         return $posts;
     }
+
+    function removeListing($id)
+    {
+        global $db;
+
+        try {
+            $db->beginTransaction();
+
+            $stmt = $db->prepare("UPDATE pet SET description=NULL, requirements=NULL WHERE id=(?)");
+            $exec = $stmt->execute([$id]);
+
+            if (!$exec) throw new Exception();
+
+            $db->commit();
+            
+            return true;
+
+        } catch (\Throwable $th) {
+            $db->rollback();
+        
+            return false;
+        }
+    }
+
+    function addListing($id)
+    {
+        global $db;
+
+        try {
+            $db->beginTransaction();
+
+            $stmt = $db->prepare("UPDATE pet SET description='[blank]', requirements='[blank]' WHERE id=(?)");
+            $exec = $stmt->execute([$id]);
+
+            if (!$exec) throw new Exception();
+
+            $db->commit();
+            
+            return true;
+
+        } catch (\Throwable $th) {
+            $db->rollback();
+        
+            return false;
+        }
+    }
 ?>
