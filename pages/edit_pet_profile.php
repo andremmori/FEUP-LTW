@@ -6,7 +6,7 @@ include_once('database/favourite.php');
 // Get current pet's id and info from db
 $id = $_GET['id'];
 $pet = getPet($id);
-if ($pet == null) header('Location: index.php');
+if ($pet == null || !isPetOwner($pet['id'])) header('Location: index.php');
 
 ?>
 <!DOCTYPE html>
