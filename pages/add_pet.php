@@ -1,5 +1,4 @@
-<?php 
-  
+<?php
   include_once('database/connection.php');
   $id = $_SESSION['user']['id'];
 ?>
@@ -27,8 +26,8 @@
             <input type="radio" name="individual_group" value="group">Group <br>
             <input id="input" type="file" name="image" onchange="selectImage(event)" > <br>
             <div id="uploadedImage"> </div> <br>
-            <label>Pet profile name: <input form="addPetForm" type="text" name="name" required></label> 
-            <input type="hidden" name="userID" value="<?php echo $id?>">          
+            <label>Pet profile name: <input form="addPetForm" type="text" name="name" required></label>
+            <input type="hidden" name="userID" value="<?php echo $id?>">
           </form>
           <div id="newFields"> </div>
       </div>
