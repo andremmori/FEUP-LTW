@@ -17,11 +17,12 @@ if (isset($_SESSION['user'])) header('Location: index.php');
 </head>
 
 <body>
-    <header>
-        <h1>Petgram</h1>
-        <h2>The best pet social media for adoption!</h2>
-    </header>
-    <form action="/register_action.php" method="POST" enctype="multipart/form-data">
+    <div id="hotBar">
+        <h1>Petgram - The best pet social media for adoption!
+        </h1>
+
+    </div>
+    <form id="register-form" action="/register_action.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>

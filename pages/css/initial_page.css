@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0% 5%;
+    margin: 0.5% 5%;
 }
 
 * {
@@ -61,4 +61,32 @@ a {
   background-color: #f1f1f1;
   text-align: center;
   margin: 0% 10%;
+}
+
+#hotBar {
+    display: flex;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-bottom-color: black;
+    padding: 10px;
+    background-color: darkturquoise;
+    border-top: 10%;
+}
+
+#hotBar a{
+    margin: auto 10px auto 10px;
+    width: min-content;
+    height: min-content;
+    padding: 0%;
+}
+
+#hotBar *{
+    margin: 10px;
+}
+
+#register-form {
+  border: 10px;
+  border-color: black;
 }
