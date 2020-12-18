@@ -42,8 +42,7 @@ if ($pet == null) header('Location: index.php');
             ?>
             <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
             <h1 id="name"><?php echo $pet['name'] ?></h1>
-            <p id="followers">Followers 30</p>
-            <p id="following">Following 35</p>
+            <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
             <p id="bio"><?php echo $pet['bio'] ?></p>
         </div>
         <div id="listing">

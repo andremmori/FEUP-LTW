@@ -1,6 +1,7 @@
 <?php
 include_once('database/connection.php');
 include_once('database/pet.php');
+include_once('database/favourite.php');
 
 // Get current pet's id and info from db
 $id = $_GET['id'];
@@ -29,8 +30,7 @@ if ($pet == null) header('Location: index.php');
                 <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
                 <img id="changepic" src="images/pen.png" alt="" width="35" height="35">
                 <input id="nameText" type="description" name="name" value="<?php echo $pet['name'] ?>" required>
-                <p id="followers">Followers 30</p>
-                <p id="following">Following 35</p>
+                <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
                 <input id="bioText" type="description" name="bio" value="<?php echo $pet['bio'] ?>" required>
             </div>
             <div id="listing">

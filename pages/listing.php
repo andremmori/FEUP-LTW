@@ -3,6 +3,7 @@ include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/account.php');
 include_once('database/listingcomment.php');
+include_once('database/favourite.php');
 
 // Get current pet's id and info from db
 $id = $_GET['id'];
@@ -32,8 +33,7 @@ $comments = getListingComments($id);
         <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
         <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
         <h1 id="name"><p><?php echo $pet['name'] ?></p></h1>
-        <p id="followers">Followers 30</p>
-        <p id="following">Following 35</p>
+        <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
         <p id="bio"><?php echo $pet['bio'] ?></p>
       </div>
       <div id="listing">

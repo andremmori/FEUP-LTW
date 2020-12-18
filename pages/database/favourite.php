@@ -25,3 +25,15 @@
 
         return $stmt->fetch() != NULL;
     }
+
+    function getNumber($pet_id){
+        global $db;
+
+        $stmt = $db->prepare('SELECT * FROM favourite WHERE petID = ?');
+        $stmt->execute([$pet_id]);
+        $number = count($stmt->fetchAll());
+
+        return $number;
+    }
+
+    ?>
