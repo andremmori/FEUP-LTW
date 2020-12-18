@@ -3,6 +3,7 @@
   function upload($petID, $file, $description)
   {
     global $db;
+    // echo $file;
     try {
       // Init transaction
 
@@ -16,14 +17,12 @@
 
       $image_id = $stmt->fetch()[0];
 
-      print_r($image_id);
-      echo '<br>', $image_id, '<br>';
 
       $image_id++;
 
       // Generate filenames for original, small and medium files
       $originalFileName = "images/petImages/originals/".$image_id.".jpg";
-      $squareFileName = "images/petImages/squared/".$image_id.".jpg";  
+      $squareFileName = "images/petImages/squared/".$image_id.".jpg";
 
       // Move the uploaded file to its final destination
       move_uploaded_file($file, $originalFileName);
@@ -34,10 +33,10 @@
         $original = imagecreatefrompng($originalFileName);
         if(!$original)
           throw new Exception();
-      }  
+      }
 
       // Crete an image representation of the original image
-      
+
 
       $width = imagesx($original);     // width of the original image
       $height = imagesy($original);    // height of the original image
@@ -46,25 +45,23 @@
       // Create and save a small square thumbnail
       $squaredImage = imagecreatetruecolor(400, 400);
       imagecopyresized($squaredImage, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 400, 400, $square, $square);
-      imagejpeg($squaredImage, $squareFileName); 
+      imagejpeg($squaredImage, $squareFileName);
 
       // Make post
 
       $stmt = $db->prepare("INSERT INTO Post VALUES(NULL, (?), (?), (?), date('now'))");
 
       $exec = $stmt->execute([$petID, $description, $image_id]);
-            
+
       if (!$exec) throw new Exception();
 
       $db->commit();
-      
+
       return true;
     } catch (\Throwable $th) {
         $db->rollback();
-    
+
         return false;
     }
+    return true;
   }
-  
-?>
-
