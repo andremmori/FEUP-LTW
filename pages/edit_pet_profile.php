@@ -23,7 +23,7 @@ if ($pet == null) header('Location: index.php');
     <?php include_once('hotbar.php') ?>
     <?php include_once('sidebar.php') ?>
 
-    <form action="update_pet_action.php?id=<?php echo $id ?>" method="post">
+    <form action="update_pet_action.php?id=<?php echo $pet['id'] ?>" method="post">
         <section id="edit_pet_profile">
             <div id="top">
                 <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">

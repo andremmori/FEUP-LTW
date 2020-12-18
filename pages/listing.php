@@ -29,15 +29,19 @@ $comments = getListingComments($id);
     <?php include_once('sidebar.php') ?>
     <section id="profile">
       <div id="top">
-        <img id ="edit" src="images/edit.png" alt="" width="35" height="35">
-        <img id ="petpic" src="images/puppy.jpg" alt="" width="65" height="65">
+        <img id ="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
         <h1 id="name"><p><?php echo $pet['name'] ?></p></h1>
         <p id="followers">Followers 30</p>
         <p id="following">Following 35</p>
         <p id="bio"><?php echo $pet['bio'] ?></p>
       </div>
       <div id="listing">
-      <p><?php echo $pet['description'] ?></p>
+        <?php
+          if(isPetOwner($pet['id'])){
+            echo '<a href="edit_listing.php?id='.$pet['id'].'"><img id ="edit" src="images/edit.png" alt="" width="35" height="35"></a>';
+          }
+        ?>     
+        <p><?php echo $pet['description'] ?></p>
         <p>List of requirements to adopt this pet:</p>
         <ul>
           <li><?php echo $pet['requirements']?></li>
