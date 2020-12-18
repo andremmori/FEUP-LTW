@@ -43,6 +43,13 @@ if ($pet == null) header('Location: index.php');
             <img id="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
             <h1 id="name"><?php echo $pet['name'] ?></h1>
             <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
+            <?php
+                if(($individual = isIndividual($pet['id'])) != false){
+                    echo '<p id="colour">Color: '.$individual['colour'].'</p>';
+                    echo '<p id="size">Size: '.$individual['size'].'</p>';
+                }
+            ?>
+            
             <p id="bio"><?php echo $pet['bio'] ?></p>
         </div>
         <?php

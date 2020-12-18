@@ -97,4 +97,27 @@
             return false;
         }
     }
+
+    function isIndividual($id)
+    {
+        global $db;
+
+        try {
+            
+            $stmt = $db->prepare("SELECT * FROM individualpet WHERE petID=(?)");
+            $exec = $stmt->execute([$id]);
+
+            if (!$exec) throw new Exception();
+
+            $individualPet = $stmt->fetch();
+
+            //print_r($individualPet);
+            
+            return $individualPet;
+
+        } catch (\Throwable $th) {
+        
+            return false;
+        }
+    }
 ?>
