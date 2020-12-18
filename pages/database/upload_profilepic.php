@@ -6,7 +6,6 @@
     try {
       // Init transaction
 
-      echo 'beggining add_pfp', '<br>';
 
       // Insert image data into database
       $stmt = $db->prepare("INSERT INTO ProfileImage VALUES(NULL)");
@@ -16,22 +15,19 @@
 
       $image_id = $db->lastInsertId();
 
-      echo $image_id, '<br>';
-
       // Generate filenames for original, small and medium files
       $originalFileName = "images/profileImages/originals/".$image_id.".jpg";
-      $squareFileName = "images/profileImages/squared/".$image_id.".jpg";  
+      $squareFileName = "images/profileImages/squared/".$image_id.".jpg";
 
       // Move the uploaded file to its final destination
       move_uploaded_file($file, $originalFileName);
-
       $original = imagecreatefromjpeg($originalFileName);
       if(!$original)
       {
         $original = imagecreatefrompng($originalFileName);
         if(!$original)
           throw new Exception();
-      }  
+      }
 
       // Crete an image representation of the original image
 
@@ -42,15 +38,11 @@
       // Create and save a small square thumbnail
       $squaredImage = imagecreatetruecolor(400, 400);
       imagecopyresized($squaredImage, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 400, 400, $square, $square);
-      imagejpeg($squaredImage, $squareFileName); 
+      imagejpeg($squaredImage, $squareFileName);
 
       return $image_id;
     } catch (\Throwable $th) {
-      echo 'upload pfp failed', '<br>';
-  
+
         return -1;
     }
   }
-  
-?>
-
