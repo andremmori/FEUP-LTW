@@ -10,6 +10,7 @@ function getAllUsers()
 function fetchUser($id)
 {
     global $db;
+    $id = InputValidator::int($id);
     $stmt = $db->prepare('SELECT * FROM account JOIN user ON account.id = user.id WHERE user.id = ?');
     $stmt->execute([$id]);
 
@@ -108,10 +109,9 @@ function updateUser($id)
 {
     global $db;
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password']; // Will come as null if not filled by user
-
+    $name = InputValidator::name($_POST['name']);
+    $email = InputValidator::email($_POST['email']);
+    $password = InputValidator::password($_POST['password']); // Will come as null if not filled by user
     if ($name == null || $email == null) return false;
 
 
@@ -144,6 +144,7 @@ function updateUser($id)
         $db->rollback();
         return false;
     }
+    $_SESSION['user'] = fetchUser($id);
     return true;
 }
 
