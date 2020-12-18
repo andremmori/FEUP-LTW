@@ -24,4 +24,21 @@
                         </div>';
         return sprintf($listing_comment, $account['name'], $comment['text']);
     }
+
+    function addListingComment($text, $id) {
+        global $db;
+
+        $account_id = $_SESSION['user']['id'];
+
+       // Init transaction
+       $db->beginTransaction();
+       // Insert comment
+       $comment_sql = "INSERT INTO comment (petID, accountID, text, date) VALUES (?, ?, ?, ?)";
+       $first_stmt = $db->prepare($comment_sql);
+       $first_exec = $first_stmt->execute([$id, $account_id, $text, date('now')]);
+
+       $db->commit();
+       return true;
+    }
 ?>
+

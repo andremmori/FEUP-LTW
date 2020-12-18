@@ -44,11 +44,12 @@ $comments = getListingComments($id);
         </ul>
         <div id="comments">
                 <?php foreach ($comments as $comment) echo getListingComment($comment); ?>
-                <form id="postComment" action="" method="post">
-                    <!-- action="post_comment.php"-->
-                    <input id="commentText" type="text" name="comment" required>
-                    <input type="submit" value="Comment">
-                </form>
+                <div id="postComment">
+                  <form id="listingcomment" action="listing_comment_action.php?id=<?php echo $pet['id'] ?>" method="post">
+                    <input id="commentText" type="text" name="text" required>
+                    <button type="submit">Comment</button>
+                  </form>
+                </div>
         </div>
 
         <div id="inquiry">
