@@ -3,6 +3,7 @@ include_once('database/connection.php');
 include_once('database/pet.php');
 include_once('database/account.php');
 include_once('database/listingcomment.php');
+include_once('database/favourite.php');
 
 // Get current pet's id and info from db
 $id = $_GET['id'];
@@ -31,8 +32,7 @@ $comments = getListingComments($id);
       <div id="top">
         <img id ="petpic" src="images/profileImages/squared/<?php echo $pet['profilePic'] ?>.jpg" alt="" width="65" height="65">
         <h1 id="name"><p><?php echo $pet['name'] ?></p></h1>
-        <p id="followers">Followers 30</p>
-        <p id="following">Following 35</p>
+        <p id="followers"><?php echo getNumber($pet['id']) ?> Followers</p>
         <p id="bio"><?php echo $pet['bio'] ?></p>
       </div>
       <div id="listing">
@@ -48,11 +48,12 @@ $comments = getListingComments($id);
         </ul>
         <div id="comments">
                 <?php foreach ($comments as $comment) echo getListingComment($comment); ?>
-                <form id="postComment" action="" method="post">
-                    <!-- action="post_comment.php"-->
-                    <input id="commentText" type="text" name="comment" required>
-                    <input type="submit" value="Comment">
-                </form>
+                <div id="postComment">
+                  <form id="listingcomment" action="listing_comment_action.php?id=<?php echo $pet['id'] ?>" method="post">
+                    <input id="commentText" type="text" name="text" required>
+                    <button type="submit">Comment</button>
+                  </form>
+                </div>
         </div>
 
         <div id="inquiry">
