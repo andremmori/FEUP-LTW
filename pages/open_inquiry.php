@@ -4,11 +4,13 @@
     include_once('database/pet.php');
 
     $id = $_GET['id'];
+    $pet = getPet($id);
+
 
     
-    if($inquiryID = checkInquiry($id)) header('Location: inquiry.php?id='.$inquiryID);
+    if($inquiryID = checkInquiry($pet['id'])) header('Location: inquiry.php?id='.$inquiryID);
     else {
-        $inquiryID = addInquiry($id);
+        $inquiryID = addInquiry($pet['id']);
         header('Location: inquiry.php?id='.$inquiryID);
     }
 ?>

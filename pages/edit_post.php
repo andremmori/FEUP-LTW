@@ -43,13 +43,13 @@ if ($_SESSION['user']['id'] != $pet['ownerID']) header('Location: index.php');
             <img src="images/petImages/originals/<?php echo $post['photo'] ?>.jpg" alt="">
             <div id="description">
                 <p><?php echo $pet['name'] ?></p>
-                <form id="updateDescription" action="update_post_action.php?id=<?php echo $id ?>" method="post">
+                <form id="updateDescription" action="update_post_action.php?id=<?php echo $pet['id'] ?>" method="post">
                     <input id="commentText" type="description" name="description" value="<?php echo $post['description'] ?>" required>
                     <button type="submit">Update</button> <br>
                 </form>
                 <p><?php echo $post['date'] ?></p>
             </div>
-            <a href="delete_post_action.php?id=<?php echo $id ?>"><button id="deleteButton" type="button">Delete Post</button></a>
+            <a href="delete_post_action.php?id=<?php echo $pet['id'] ?>"><button id="deleteButton" type="button">Delete Post</button></a>
         </article>
     </section>
 

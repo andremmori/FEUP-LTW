@@ -10,7 +10,7 @@ $id = $_GET['id'];
 $inquiry = getInquiry($id);
 if ($inquiry == null) header('Location: index.php');
 
-$messages = getInquiryMessages($id);
+$messages = getInquiryMessages($inquiry['id']);
 
 $petid = $inquiry['petID'];
 $pet = getPet($petid);

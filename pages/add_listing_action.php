@@ -3,8 +3,9 @@ include_once('database/connection.php');
 include_once('database/pet.php');
 
 $id = $_GET['id'];
-if(addListing($id))
-    header('Location: pet_profile.php?id='. $id);
+$pet = getPet($id);
+if(addListing($pet['id']))
+    header('Location: pet_profile.php?id='.$pet['id']);
 else
-    header('Location: edit_pet_profile.php?id='.$id);
+    header('Location: edit_pet_profile.php?id='.$pet['id']);
 ?>

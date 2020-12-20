@@ -46,7 +46,7 @@ if ($pet == null || !isPetOwner($pet['id'])) header('Location: index.php');
             <!-- <form id="updateInfoForm" action="" method="post"> -->
             <button id="updateInfo" type="submit">Update Info</button>
             <!-- </form> -->
-            <a href="delete_pet_action.php?id=<?php echo $id ?>"><button id="deletePet" type="button">Delete Pet</button></a>
+            <a href="delete_pet_action.php?id=<?php echo $pet['id'] ?>"><button id="deletePet" type="button">Delete Pet</button></a>
         </section>
     </form>
 
