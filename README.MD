@@ -19,11 +19,11 @@
  - Technologies
      - Separated logic/database/presentation: yes
      - Semantic HTML tags: yes
-     - Responsive CSS: no
+     - Responsive CSS: yes (for the most part)
      - Javascript: yes
      - Ajax: yes
      - REST API: no
      - Other:
   Usability:
-     - Error/success messages: yes
+     - Error/success messages: in some cases
      - Forms don't lose data on error: no
